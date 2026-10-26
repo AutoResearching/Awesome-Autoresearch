@@ -1,0 +1,64 @@
+\section{Scope: improving the research process}
+\label{sec:scope}
+
+The central question of this survey is how to build AI systems that become better at doing research. This includes choosing a problem, turning an intuition into a testable claim, obtaining evidence, revising the claim, and improving future decisions. A useful system need not automate every step. A tool that helps a researcher reject an uninformative experiment may contribute more than a pipeline that produces a complete but weak paper.
+
+We use \emph{autoresearch} for this broad methodological direction. It includes human--AI collaboration and autonomous systems. \emph{Meta-science} studies how science works and how its practices can improve. \emph{Meta-learning}, in the narrower machine-learning sense, is one possible technical route to learning research strategies across tasks; it is not a requirement for every method in this collection. Our target is the research process, with AI research as the main experimental setting. We include mathematics because many candidate answers, programs, and constructions can be checked precisely. Checkability helps evaluation, but does not determine whether the question itself matters.
+
+\subsection{Five questions and two timescales}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=Latex,box/.style={draw=inkblue!60,fill=softblue,rounded corners=2pt,align=center,text width=3.05cm,minimum height=1.15cm,font=\small\sffamily},every path/.style={line width=0.6pt}]
+\node[box] (taste) {Q1: Taste\\Choose worthwhile\\problems};
+\node[box,right=0.45cm of taste] (question) {Q2: Questions\\Make claims\\testable};
+\node[box,right=0.45cm of question] (execute) {Q3: Execution\\Obtain reliable\\evidence};
+\node[box,right=0.45cm of execute] (learn) {Q4: Experience\\Improve future\\decisions};
+\draw[->] (taste)--(question);
+\draw[->] (question)--(execute);
+\draw[->] (execute)--(learn);
+\draw[->] (learn.north)--++(0,0.5)-| (taste.north);
+\node[draw=green!40!black,fill=softgreen,align=center,text width=14cm,below=0.65cm of $(question.south)!0.5!(execute.south)$,font=\small,minimum height=0.7cm] (eval) {Q5: Evaluation across the process: value, validity, cost, and transfer};
+\draw[dashed,->] (eval.north)--($(question.south)!0.5!(execute.south)$);
+\end{tikzpicture}
+\caption{The survey's research map. Feedback can revise both the current project and the way later projects are conducted. The ordering is an organizing device, not a mandatory workflow.}
+\label{fig:map}
+\end{figure}
+
+Q1 asks which problems deserve effort. Q2 asks how to express and develop a question so that investigation can resolve something. Q3 asks whether the system can produce evidence that supports its conclusion. Q4 asks what experience changes in the researcher. Q5 asks how to measure these abilities without confusing one for another. Integrated AI scientist systems are discussed within Q3 because they expose how these components interact.
+
+There are two different timescales. During one project, an agent can improve a candidate solution, revise an experiment, or choose a different search branch. Across projects, it can retain reports, acquire reusable skills, change its control code, or update model weights. A useful conceptual test of the second claim is
+\begin{equation}
+\Delta_{\mathrm{transfer}} = S(\pi_{\mathrm{after}};\mathcal{T}_{\mathrm{new}},B)-S(\pi_{\mathrm{before}};\mathcal{T}_{\mathrm{new}},B),
+\end{equation}
+where $\mathcal{T}_{\mathrm{new}}$ contains held-out task families, $B$ is a matched evaluation budget, and $S$ is a declared outcome measure. This is a proposed accounting convention, not a universal definition of scientific progress. The cost of obtaining the experience must also be reported. Better results on the same task used for adaptation do not estimate this transfer quantity.
+
+\subsection{What counts as a good research question?}
+
+A question can be new but unimportant, important but currently untestable, or easy to execute but already answered. We therefore keep five judgments separate: \textbf{importance} of resolving the uncertainty; \textbf{novelty} relative to relevant prior work; \textbf{testability} of the claim; \textbf{tractability} under a stated budget; and \textbf{information value}, including what a negative result would teach. These are our analytic dimensions, not a validated scoring instrument. Their relative importance depends on the field and the purpose of the project.
+
+For example, ``improve this classifier's accuracy'' supplies an optimization target. ``Does the gain from a new augmentation come from invariance or simply from more training updates?'' identifies competing explanations. The second question suggests a matched-compute control and can yield useful knowledge even when the proposed augmentation fails. This example is illustrative; it does not assert that the augmentation question is new. The practical challenge is to make an agent formulate such distinctions using the actual literature and available evidence.
+
+Researchers' essays help articulate the judgment that current benchmarks only partly measure. Olah proposes inexpensive, noisy feedback exercises for developing taste; Karpathy discusses choosing and carrying out projects; Hamming emphasizes the selection of consequential problems~\cite{colah-taste-exercises,karpathy-phd-guide,hamming-you-and-your-research}. Nielsen stresses that good problems often have to be discovered through work, while \emph{Research Debt} explains why better abstractions and explanations can be research contributions~\cite{nielsen-research-heuristics,research-debt}. Nielsen and Qiu place scientific judgment within the institutions that allocate attention and resources~\cite{vision-of-metascience}. These are perspectives and sources of hypotheses for AI research, not experimental evidence that their advice trains effective agents.
+
+\subsection{Corpus and synthesis procedure}
+
+This is a critical narrative survey of a fixed repository snapshot, not a systematic review with an exhaustive search claim. The snapshot contains 72 paper records, six essays or talks, and Karpathy's autoresearch software project. Resources are grouped by their primary contribution in Table~\ref{tab:corpus}. All 79 appear in the discussion and references; some contribute context rather than central empirical evidence. The companion source folder records identifiers, primary URLs, source-review dates, and the citation-to-section coverage.
+
+\begin{table}[t]
+\centering\small
+\caption{Corpus by primary repository category. Categories overlap conceptually, but resources are counted once.}
+\label{tab:corpus}
+\begin{tabularx}{\linewidth}{Y r Y r}
+\toprule
+Category & Count & Category & Count\\
+\midrule
+Research taste & 8 & Question formulation & 14\\
+Research execution & 11 & Learning from experience & 18\\
+Evaluation & 16 & Integrated systems & 6\\
+Essays and talks & 6 & Total & 79\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+We compare methods by the decisions assigned to the agent, the human inputs they require, the feedback they consume, and the evidence used to assess success. Core methodological claims are checked against primary papers or official artifacts. Source verification is not independent replication. We avoid pooling headline scores across different model backbones, budgets, task versions, and judging protocols. The proposals at the end of each question section are our research designs. Their sample sizes and resource limits are suggested pilot settings, not power calculations or demonstrated optima. Before claiming novelty for any proposed method, a focused follow-up search is still necessary.

@@ -1,0 +1,88 @@
+\section{Q3: How can an agent turn a question into reliable knowledge?}
+\label{sec:execution}
+
+Execution connects a research proposal to the world. A program can run successfully while testing the wrong claim. An experiment can improve a metric while leaving the proposed explanation unresolved. A report can accurately describe a selected run while hiding failed attempts. The methodological target is therefore a traceable chain from question to intervention, observation, and appropriately limited conclusion.
+
+\subsection{Search over solutions versus selection of experiments}
+
+Karpathy's autoresearch provides a compact baseline: modify a training program, run a bounded experiment, measure the result, and retain useful changes. AIDE makes branching explicit by searching over executable candidates and deciding when to draft, debug, or improve. R\&D-Agent separates proposing improvements from implementing them~\cite{autoresearch,aide,rd-agent}. These designs make it easier to attribute engineering gains to a search policy. They also show the limitation of using metric improvement as the research objective: the task, metric, and admissible environment are already supplied. A strong optimizer may learn little about why the intervention works.
+
+Arbor organizes hypotheses, artifacts, and experimental evidence in a persistent tree, making branch selection depend on accumulated observations~\cite{arbor}. Its representation is useful for studying research state: which hypothesis is still plausible, which result was reproduced, and which branch has exhausted its budget. The relevant comparison is not simply tree versus linear conversation. It is whether structured state improves a specific decision after matching the number of proposals, trials, and model calls. Its current task setting mainly studies improvement of supplied artifacts and objectives.
+
+AutoRA makes a different decomposition: an experimentalist selects measurements, an experiment runner obtains observations, and a theorist updates a model. Deep Adaptive Design learns a policy for sequential Bayesian experimental design before deployment~\cite{autora,deep-adaptive-design}. These works direct attention to \emph{which observation is useful}, rather than only which implementation scores best. Their assumptions matter: variables, accessible experiments, and model classes or probabilistic assumptions must be specified. Extending information-driven design to open research requires deciding which competing explanations should enter that space.
+
+\subsection{Reliability requires more than successful execution}
+
+Curie checks experiment setup and execution, constrains transitions between agents, and maintains structured experimental records~\cite{curie}. Its distinction between implementation alignment and conclusion correctness is valuable: working code is not enough. The reported evaluation combines automated and human assessment, so its rigor modules should be treated as mechanisms to examine, not a proof that every accepted conclusion is valid.
+
+POPPER targets a supplied natural-language hypothesis through tests of measurable implications and sequential aggregation of evidence~\cite{popper}. Its statistical guarantees depend on the implications and conditional tests being valid. If the experiment tests a different claim, or assumptions fail after adaptive reuse of data, the wrapper cannot repair the scientific error. Error control for one tested hypothesis should also not be presented as false discovery rate control over an unrestricted collection of generated claims. This motivates separating semantic checks, executable controls, and statistical testing in the agent interface.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Execution mechanisms address different failure points. These are comparisons of design, not a ranking of systems.}
+\label{tab:execution}
+\begin{tabularx}{\linewidth}{@{}P{0.24\linewidth}YYY@{}}
+\toprule
+Mechanism / examples & Main decision & Feedback & What remains external\\
+\midrule
+Code search: autoresearch, AIDE, R\&D-Agent & Which program to try & Measured task score & Task importance; evaluator validity\\
+Hypothesis tree: Arbor & Which branch to refine & Artifacts and evidence & Initial objective and evaluation setting\\
+Experimental design: AutoRA, DAD & Which observation to obtain & Model fit or information objective & Variables, experiment access, modeling assumptions\\
+Process validation: Curie & Whether an experimental step is acceptable & Setup, execution, and record checks & Adequacy of the scientific test\\
+Sequential testing: POPPER & Which implication to test & Conditional statistical evidence & Sound implications and test assumptions\\
+Program / proof search: FunSearch, AlphaEvolve, Aletheia & Which construction or argument to revise & Evaluator, verifier, or critique & Significance and verification scope\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{What mathematics adds}
+
+FunSearch and AlphaEvolve combine program generation with executable evaluation and evolutionary selection~\cite{funsearch,alphaevolve}. They demonstrate the usefulness of a tight proposal--verification loop when the target admits a precise evaluator. The evaluator is an important human contribution: an agent cannot infer that a fast program is a valid algorithm unless correctness is actually checked. Finite numerical tests, exhaustive verification of a finite construction, and a mathematical proof support different claims.
+
+Aletheia instead iterates mathematical generation, verification, and revision in natural language and reports different degrees of human involvement~\cite{aletheia}. Its outputs should not all be described as formally verified proofs. A useful mathematical extension of our proposed experiments would separate conjecture choice, proof search, and verification. For example, a proof assistant can check a restricted formal statement while human mathematicians judge whether resolving that statement contributes anything. The formal setting gives a validity instrument, not an automatic significance measure.
+
+\subsection{Integrated systems reveal dependencies}
+
+The AI Scientist joins ideation, code, experiments, writing, and review using human-written experiment templates. Version 2 replaces that dependency with a broader experiment manager and agentic tree search, and reports a limited workshop-submission study~\cite{ai-scientist,ai-scientist-v2}. This is evidence about assembling a workflow and producing reviewable artifacts. It does not isolate which component supplies the scientific value or establish general problem-selection ability.
+
+AI-Researcher integrates literature, implementation, and reporting, with Scientist-Bench distinguishing guided innovation from exploration inside research topics. Agent Laboratory makes human-provided ideas and intermediate feedback part of the workflow~\cite{ai-researcher,agent-laboratory}. Human input is an experimental variable, not an inconvenience to omit from a description of autonomy. A fair comparison should record who chose the question, repaired code, interpreted ambiguous findings, and decided to stop.
+
+Co-Scientist evolves hypotheses under scientists' objectives and includes experimental follow-up in biomedical cases. Kosmos uses a structured world model to coordinate literature and data analysis over longer investigations~\cite{co-scientist,kosmos}. Both show why a longer workflow needs persistent scientific state. They also require careful accounting of supplied objectives, data, domain expertise, and external validation. A traceable report is easier to audit; traceability alone does not establish that every claim is correct or important.
+
+The practical lesson is to test interfaces. An idea generator may propose a useful question that its executor cannot implement. An executor may find a result that the writer overstates. Before changing every component, hold the question pool and executor fixed and vary the representation passed between them. A small, well-controlled interface experiment can reveal more than a comparison between two entire systems with different models and budgets.
+
+\subsection{Limitations and open questions}
+
+Most execution evidence concerns supplied objectives with accessible evaluators. It remains unclear whether agents choose experiments that resolve competing explanations, recognize when a result is inconclusive, and preserve that uncertainty in the final report. Existing validators can check declared controls but may miss a missing control. Search over many variants can overfit a validation set even when every individual run is correct. Long investigations also require deciding when to stop, request human input, or change the question. These are research decisions, not merely error-handling tasks.
+
+\subsection{Proposed project I: choosing discriminating experiments}
+
+\paragraph{Untested hypothesis and method.}
+Test whether an explicit set of competing explanations improves experimental choices compared with a score-maximizing agent. Represent each question as two or more hypotheses, their predicted outcomes under candidate interventions, and the assumptions required to interpret those outcomes. Select an affordable intervention using disagreement between predicted outcomes or a Bayesian information-gain estimate when a defensible likelihood is available. Preserve an ``undetermined'' option rather than forcing a posterior verdict from an LLM's confidence.
+
+\paragraph{Concrete pilot.}
+As an untested design choice, construct eighteen scenarios from six simulator families, with three instances per family, using small tabular models and compact image classifiers. Vary data-generation and evaluation mechanisms, not only random seeds. Allocate two whole families each to construction, development, and testing. Candidate explanations include extra training steps, preprocessing leakage, class imbalance, and useful augmentation. A hidden reference implementation defines the active mechanism or mechanisms. Before agent evaluation, pre-register the allowed interventions and establish which explanations are distinguishable within that simulator and a declared effect tolerance, using counterfactual checks with separate seeds. An injected factor alone is not evidence of unique identifiability. Include coexisting causes, interventionally indistinguishable explanations, and cases where none of the supplied explanations is correct. Permit a set of compatible explanations or abstention when the evidence cannot support a unique answer.
+
+\paragraph{Baselines and measurements.}
+Compare the proposed selector with random experiments, a fixed ablation checklist, greedy validation-score search, and an agent without explicit hypothesis bookkeeping. Give all five methods the same intervention access, model, tools, and code-generation module. Measure correct mechanism recovery only on identifiable cases; elsewhere score coverage and excess members of the compatible-explanation set, false explanatory claims, and the error--coverage tradeoff when abstaining. Also record unnecessary experiments and transfer across scenario families. Ablate the hypothesis set, prediction table, and outcome-update rule on development cases. Freeze the oracle, prompts, and stopping rules before testing.
+
+\paragraph{Budget and accounting.}
+Run three seeds on each of the six test scenarios. Five methods therefore require ninety target runs. Each run may execute at most four interventions within fifteen worker-minutes of experimental computation, using a declared four-core CPU worker with 16 GB RAM and, for image tasks, at most one 24 GB GPU. The target ceiling is 22.5 worker-hours, at most ninety CPU core-hours, and at most 22.5 GPU-hours if a GPU remains allocated throughout every run; actual CPU and GPU use must be reported separately. Cap simulator/oracle construction and development at ten additional worker-hours each. Remote model computation is outside these device ceilings: allow at most 40,000 input and 8,000 output tokens per target run and record API cost separately. Count failed and truncated trials, oracle checks, and development ablations; never discard them from the ledger because they produced no useful result. These are pilot limits, not measured requirements or a power calculation.
+
+\paragraph{Failure risks.}
+A synthetic world may make explanations too clean or give away the mechanism through simulator artifacts. Keep reference code and mechanism labels hidden, publish the simulator assumptions, and inspect whether success survives held-out generators. The six test scenarios occupy only two families, so uncertainty and transfer claims must reflect that small number of independent groups. Improvement here would justify a diagnostic benchmark, not general scientific reasoning. The next milestone would be blinded review of whether the selected controls help resolve real replication disputes.
+
+\subsection{Proposed project II: claim-to-evidence checking}
+
+\paragraph{Untested hypothesis and method.}
+Test whether a structured claim ledger reduces unsupported conclusions. Each claim must point to an exact run identifier, code version, data split, reported statistic, and the control needed to support it. A deterministic checker verifies that artifacts and values agree. A separate critic checks whether the experiment distinguishes the asserted explanation. The critic may mark a claim unsupported or inconclusive; it should not edit experimental outputs to make them fit.
+
+\paragraph{Data, controls, and evaluation.}
+Propose a pilot with twenty-four completed investigations from twelve parent tasks, two traces per task, drawn from project I or compatible public traces with inspectable provenance. Assign six parent tasks to development and six to testing, keeping related generator families in the same partition. Select five original claims per investigation and construct one perturbed counterpart for each: alter a number, omit a control, confuse validation with test results, or strengthen a conclusion. This yields at most 240 fixed claims, 120 per partition. Two blinded reviewers label each as supported, unsupported, or inconclusive and adjudicate disagreements; a perturbation is not automatically an invalid claim. Keep untouched naturally occurring errors and uncertainty cases in the sample.
+
+For the checking experiment, freeze both the experimental artifacts and this exact claim set. Compare accept-all/no-check, a prompt-only critic, deterministic checks alone, and the combined ledger. All methods receive the same available evidence and return a decision for every claim, so unsupported-claim detection and false-rejection denominators are shared. Report precision and recall, retention of supported claims, and treatment of inconclusive cases separately. Keep every original claim, its perturbation, and its source investigation in the same partition; uncertainty should be clustered by parent task rather than treating sentences as independent.
+
+\paragraph{Attribution and cost.}
+Run a separate writer study on the twelve held-out investigations, comparing an ordinary writer with ledger-guided writing. Keep experiments fixed and define the same independently annotated inventory of supportable claims for both writers. Measure supported content covered and unsupported assertions introduced; do not compare their detection scores when they generate different claims. This distinguishes checking from generation and prevents silence from receiving full credit. Any later study allowing checker-requested experiments would test investigation improvement separately.
+
+Use three stochastic replicates per checking or writing condition. Four checking methods over twelve investigations give 144 bundles; cap local artifact processing at five CPU worker-minutes per bundle, or twelve worker-hours. Two writers produce seventy-two reports under the same per-report cap, adding six worker-hours. Permit one independent rerun per held-out investigation, with a fifteen-minute cap each, adding at most three worker-hours and, if required, three GPU-hours. One development replicate per checking and writing condition adds a six-worker-hour ceiling. On the same four-core hardware, the complete local pilot is therefore capped at twenty-seven worker-hours and at most 108 CPU core-hours; remote language-model work is recorded separately, with 40,000 input and 8,000 output tokens per checking bundle or generated report. Report annotation labor, model calls, missing artifacts, and rerun failures alongside costs. Tool failures and critic errors are not evidence that the scientific hypothesis is false, and repeated use of the same parent task does not increase the number of independent tasks.

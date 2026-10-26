@@ -1,0 +1,4 @@
+/tmp/
+/survey/build/
+/survey/generated/smoke.*
+__pycache__/

@@ -1,0 +1,68 @@
+\section{Q2: How can AI formulate useful research questions?}
+\label{sec:questions}
+
+A research question identifies something worth resolving; a proposal additionally suggests how to resolve it. Many current systems receive the problem or motivation from a human and generate a new method within that context. Their output can be valuable without demonstrating autonomous problem discovery. For this survey, a useful question should state an unresolved claim, distinguish plausible alternatives, and identify observations that could change the answer. This criterion also makes room for informative negative results, rather than equating research quality with proposing a method that improves a benchmark.
+
+\subsection{Where candidate questions come from}
+
+Literature-grounded systems differ in how they organize the search space. SciMON retrieves inspirations from semantic, knowledge-graph, and citation neighborhoods, then revises ideas against related literature. Its background context already supplies motivations and constraints \cite{scimon}. ResearchAgent develops problems, methods, and experimental plans around a seed paper and connected knowledge; SciPIP combines retrieval with brainstorming; Chain of Ideas organizes prior developments into research trajectories \cite{researchagent,scipip,chain-of-ideas}. These are different priors over possible continuations of existing research. More structured retrieval can improve relevance while also narrowing attention toward well-represented directions.
+
+Broader input does not remove this dependence on representation. MOOSE extracts backgrounds and inspirations from web corpora for social-science hypotheses, whereas SciAgents connects concepts through an ontological graph and specialist agents \cite{moose,sciagents}. Their mechanisms are relevant to general ideation, but judgments of social-science hypotheses and demonstrations in bioinspired materials do not establish transfer to AI research. In particular, a graph connection supplies a candidate analogy, not evidence that the proposed mechanism works.
+
+Data-grounded approaches introduce a feedback loop with a more directly observable target. HypoGeniC maintains natural-language hypotheses, evaluates their predictions on labeled examples, and uses errors and a bandit-inspired rule to guide updates. HypoRefine combines literature-derived hypotheses with this data-driven process, considering both refinement and union of hypothesis sets \cite{hypogenic,hyporefine}. Their classification settings permit held-out prediction tests. This is a useful bridge between verbal claims and observations, but predictive patterns can remain correlational, and the research question is supplied rather than discovered.
+
+\subsection{Human control and the unit of recombination}
+
+Scideator represents papers through purpose, mechanism, and evaluation facets. Users can select facets, inspect novelty evidence, and revise combinations. Its within-subject study compares this representation with paper-level interaction using the same underlying LLM \cite{scideator}. This design provides evidence about the interface and representation, rather than attributing all benefits to a stronger model. It also preserves a role for human judgment when an analogy is unfamiliar or its relevance uncertain.
+
+IdeaSynth similarly supports changing and composing facets through literature-grounded feedback, while CoQuest studies breadth-first and depth-first question development in human-AI interaction \cite{ideasynth,coquest}. These systems suggest that ideation is often an iterative process of reformulating constraints, not merely producing a finished question. However, user control, experienced creativity support, and eventual scientific usefulness are distinct outcomes. A tool that helps a researcher explore more directions has not necessarily learned to choose which direction deserves execution.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Different ideation settings expose different parts of question formation.}
+\label{tab:question-settings}
+\begin{tabularx}{\linewidth}{@{}P{0.23\linewidth}YY@{}}
+\toprule
+Setting & Mechanism or evidence & Main unresolved step \\
+\midrule
+Literature continuation \cite{scimon,researchagent,scipip,chain-of-ideas} & Retrieve and reorganize prior research & Decide whether a new continuation matters \\
+Cross-concept hypotheses \cite{moose,sciagents} & Extract inspirations or traverse a graph & Validate the proposed relationship \\
+Data-grounded hypotheses \cite{hypogenic,hyporefine} & Update claims using predictive feedback & Move from correlation to an informative question \\
+Mixed-initiative ideation \cite{scideator,ideasynth,coquest} & Let users manipulate question components & Separate human selection from system capability \\
+Idea benchmarks \cite{ideabench,liveideabench} & Reference contexts or minimal keyword prompts & Connect judged creativity to executable inquiry \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Generation quality and selection quality are different}
+
+The large human study of NLP ideation finds that LLM proposals can receive favorable novelty judgments while looking weaker on feasibility. Its analysis also identifies repeated ideas as generation scales and unreliable model ranking \cite{llm-novel-research-ideas-human-study}. The implication is conditional: a large candidate pool helps only if it adds useful alternatives and the selector can identify them. Neither property follows from fluent output or a higher sampling temperature.
+
+IdeaBench evaluates generation within reference-paper contexts using model-based comparisons, whereas LiveIdeaBench probes divergent thinking from minimal keyword prompts \cite{ideabench,liveideabench}. Their scores answer different questions because the available context and intended behavior differ. Divergence is valuable during exploration; convergence on a justified, testable question is a separate requirement. Comparisons should therefore hold candidate count, information access, and selection budget constant, and report pool diversity separately from the quality of the selected proposals.
+
+\subsection{Limitations and open questions}
+
+The central gap is between a plausible proposal and an experiment that can resolve uncertainty. Literature novelty checks, user studies, and prediction tests each cover part of this gap, but none alone establishes importance, causal validity, and feasibility together. Open questions include how to discover problems without inheriting their framing, how to recognize meaningful diversity beyond text embeddings, and when to abandon an attractive but untestable idea. Temporal retrieval restrictions also need a model-contamination audit. The following plans are proposed studies; their expected advantages remain hypotheses.
+
+\subsection{Proposed project 1: A proposal paired with a discriminating pilot}
+
+\paragraph{Hypothesis and method.}
+Requiring a proposal to include competing explanations and an executable pilot will improve the fraction of projects that resolve a specific uncertainty. The generator must state the central claim, a plausible alternative explanation, predicted observations under each, and a minimal comparison that separates them. For example, a claimed calibration improvement should be distinguished from the effect of additional tuning. A fixed coding agent implements the pilot, and a separate checker audits whether its measurements address the stated alternatives.
+
+\paragraph{Tasks and split.}
+Use twelve bounded AI research contexts involving frozen small models: calibration, retrieval scoring, and robustness under controlled input shifts. Reserve six contexts for developing prompts and checking infrastructure, then seal six with disjoint datasets and code-template families. Allow development-set pilot feedback, but freeze the proposed claim and analysis rule before independent evaluation seeds and test examples are revealed. Pilot experiments must not inspect the final test set.
+
+\paragraph{Baselines, metrics, and risks.}
+Compare ordinary proposals, proposals with a written experiment plan, and proposals with a discriminating executable pilot. Match total inference and experiment budgets, counting pilot execution against the latter. Ablate competing explanations and the independent checker. Measure executability, blinded assessment of discriminating power, reproducible claim resolution, uncertainty calibration, and cost per informative result. Record inconclusive outcomes separately from implementation errors. Risks include favoring easy questions, underpowered pilots, and a checker that rewards formal compliance; a successful script without a valid discriminating comparison does not count as success.
+
+\subsection{Proposed project 2: Separate exploration from selection}
+
+\paragraph{Hypothesis and method.}
+Mechanism-level diversity should improve downstream yield only when paired with a selector that recognizes useful differences. Cross three generators---ordinary sampling, retrieval-based generation, and controlled facet recombination---with random, prompted, and evidence-grounded selection. Each generator produces twenty-four candidates within the same token and retrieval budget. Freeze each pool before applying every selector, so improvements can be attributed to generation, selection, or their interaction rather than to an entire pipeline.
+
+\paragraph{Data, ablations, and measurement.}
+Reuse the development and sealed contexts above, with all choices fixed before evaluating held-out pools. Have blinded annotators cluster candidates by substantive mechanism and identify valid alternatives; embeddings serve only as annotation aids. Execute each selector's top three candidates and an independently sampled audit set using the same pilot protocol. Compare candidate count alone, embedding-based deduplication, and facet recombination without a novelty check. Report coverage of valid mechanisms, duplicate burden, top-$k$ informative yield, and cost. Random audits with recorded inclusion probabilities help expose promising candidates that all selectors miss.
+
+\paragraph{Failure risks.}
+Mechanism labels can be subjective, and a selector may favor the style of its own generator. Use cross-model selectors, report annotation disagreement, and retain natural candidate wording alongside a normalized evaluation condition. Since only a subset receives execution, avoid claiming an oracle-best pool or exact selection regret. A larger number of textual clusters without increased validated yield would not support the hypothesis.

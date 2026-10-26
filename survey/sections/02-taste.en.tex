@@ -1,0 +1,63 @@
+\section{Q1: How can AI judge which research is worth pursuing?}
+\label{sec:taste}
+
+Research taste concerns decisions made before their consequences are fully known: which uncertainty deserves attention, which proposal warrants resources, and which result should change the next experiment. A useful evaluator must therefore specify its decision context. Ranking completed papers, selecting untested proposals, and choosing the next experiment are related tasks, but their inputs and available feedback differ. We treat novelty, feasibility, expected information gain, and resource requirements as separate dimensions rather than assuming that one score measures scientific value.
+
+\subsection{What the available feedback actually measures}
+
+AI Can Learn Scientific Taste turns community reception into a training signal. It pairs papers from the same field and year using citation differences, trains a Scientific Judge on these preferences, and uses the judge to reward a Scientific Thinker. Its author, institution, and topic controls address some obvious shortcuts. However, the generator is evaluated through LLM comparisons of potential impact rather than executed projects \cite{ai-can-learn-scientific-taste}. This provides evidence that a preference can be learned and transferred to generation; it leaves the relationship between that preference and realized research value unresolved.
+
+HindSight offers a different target: whether generated ideas resemble subsequent publications, weighted by publication-related impact signals. This makes retrospective comparison possible, but rewards agreement with research that was eventually published. A direction with no later match need not be worthless. More seriously, the reported model knowledge cutoff is later than the retrieval cutoff; restricting retrieved papers alone does not exclude knowledge of the evaluation period \cite{hindsight}. We therefore interpret this as retrospective alignment evidence, not a clean prospective forecast of discovery.
+
+TasteVal moves from paper-level preference to experimental decisions. It supplies a fixed research problem, holds the coding agent constant, and measures progress relative to experimental compute. Its construction helps isolate planning and interpretation from implementation, while making the measured ability conditional on the coder, task, budget, and scoring rule. The tasks are not publicly released \cite{tasteval}. Its results cannot establish open-ended problem selection, and its protocol cannot simply be reused as an available public training set.
+
+Execution can change the judgment itself. The Ideation--Execution Gap study randomly assigns human- or LLM-written ideas within researchers' selected topics, then obtains blinded reviews of the executed projects. The initial advantage of LLM proposals weakens after implementation \cite{ideation-execution-gap}. This is stronger evidence about realized projects than proposal-only ratings, although human execution and a specific NLP setting remain part of the treatment. The studies need not disagree: anticipating community reception, impressing a reviewer, and selecting a productive experiment are different prediction targets.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Feedback for research taste and the inference it permits. None of these targets alone defines scientific value.}
+\label{tab:taste-feedback}
+\begin{tabularx}{\linewidth}{@{}P{0.22\linewidth}YY@{}}
+\toprule
+Feedback & Observable target & Remaining uncertainty \\
+\midrule
+Community reception \cite{ai-can-learn-scientific-taste,hindsight} & Citation preference or later publication alignment & Unpublished alternatives and causal scientific value \\
+Expert or grounded judgment \cite{rinobench,opennovelty,innoeval} & Novelty assessments and review agreement & Missing evidence and reviewer preferences \\
+Controlled perturbations \cite{scistylebench} & Stability to style and sensitivity to substance & Whether robustness predicts useful research \\
+Executed research \cite{tasteval,ideation-execution-gap} & Budgeted progress or post-execution assessment & Dependence on implementation and task selection \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Evidence-grounded judgment and resistance to shortcuts}
+
+One response is to narrow the judgment and expose its evidence. RINoBench evaluates novelty scores and justifications against expert-review-derived labels. OpenNovelty traces manuscript contribution claims to relevant prior work, while InnoEval combines retrieved evidence with multiple reviewing perspectives \cite{rinobench,opennovelty,innoeval}. These approaches make judgments easier to inspect, but retrieval coverage and the reliability of the comparisons still matter. An apparently convincing rationale can accompany an incorrect score. Moreover, establishing that a claim differs from prior work does not establish that investigating it is worthwhile.
+
+SciStyleBench asks a complementary question: does the judge respond to scientific content or its presentation? Its interventions separate stylistic changes from weakened or enriched substance. The important requirement is joint: scores should resist irrelevant rhetoric while responding to methodological changes. A constant scorer would satisfy invariance without providing useful judgment \cite{scistylebench}. Our synthesis is that evidence grounding and shortcut resistance must be tested together. Adding literature can supply missing facts, but does not automatically make the decision rule faithful to those facts.
+
+\subsection{Limitations and open questions}
+
+Current evidence supports several operational definitions of taste, not a single established capability. Cheap labels permit scale; costly execution gives more direct but narrower feedback. Neither eliminates evaluator disagreement or the need to choose an objective. Open questions include how to credit informative negative results, when a judge should abstain, and whether gains survive new tasks and independent execution. A prospective study should freeze proposals, evaluators, budgets, and accessible knowledge before observing outcomes. The following projects are proposed experiments, not established findings.
+
+\subsection{Proposed project 1: Outcome-grounded ranking with active annotation}
+
+\paragraph{Hypothesis and method.}
+At a fixed annotation budget, combining completed pilot outcomes with actively requested expert preferences will select more reproducible, informative projects than learning from proposal ratings alone. Start with a small pairwise judge. Request expert comparisons for uncertain or disagreeing pairs, retain a random annotation fraction, and record selection probabilities. Experts judge completed training pilots using a predefined rubric that credits valid negative results and distinguishes implementation failure from hypothesis rejection.
+
+\paragraph{Tasks and split.}
+Construct twelve inexpensive AI research tasks around calibration, retrieval scoring, and robustness of frozen small models. Each task contains six candidate interventions. Assign six tasks to training, three to development, and three to sealed evaluation, grouping shared datasets and code templates together. Run all evaluation candidates with the same coder and budget, with independent replication seeds; their outcomes stay hidden until ranking is frozen. This modest design tests transfer across tasks, not universal scientific taste.
+
+\paragraph{Comparisons, metrics, and risks.}
+Compare random selection, a prompted judge, proposal-only preference learning, and outcome-grounded learning with random annotation. Ablate active selection and execution feedback separately. Measure top-$k$ yield of reproducible informative outcomes, ranking regret against the fully executed candidate pool, calibration, annotation cost, and experimental cost. Report uncertainty across tasks. The main risks are noisy outcomes, preference for easy projects, and active sampling that misses unfamiliar ideas; the random fraction provides an audit but does not remove these risks.
+
+\subsection{Proposed project 2: A judge that resists shortcuts without ignoring substance}
+
+\paragraph{Hypothesis and method.}
+Separating claims and supporting evidence from presentation cues will improve ranking under stylistic changes without suppressing sensitivity to invalid methods. Build controlled variants of about one hundred proposals: paraphrases, confidence changes, and prestige cues on one side; missing controls, contradictions, or unsupported mechanisms on the other. Independent annotators check whether each transformation preserves or changes the intended content. Train a lightweight pairwise evaluator with both invariance and substance-discrimination objectives.
+
+\paragraph{Tasks, comparisons, and evaluation.}
+Split by original proposal, topic, and rewriting model, keeping all variants of an idea in one partition. Compare raw prompting, retrieval-augmented judging, text normalization, and each training objective alone. Measure style-induced score variation, detection of substantive defects, and top-$k$ turnover under adversarial presentation. Also test whether robustness improves selection on the held-out executed tasks from the first project.
+
+\paragraph{Failure risks.}
+Rewriting may alter meaning, normalization may erase useful detail, and synthetic defects may be easier than natural research weaknesses. Human audits and untouched proposals are therefore necessary. A reduction in style sensitivity without maintained defect detection or downstream selection quality would count as failure, even if conventional judge-agreement scores improve.

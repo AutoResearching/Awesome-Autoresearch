@@ -1,0 +1,46 @@
+{
+  "validated_at": "2026-10-26T06:45:57.782155+00:00",
+  "scope": "Artifact, citation structure, bilingual editorial review, and portable-source rebuild; no independent replication of cited research.",
+  "source_archive": {
+    "filename": "autoresearch-survey-latex.zip",
+    "sha256": "24f45c1d786b7e7ba99c59085d76c006dccc29c6171c20dfa96d8c68bed4e43c",
+    "crc": "passed",
+    "standalone_rebuild": "passed"
+  },
+  "documents": {
+    "en": {
+      "filename": "autoresearch-survey-en.pdf",
+      "pages": 24,
+      "sha256": "49daf2719b7f7b512af60f270f6db8f15b3c015484f29f2b75e19ce13fef2c1f",
+      "mechanical_issues": [],
+      "unresolved_citation_markers": 0,
+      "compiler_overflow_underflow_missing_glyph_or_reference_warnings": [],
+      "visual_review": {
+        "status": "passed",
+        "method": "All final pages reviewed in rendered contact sheets, with full-size review of diagrams, tables, and representative text pages."
+      },
+      "standalone_rebuild": {
+        "page_text_equal": true,
+        "page_rasters_equal_at_72_dpi": true,
+        "pdf_bytes_equal": false
+      }
+    },
+    "zh": {
+      "filename": "autoresearch-survey-zh.pdf",
+      "pages": 20,
+      "sha256": "635042ee36b75423d4ba1adb8d780f2cf9be0700f6588304946bd65baa74e905",
+      "mechanical_issues": [],
+      "unresolved_citation_markers": 0,
+      "compiler_overflow_underflow_missing_glyph_or_reference_warnings": [],
+      "visual_review": {
+        "status": "passed",
+        "method": "All final pages reviewed in rendered contact sheets, with full-size review of diagrams, tables, and representative text pages."
+      },
+      "standalone_rebuild": {
+        "page_text_equal": true,
+        "page_rasters_equal_at_72_dpi": true,
+        "pdf_bytes_equal": false
+      }
+    }
+  }
+}

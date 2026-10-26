@@ -1,0 +1,83 @@
+{
+  "built_at": "2026-10-26T06:44:22.760Z",
+  "snapshot_date": "2026-10-26",
+  "corpus_count": 79,
+  "engine": {
+    "name": "tectonic",
+    "version": "Tectonic 0.17.0"
+  },
+  "documents": {
+    "en": {
+      "filename": "autoresearch-survey-en.pdf",
+      "bytes": 163290,
+      "sha256": "49daf2719b7f7b512af60f270f6db8f15b3c015484f29f2b75e19ce13fef2c1f",
+      "engine": "tectonic",
+      "command_args": [
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build\\en",
+        "main.en.tex"
+      ],
+      "unique_citations": 79,
+      "citation_occurrences": 100,
+      "included_sections": 8,
+      "headings": {
+        "section": 7,
+        "subsection": 34,
+        "paragraph": 38
+      }
+    },
+    "zh": {
+      "filename": "autoresearch-survey-zh.pdf",
+      "bytes": 581776,
+      "sha256": "635042ee36b75423d4ba1adb8d780f2cf9be0700f6588304946bd65baa74e905",
+      "engine": "tectonic",
+      "command_args": [
+        "--keep-logs",
+        "--keep-intermediates",
+        "--outdir",
+        "build\\zh",
+        "main.zh.tex"
+      ],
+      "unique_citations": 79,
+      "citation_occurrences": 100,
+      "included_sections": 8,
+      "headings": {
+        "section": 7,
+        "subsection": 34,
+        "paragraph": 38
+      }
+    }
+  },
+  "source_sha256": {
+    "generated/catalog-snapshot.json": "eb04e9dec95a13b8fdb700bf98b2fa5f05c3f87f5ffb2b24a146b2ed2482b1a2",
+    "main.en.tex": "d89c8f4d7876a94cea4ece468d98f84887dd8436abbb0276f60c39b72cf51e61",
+    "main.zh.tex": "47a9da6e7271e6e95b4d2bf2022b52ea4ceb8dfe80e95f35b23652495be47cf3",
+    "preamble.tex": "cd360fe868e1f8d3fc8eb223375e3bd597a0e973bae5ddcd719251efb62ff90d",
+    "references.bib": "2c8bfcccae999f8888d5384272c708e345672e2c7f86f9f2a8a677181216e2c8",
+    "sections/00-abstract.en.tex": "8a6efca99a5f9336192c468747f701abb7c2345628c1fc1a9f2e39f01cf727b3",
+    "sections/00-abstract.zh.tex": "b350e91755c53773e5516b43b1aecd172dad64f26eacbf1b07b0c75cb3b2902c",
+    "sections/01-framing.en.tex": "f2343f8700494b0f3424e794a1ce34a5b779d68e44ace3362b4fb0367ec33740",
+    "sections/01-framing.zh.tex": "6edaa8e555d1c76730f03435415b0766592f9f2f5b2d425bfc0763e3d506f2a6",
+    "sections/02-taste.en.tex": "010a3976bb0a5a94d70c9985925d772aa483b88e4fd72037671551f99fd1a590",
+    "sections/02-taste.zh.tex": "6d4575d342df29a81b8def0d1e7015d6123ec4d55d100b3c0d15896799eb9d90",
+    "sections/03-questions.en.tex": "8f18d58b51c2eb9be3077816c11a0d3178d6465e6e36e52a0287c04a75a6d054",
+    "sections/03-questions.zh.tex": "68aadb4851c561c241274df39d9c5e545a7f9f4f38663b74511a8618f12388ac",
+    "sections/04-execution.en.tex": "2fa9f40dac9246f3cfdfec433d6ee3aa4494a79f02fe75b5081372d4a0f20ea9",
+    "sections/04-execution.zh.tex": "8f5f212d10c932b9cba944996c645dbab04e7e57d6bbc667d079dc02b52010d0",
+    "sections/05-learning.en.tex": "87ffa7a00e0b09f2dacee58a3d0a3436a13e92a34d92fd6d915311a242189201",
+    "sections/05-learning.zh.tex": "8053232cc3e43c67e1f28774dc09b5117827b3e6da733ec655f2009011ad75f4",
+    "sections/06-evaluation.en.tex": "d0c0112577c796e629e8ca140e2cd988d0c5c27164be3fd4ee3409feb1bc2603",
+    "sections/06-evaluation.zh.tex": "49f10e0eebd6232a0e4898cbd69e6968b8633dbe22ebc0dc7df6f8d3063c80b6",
+    "sections/07-agenda.en.tex": "d01847787d228853718e10e73b3e14a3559958534a3a184cc71bdea1171d4b87",
+    "sections/07-agenda.zh.tex": "ec82a264ffe3fe26c8df87f0e61647babe749bd632779d1766a1aa4eaab61dc8"
+  },
+  "validation": {
+    "active_citation_coverage": "passed",
+    "bilingual_structure": "passed",
+    "unresolved_references": "none detected in compiler logs",
+    "visual_review": "not performed by this build script"
+  },
+  "metadata_refresh": "none; checked-in bibliography and snapshot used"
+}

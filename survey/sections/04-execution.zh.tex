@@ -1,0 +1,88 @@
+\section{Q3：如何把问题转化为可靠知识？}
+\label{sec:execution}
+
+执行把研究提案与真实观察连接起来。程序可能成功运行，却检验了错误的命题；实验可能提高指标，却没有解释原因；报告可能准确描述了一个被选中的结果，却隐藏了失败尝试。因此，方法目标是建立从问题到干预、观察，再到适当限定的结论的可追溯链条。
+
+\subsection{搜索候选解与选择实验}
+
+Karpathy 的 autoresearch 提供简洁 baseline：修改训练程序，运行受预算限制的实验，测量结果，保留有效改动。AIDE 把分支选择显式化，在可执行候选方案之间选择新建、调试或改进；R\&D-Agent 则把改进思路的提出与实现分开~\cite{autoresearch,aide,rd-agent}。这些设计便于分析 engineering gains 来自哪种搜索策略，也暴露了以指标提升作为科研目标的限制：任务、指标和可操作环境已经给定。强优化器未必知道某个干预为什么有效。
+
+Arbor 用持久化树组织假设、产物和实验证据，使分支选择能够依赖已有观察~\cite{arbor}。这种表示适合研究 scientific state：哪个假设仍然合理，哪个结果已经复现，哪个方向已经耗尽预算。关键比较不只是树结构与线性对话，而是在匹配提案数、实验数和模型调用后，结构化状态是否改善了特定决策。当前任务主要仍是对给定产物和目标进行改进。
+
+AutoRA 使用另一种分解：experimentalist 选择测量，experiment runner 获取观察，theorist 更新模型。Deep Adaptive Design 在部署前学习 sequential Bayesian experimental design policy~\cite{autora,deep-adaptive-design}。这两类工作把注意力转向“哪次观察有用”，而非只看“哪个实现分数最高”。其假设也很关键：变量、可执行实验、模型类别或概率假设需要先被指定。向开放科研扩展时，系统还要决定哪些竞争解释应进入这一空间。
+
+\subsection{可靠性不止是成功运行}
+
+Curie 检查实验设置与执行，约束 agents 之间的状态转换，并维护结构化实验记录~\cite{curie}。它区分 implementation alignment 与 conclusion correctness，这说明可运行代码并不足够。其评价结合自动评审和人工检查，因此应把 rigor modules 当作可研究的机制，而不是每条被接受结论都有效的保证。
+
+POPPER 通过可测量蕴含的检验和 sequential evidence aggregation，研究给定自然语言假设的验证~\cite{popper}。统计保证以有效的逻辑蕴含和条件检验为前提。如果实验实际检验的是另一个命题，或自适应复用数据后假设不成立，外层统计机制不能补救科学错误。针对一个假设的错误控制，也不能写成对无限生成命题集合的 false discovery rate control。这提示我们在接口中分别处理语义检查、可执行 controls 和统计检验。
+
+\begin{table}[tbp]
+\centering\small
+\caption{不同执行机制针对不同失效环节。这是设计比较，不是系统排名。}
+\label{tab:execution}
+\begin{tabularx}{\linewidth}{@{}P{0.24\linewidth}YYY@{}}
+\toprule
+机制与例子 & 主要决策 & 反馈 & 仍由外部提供的条件\\
+\midrule
+代码搜索：autoresearch、AIDE、R\&D-Agent & 尝试哪个程序 & 测量的任务分数 & 任务重要性、evaluator 有效性\\
+假设树：Arbor & 完善哪个分支 & 产物与证据 & 初始目标和评价设置\\
+实验设计：AutoRA、DAD & 获取哪次观察 & 模型拟合或信息目标 & 变量、实验接口、建模假设\\
+过程验证：Curie & 实验步骤是否合格 & 设置、执行与记录检查 & 科学检验是否充分\\
+序贯检验：POPPER & 检验哪个蕴含命题 & 条件统计证据 & 正确蕴含与检验假设\\
+程序或证明搜索：FunSearch、AlphaEvolve、Aletheia & 修订哪个构造或论证 & Evaluator、verifier 或 critique & 意义与验证范围\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{数学能提供什么？}
+
+FunSearch 与 AlphaEvolve 把程序生成、可执行评价和演化选择结合起来~\cite{funsearch,alphaevolve}。当目标具有精确 evaluator 时，紧密的 proposal--verification 循环十分有用。Evaluator 本身也是重要的人类贡献：如果没有检查正确性，agent 不能从程序运行快就推出算法有效。有限数值测试、有限构造的穷尽检查和数学证明，支持的是不同主张。
+
+Aletheia 在自然语言中迭代生成、验证和修订数学推理，并报告不同程度的人类参与~\cite{aletheia}。它的输出不能统一写成 formally verified proofs。把本文方案扩展到数学时，应分别研究 conjecture choice、proof search 和 verification。例如，proof assistant 可以检查一个受限的形式命题，而数学家判断解决它是否带来贡献。形式化环境提供有效性检验工具，不会自动给出科学重要性。
+
+\subsection{完整系统暴露环节之间的依赖}
+
+The AI Scientist 利用人工实验模板，把构思、代码、实验、写作和评审连接起来。Version 2 使用更一般的实验管理器与 agentic tree search，并报告有限的 workshop 投稿研究~\cite{ai-scientist,ai-scientist-v2}。这些证据说明工作流能够被整合并产出可评审材料，但没有单独识别哪个模块产生科学价值，也没有建立通用选题能力。
+
+AI-Researcher 整合文献、实现和报告，Scientist-Bench 区分 guided innovation 与研究主题内部的探索。Agent Laboratory 则把人工提供的 idea 和中间反馈纳入流程~\cite{ai-researcher,agent-laboratory}。人类输入应当是实验变量，而不是在描述 autonomy 时省略的因素。公平比较需要记录谁选题、谁修复代码、谁解释模糊结果，以及谁决定停止。
+
+Co-Scientist 围绕科学家给定的目标演化假设，并在生物医学案例中开展后续实验。Kosmos 使用结构化 world model，协调更长程的文献与数据分析~\cite{co-scientist,kosmos}。两者都说明长流程需要持久的科学状态，也要求准确记录目标、数据、领域知识和外部验证由谁提供。可追溯报告更容易审计，但可追溯性不能单独证明每个命题正确且重要。
+
+实际启发是研究模块接口。Idea generator 可能提出有用问题，但 executor 无法实现；executor 可能得到结果，但 writer 把结论写得过强。全面替换系统之前，可固定问题池和执行器，仅改变传递给执行器的表示。一个控制良好的接口实验，往往比同时改变模型和预算的整系统比较更容易解释。
+
+\subsection{局限与开放问题}
+
+大部分执行证据来自已有 evaluator 的给定目标。Agent 能否选择真正区分解释的实验，识别 inconclusive results，并在最终报告中保留不确定性，仍需检验。现有 validator 可以检查已经声明的 control，却可能发现不了遗漏的 control。即使每个实验都正确，大量变体搜索仍可能对 validation set 过拟合。长程研究还需要决定何时停止、何时求助以及何时修改问题，这些都是科研决策。
+
+\subsection{研究方案 I：选择有区分力的实验}
+
+\paragraph{待验证假设与方法。}
+检验显式维护竞争解释，能否比只优化分数的 agent 做出更好的实验选择。每个问题记录至少两个假设、它们对候选干预结果的预测，以及解释结果所需的前提。根据预测分歧选择成本可承受的干预；只有在 likelihood 合理时，才使用 Bayesian information gain。保留“尚不能确定”的选项，不把 LLM 的自报信心强行当作 posterior。
+
+\paragraph{具体 pilot。}
+作为待验证的设计选择，拟用小型表格模型和紧凑图像分类器构建十八个场景，来自六个模拟器家族，每个家族三个实例。家族之间改变数据生成和评价机制，而不只是随机种子；构建、开发、测试各分配两个完整家族。候选解释包括额外训练步数、预处理泄漏、类别不平衡和有效 augmentation。隐藏的参考实现定义实际生效的单个或多个机制。评价前预先登记允许的干预，用独立种子的反事实检查，确定在该模拟器及声明的效应容差内哪些解释可以区分。注入一个因素本身不代表解释具有唯一可识别性。加入机制共存、干预下无法区分，以及所有候选解释均错误的案例；证据不足以确定唯一答案时，允许返回相容解释集合或弃权。
+
+\paragraph{Baselines 与测量。}
+将拟议选择器与随机实验、固定 ablation checklist、贪心 validation-score search，以及不显式维护假设的 agent 比较。五种方法使用相同干预权限、模型、工具和代码生成模块。只在可识别案例上评价正确机制恢复率；其他案例评价相容解释集合的覆盖与多余成员、错误解释，以及弃权时的错误率--覆盖率权衡。同时记录多余实验和跨场景家族的迁移。在开发案例上分别移除假设集合、预测表和结果更新规则，测试前冻结 oracle、提示与停止规则。
+
+\paragraph{预算与核算。}
+六个测试场景各运行三个种子，五种方法合计九十次目标运行。每次最多四个干预，实验计算不超过十五个 worker-minutes；声明硬件为四核 CPU、16 GB 内存，图像任务最多附加一张 24 GB GPU。目标评价上限为 22.5 worker-hours、九十 CPU core-hours；若每次全程分配 GPU，则至多 22.5 GPU-hours，实际 CPU 与 GPU 使用量需分别报告。模拟器与 oracle 构建、开发各另设十个 worker-hours 的上限。远程模型计算不包含在设备时间中：每次目标运行最多 40,000 输入和 8,000 输出 token，另记 API 成本。失败、截断、oracle 检查和开发消融都需计入，不能因为未产生有用结果而从账目中删除。这些是 pilot 上限，不是实测需求或统计功效计算。
+
+\paragraph{失败风险。}
+合成世界可能使解释过于清晰，或通过模拟器痕迹泄露机制。需隐藏参考代码和机制标签，公开模拟假设，并检查收益能否延续到留出的生成器。六个测试场景仅来自两个家族，不确定性和迁移结论必须反映独立分组很少的限制。在此获得改进，只能支持 diagnostic benchmark，而非通用科学推理。下一步里程碑是通过盲审，检验所选 controls 是否帮助解决真实复现分歧。
+
+\subsection{研究方案 II：从 claim 到 evidence 的检查}
+
+\paragraph{待验证假设与方法。}
+检验 structured claim ledger 能否减少证据不足的结论。每个 claim 必须指向 run identifier、代码版本、数据划分、统计量，以及支持它所需的 control。确定性 checker 验证产物和数值是否一致；独立 critic 检查实验是否区分了所声称的解释。Critic 可以标记 unsupported 或 inconclusive，但不能修改实验输出以迎合结论。
+
+\paragraph{数据、对照与评价。}
+拟采集十二个来源任务的二十四次完整调查，每个任务两条轨迹，取自方案 I 或来源可检查的兼容公开轨迹。开发与测试各分配六个来源任务，相关生成器家族放在同一分区。每次调查选择五条原始 claim，各构造一个扰动版本，包括改写数值、遗漏 control、混淆 validation 与 test 或加强结论，总计最多 240 条固定 claim，每个分区 120 条。由两位不知道方法条件的评审分别标注 supported、unsupported 或 inconclusive，再裁决分歧；被扰动不自动等于无效。样本保留未经改写的自然错误与不确定案例。
+
+在检查实验中，同时冻结实验产物和这一固定 claim 集合。比较全部接受的 accept-all/no-check、prompt-only critic、仅确定性检查与组合 ledger。所有方法看到相同的可用证据，并为每条 claim 返回判断，因此错误检出和误拒绝使用共同分母。分别报告 precision、recall、有效 claim 保留率及对 inconclusive 的处理。原始 claim、扰动版本和来源调查必须位于同一分区；不确定性按来源任务聚类，不能把句子当作独立样本。
+
+\paragraph{归因与成本。}
+在十二次留出调查上另做 writer 实验，比较普通 writer 与 ledger 引导的写作。实验产物保持固定，为两种 writer 使用同一份经独立标注的、证据能够支持的 claim 清单，评价有效内容覆盖及新增的无依据断言；当两者生成不同 claim 时，不比较它们的 detection score。这样区分检查与生成，也避免什么都不说获得满分。未来允许 checker 请求新实验的研究，应另行评价调查能力的改善。
+
+每种检查或写作条件采用三个随机重复。四种检查方法处理十二次调查，共 144 个检查批次；每批本地资料处理最多五个 CPU worker-minutes，合计十二个 worker-hours。两种 writer 生成七十二份报告，使用相同的每份时间上限，再增加六个 worker-hours。每次留出调查允许一次独立重跑，每次最多十五分钟，至多增加三个 worker-hours，必要时增加三个 GPU-hours。每种检查与写作条件在开发集运行一个重复，另设六个 worker-hours 上限。因此，在相同四核硬件上，完整本地 pilot 的上限为二十七个 worker-hours、108 CPU core-hours；远程语言模型计算单列，每个检查批次或报告最多 40,000 输入和 8,000 输出 token。人工标注、模型调用、产物缺失和重跑失败均需与成本一并报告。工具故障和 critic 错误不是科学假设为假的证据，同一来源任务上的重复也不会增加独立任务的数量。

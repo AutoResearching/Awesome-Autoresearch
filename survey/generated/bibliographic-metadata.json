@@ -1,0 +1,1548 @@
+{
+  "mlagentbench": {
+    "authors": [
+      "Huang, Qian",
+      "Vora, Jian",
+      "Liang, Percy",
+      "Leskovec, Jure"
+    ],
+    "source": "https://arxiv.org/abs/2310.03302",
+    "source_title": "MLAgentBench: Evaluating Language Agents on Machine Learning Experimentation",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "mle-bench": {
+    "authors": [
+      "Chan, Jun Shern",
+      "Chowdhury, Neil",
+      "Jaffe, Oliver",
+      "Aung, James",
+      "Sherburn, Dane",
+      "Mays, Evan",
+      "Starace, Giulio",
+      "Liu, Kevin",
+      "Maksin, Leon",
+      "Patwardhan, Tejal",
+      "Weng, Lilian",
+      "Mądry, Aleksander"
+    ],
+    "source": "https://arxiv.org/abs/2410.07095",
+    "source_title": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "paperbench": {
+    "authors": [
+      "Starace, Giulio",
+      "Jaffe, Oliver",
+      "Sherburn, Dane",
+      "Aung, James",
+      "Chan, Jun Shern",
+      "Maksin, Leon",
+      "Dias, Rachel",
+      "Mays, Evan",
+      "Kinsella, Benjamin",
+      "Thompson, Wyatt",
+      "Heidecke, Johannes",
+      "Glaese, Amelia",
+      "Patwardhan, Tejal"
+    ],
+    "source": "https://arxiv.org/abs/2504.01848",
+    "source_title": "PaperBench: Evaluating AI's Ability to Replicate AI Research",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "mlgym": {
+    "authors": [
+      "Nathani, Deepak",
+      "Madaan, Lovish",
+      "Roberts, Nicholas",
+      "Bashlykov, Nikolay",
+      "Menon, Ajay",
+      "Moens, Vincent",
+      "Budhiraja, Amar",
+      "Magka, Despoina",
+      "Vorotilov, Vladislav",
+      "Chaurasia, Gaurav",
+      "Hupkes, Dieuwke",
+      "Cabral, Ricardo Silveira",
+      "Shavrina, Tatiana",
+      "Foerster, Jakob",
+      "Bachrach, Yoram",
+      "Wang, William Yang",
+      "Raileanu, Roberta"
+    ],
+    "source": "https://arxiv.org/abs/2502.14499",
+    "source_title": "MLGym: A New Framework and Benchmark for Advancing AI Research Agents",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "airs-bench": {
+    "authors": [
+      "Lupidi, Alisia",
+      "Gauri, Bhavul",
+      "Foster, Thomas Simon",
+      "Omari, Bassel Al",
+      "Magka, Despoina",
+      "Pepe, Alberto",
+      "Audran-Reiss, Alexis",
+      "Aghamelu, Muna",
+      "Baldwin, Nicolas",
+      "Cipolina-Kun, Lucia",
+      "Gagnon-Audet, Jean-Christophe",
+      "Leow, Chee Hau",
+      "Lefdal, Sandra",
+      "Mossalam, Hossam",
+      "Moudgil, Abhinav",
+      "Nazir, Saba",
+      "Tewolde, Emanuel",
+      "Urrego, Isabel",
+      "Estape, Jordi Armengol",
+      "Budhiraja, Amar",
+      "Chaurasia, Gaurav",
+      "Charnalia, Abhishek",
+      "Dunfield, Derek",
+      "Hambardzumyan, Karen",
+      "Izcovich, Daniel",
+      "Josifoski, Martin",
+      "Mediratta, Ishita",
+      "Niu, Kelvin",
+      "Pathak, Parth",
+      "Shvartsman, Michael",
+      "Toledo, Edan",
+      "Protopopov, Anton",
+      "Raileanu, Roberta",
+      "Miller, Alexander",
+      "Shavrina, Tatiana",
+      "Foerster, Jakob",
+      "Bachrach, Yoram"
+    ],
+    "source": "https://arxiv.org/abs/2602.06855",
+    "source_title": "AIRS-Bench: a Suite of Tasks for Frontier AI Research Science Agents",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "mlr-bench": {
+    "authors": [
+      "Chen, Hui",
+      "Xiong, Miao",
+      "Lu, Yujie",
+      "Han, Wei",
+      "Deng, Ailin",
+      "He, Yufei",
+      "Wu, Jiaying",
+      "Li, Yibo",
+      "Liu, Yue",
+      "Hooi, Bryan"
+    ],
+    "source": "https://arxiv.org/abs/2505.19955",
+    "source_title": "MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "re-bench": {
+    "authors": [
+      "Wijk, Hjalmar",
+      "Lin, Tao",
+      "Becker, Joel",
+      "Jawhar, Sami",
+      "Parikh, Neev",
+      "Broadley, Thomas",
+      "Chan, Lawrence",
+      "Chen, Michael",
+      "Clymer, Josh",
+      "Dhyani, Jai",
+      "Ericheva, Elena",
+      "Garcia, Katharyn",
+      "Goodrich, Brian",
+      "Jurkovic, Nikola",
+      "Karnofsky, Holden",
+      "Kinniment, Megan",
+      "Lajko, Aron",
+      "Nix, Seraphina",
+      "Sato, Lucas",
+      "Saunders, William",
+      "Taran, Maksym",
+      "West, Ben",
+      "Barnes, Elizabeth"
+    ],
+    "source": "https://arxiv.org/abs/2411.15114",
+    "source_title": "RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "fml-bench": {
+    "authors": [
+      "Zou, Qiran",
+      "Lam, Hou Hei",
+      "Zhao, Wenhao",
+      "Chen, Tingting",
+      "Tang, Yiming",
+      "Yu, Samson",
+      "Zhu, Yingtao",
+      "Anumasa, Srinivas",
+      "Zhang, Zufeng",
+      "Zhang, Tianyi",
+      "Liu, Chang",
+      "Jiang, Zhengyao",
+      "Goyal, Anirudh",
+      "Liu, Dianbo"
+    ],
+    "source": "https://arxiv.org/abs/2605.17373",
+    "source_title": "FML-bench: A Controlled Study of AI Research Agent Strategies from the Perspective of Search Dynamics",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scienceagentbench": {
+    "authors": [
+      "Chen, Ziru",
+      "Chen, Shijie",
+      "Ning, Yuting",
+      "Zhang, Qianheng",
+      "Wang, Boshi",
+      "Yu, Botao",
+      "Li, Yifei",
+      "Liao, Zeyi",
+      "Wei, Chen",
+      "Lu, Zitong",
+      "Dey, Vishal",
+      "Xue, Mingyi",
+      "Baker, Frazier N.",
+      "Burns, Benjamin",
+      "Adu-Ampratwum, Daniel",
+      "Huang, Xuhui",
+      "Ning, Xia",
+      "Gao, Song",
+      "Su, Yu",
+      "Sun, Huan"
+    ],
+    "source": "https://arxiv.org/abs/2410.05080",
+    "source_title": "ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "discoverybench": {
+    "authors": [
+      "Majumder, Bodhisattwa Prasad",
+      "Surana, Harshit",
+      "Agarwal, Dhruv",
+      "Mishra, Bhavana Dalvi",
+      "Meena, Abhijeetsingh",
+      "Prakhar, Aryan",
+      "Vora, Tirth",
+      "Khot, Tushar",
+      "Sabharwal, Ashish",
+      "Clark, Peter"
+    ],
+    "source": "https://arxiv.org/abs/2407.01725",
+    "source_title": "DiscoveryBench: Towards Data-Driven Discovery with Large Language Models",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "discoveryworld": {
+    "authors": [
+      "Jansen, Peter",
+      "Côté, Marc-Alexandre",
+      "Khot, Tushar",
+      "Bransom, Erin",
+      "Mishra, Bhavana Dalvi",
+      "Majumder, Bodhisattwa Prasad",
+      "Tafjord, Oyvind",
+      "Clark, Peter"
+    ],
+    "source": "https://arxiv.org/abs/2406.06769",
+    "source_title": "DISCOVERYWORLD: A Virtual Environment for Developing and Evaluating Automated Scientific Discovery Agents",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "frontiermath": {
+    "authors": [
+      "Glazer, Elliot",
+      "Erdil, Ege",
+      "Besiroglu, Tamay",
+      "Chicharro, Diego",
+      "Chen, Evan",
+      "Gunning, Alex",
+      "Olsson, Caroline Falkman",
+      "Denain, Jean-Stanislas",
+      "Ho, Anson",
+      "Santos, Emily de Oliveira",
+      "Järviniemi, Olli",
+      "Barnett, Matthew",
+      "Sandler, Robert",
+      "Vrzala, Matej",
+      "Sevilla, Jaime",
+      "Ren, Qiuyu",
+      "Pratt, Elizabeth",
+      "Levine, Lionel",
+      "Barkley, Grant",
+      "Stewart, Natalie",
+      "Grechuk, Bogdan",
+      "Grechuk, Tetiana",
+      "Enugandla, Shreepranav Varma",
+      "Wildon, Mark"
+    ],
+    "source": "https://arxiv.org/abs/2411.04872",
+    "source_title": "FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "autora": {
+    "authors": [
+      "Sebastian Musslick",
+      "Benjamin Andrew",
+      "Chad C. Williams",
+      "Joshua T. s. Hewson",
+      "Sida Li",
+      "Ioana Marinescu",
+      "Marina Dubova",
+      "George T. Dang",
+      "Younes Strittmatter",
+      "John G. Holland"
+    ],
+    "source": "https://joss.theoj.org/papers/10.21105/joss.06839",
+    "source_title": "AutoRA: Automated Research Assistant for Closed-Loop Empirical Research",
+    "doi": "10.21105/joss.06839",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "deep-adaptive-design": {
+    "authors": [
+      "Adam Foster",
+      "Desi R Ivanova",
+      "Ilyas Malik",
+      "Tom Rainforth"
+    ],
+    "source": "https://proceedings.mlr.press/v139/foster21a.html",
+    "source_title": "Deep Adaptive Design: Amortizing Sequential Bayesian Experimental Design",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "popper": {
+    "authors": [
+      "Kexin Huang",
+      "Ying Jin",
+      "Ryan Li",
+      "Michael Y. Li",
+      "Emmanuel Candes",
+      "Jure Leskovec"
+    ],
+    "source": "https://proceedings.mlr.press/v267/huang25n.html",
+    "source_title": "Automated Hypothesis Validation with Agentic Sequential Falsifications",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "aide": {
+    "authors": [
+      "Jiang, Zhengyao",
+      "Schmidt, Dominik",
+      "Srikanth, Dhruv",
+      "Xu, Dixing",
+      "Kaplan, Ian",
+      "Jacenko, Deniss",
+      "Wu, Yuxiang"
+    ],
+    "source": "https://arxiv.org/abs/2502.13138",
+    "source_title": "AIDE: AI-Driven Exploration in the Space of Code",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "rd-agent": {
+    "authors": [
+      "Yang, Xu",
+      "Yang, Xiao",
+      "Fang, Shikai",
+      "Zhang, Yifei",
+      "Wang, Jian",
+      "Xian, Bowen",
+      "Li, Qizheng",
+      "Li, Jingyuan",
+      "Xu, Minrui",
+      "Li, Yuante",
+      "Pan, Haoran",
+      "Zhang, Yuge",
+      "Liu, Weiqing",
+      "Shen, Yelong",
+      "Chen, Weizhu",
+      "Bian, Jiang"
+    ],
+    "source": "https://arxiv.org/abs/2505.14738",
+    "source_title": "R&D-Agent: An LLM-Agent Framework Towards Autonomous Data Science",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "curie": {
+    "authors": [
+      "Kon, Patrick Tser Jern",
+      "Liu, Jiachen",
+      "Ding, Qiuyi",
+      "Qiu, Yiming",
+      "Yang, Zhenning",
+      "Huang, Yibo",
+      "Srinivasa, Jayanth",
+      "Lee, Myungjin",
+      "Chowdhury, Mosharaf",
+      "Chen, Ang"
+    ],
+    "source": "https://arxiv.org/abs/2502.16069",
+    "source_title": "Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "core-bench": {
+    "authors": [
+      "Siegel, Zachary S.",
+      "Kapoor, Sayash",
+      "Nadgir, Nitya",
+      "Stroebl, Benedikt",
+      "Narayanan, Arvind"
+    ],
+    "source": "https://arxiv.org/abs/2409.11363",
+    "source_title": "CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scienceworld": {
+    "authors": [
+      "Ruoyao Wang",
+      "Peter Jansen",
+      "Marc-Alexandre Côté",
+      "Prithviraj Ammanabrolu"
+    ],
+    "source": "https://aclanthology.org/2022.emnlp-main.775/",
+    "source_title": "ScienceWorld: Is your Agent Smarter than a 5th Grader?",
+    "doi": "10.18653/v1/2022.emnlp-main.775",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scicode": {
+    "authors": [
+      "Tian, Minyang",
+      "Gao, Luyu",
+      "Zhang, Shizhuo Dylan",
+      "Chen, Xinan",
+      "Fan, Cunwei",
+      "Guo, Xuefei",
+      "Haas, Roland",
+      "Ji, Pan",
+      "Krongchon, Kittithat",
+      "Li, Yao",
+      "Liu, Shengyan",
+      "Luo, Di",
+      "Ma, Yutao",
+      "Tong, Hao",
+      "Trinh, Kha",
+      "Tian, Chenyu",
+      "Wang, Zihan",
+      "Wu, Bohao",
+      "Xiong, Yanyu",
+      "Yin, Shengzhu",
+      "Zhu, Minhui",
+      "Lieret, Kilian",
+      "Lu, Yanxin",
+      "Liu, Genglin",
+      "Du, Yufeng",
+      "Tao, Tianhua",
+      "Press, Ofir",
+      "Callan, Jamie",
+      "Huerta, Eliu",
+      "Peng, Hao"
+    ],
+    "source": "https://arxiv.org/abs/2407.13168",
+    "source_title": "SciCode: A Research Coding Benchmark Curated by Scientists",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "many-ai-analysts-one-dataset": {
+    "authors": [
+      "Bertran, Martin",
+      "Fogliato, Riccardo",
+      "Wu, Zhiwei Steven"
+    ],
+    "source": "https://arxiv.org/abs/2602.18710",
+    "source_title": "Many AI Analysts, One Dataset: Navigating the Agentic Data Science Multiverse",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "researchtrails": {
+    "authors": [
+      "Gong, Xuchen",
+      "Gu, Shane",
+      "Liu, Haokun",
+      "Yao, Dixi",
+      "Tan, Chenhao",
+      "Li, Tian"
+    ],
+    "source": "https://arxiv.org/abs/2610.07184",
+    "source_title": "Learning Scientific Exploration from Human Research Decision Trajectories",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scisense": {
+    "authors": [
+      "Mooney, James",
+      "Kim, Zae Myung",
+      "Lee, Young-Jun",
+      "Kang, Dongyeop"
+    ],
+    "source": "https://arxiv.org/abs/2605.00557",
+    "source_title": "Structure Liberates: How Constrained Sensemaking Produces More Novel Research Output",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "mle-ideator": {
+    "authors": [
+      "Yunxiang Zhang",
+      "Kang Zhou",
+      "Zhichao Xu",
+      "Kiran Ramnath",
+      "Yun Zhou",
+      "Sangmin Woo",
+      "Haibo Ding",
+      "Lin Lee Cheong"
+    ],
+    "source": "https://aclanthology.org/2026.eacl-short.32/",
+    "source_title": "Learning to Ideate for Machine Learning Engineering Agents",
+    "doi": "10.18653/v1/2026.eacl-short.32",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "internagent-1-5": {
+    "authors": [
+      "Feng, Shiyang",
+      "Ma, Runmin",
+      "Yan, Xiangchao",
+      "Fan, Yue",
+      "Hu, Yusong",
+      "Huang, Songtao",
+      "Zhang, Shuaiyu",
+      "Cao, Zongsheng",
+      "Peng, Tianshuo",
+      "Yuan, Jiakang",
+      "Guo, Zijie",
+      "Zhong, Zhijie",
+      "Du, Shangheng",
+      "Wang, Weida",
+      "Shi, Jinxin",
+      "Zhou, Yuhao",
+      "He, Xiaohan",
+      "Yu, Zhiyin",
+      "Yu, Fangchen",
+      "Zheng, Qihao",
+      "Wu, Jiamin",
+      "Liu, Mianxin",
+      "Zhang, Chi",
+      "Hou, Shaowei",
+      "Li, Shuya",
+      "Jiang, Yankai",
+      "Lou, Wenjie",
+      "Wang, Lilong",
+      "Wang, Zifu",
+      "Wang, Jiong",
+      "Xu, Wanghan",
+      "Deng, Yue",
+      "Liu, Dongrui",
+      "Wang, Yiheng",
+      "Zhang, Wenlong",
+      "Ling, Fenghua",
+      "Zhang, Shufei",
+      "Wang, Xiaosong",
+      "Zheng, Shuangjia",
+      "Huang, Xun",
+      "Sun, Siqi",
+      "Hu, Shuyue",
+      "Ye, Peng",
+      "Song, Chunfeng",
+      "Wang, Bin",
+      "He, Conghui",
+      "Liu, Yihao",
+      "Li, Xin",
+      "Hou, Qibin",
+      "Chen, Tao",
+      "Yue, Xiangyu",
+      "Wang, Bin",
+      "He, Liang",
+      "Lin, Dahua",
+      "Zhou, Bowen",
+      "Zhang, Bo",
+      "Bai, Lei"
+    ],
+    "source": "https://arxiv.org/abs/2602.08990",
+    "source_title": "InternAgent-1.5: A Unified Agentic Framework for Long-Horizon Autonomous Scientific Discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "autoresearchclaw": {
+    "authors": [
+      "Liu, Jiaqi",
+      "Qiu, Shi",
+      "Li, Mairui",
+      "Li, Bingzhou",
+      "Ji, Haonian",
+      "Han, Siwei",
+      "Ye, Xinyu",
+      "Xia, Peng",
+      "Dong, Zihan",
+      "Chen, Meng",
+      "Zhang, Congyu",
+      "Zhang, Letian",
+      "Chen, Guiming",
+      "Tu, Haoqin",
+      "Yang, Xinyu",
+      "Feng, Lu",
+      "Zhao, Xujiang",
+      "Chen, Haifeng",
+      "Zhou, Jiawei",
+      "Wang, Xiao",
+      "Zhang, Weitong",
+      "Zhu, Hongtu",
+      "Li, Yun",
+      "Mei, Jieru",
+      "Fei, Hongliang",
+      "Zhang, Jiaheng",
+      "Li, Linjie",
+      "Zhang, Linjun",
+      "Zhou, Yuyin",
+      "Wang, Sheng",
+      "Xiong, Caiming",
+      "Zou, James",
+      "Zheng, Zeyu",
+      "Xie, Cihang",
+      "Ding, Mingyu",
+      "Yao, Huaxiu"
+    ],
+    "source": "https://arxiv.org/abs/2605.20025",
+    "source_title": "AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "bilevel-autoresearch": {
+    "authors": [
+      "Qu, Yaonan",
+      "Lu, Meng"
+    ],
+    "source": "https://arxiv.org/abs/2603.23420",
+    "source_title": "Bilevel Autoresearch: Meta-Autoresearching Itself",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ttt-discover": {
+    "authors": [
+      "Mert Yuksekgonul",
+      "Daniel Koceja",
+      "Xinhao Li",
+      "Federico Bianchi",
+      "Jed Mccaleb",
+      "Xiaolong Wang",
+      "Jan Kautz",
+      "Yejin Choi",
+      "James Zou",
+      "Carlos Guestrin",
+      "Yu Sun"
+    ],
+    "source": "https://proceedings.mlr.press/v306/yuksekgonul26a.html",
+    "source_title": "Learning to Discover at Test Time",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "or-agent": {
+    "authors": [
+      "Liu, Qi",
+      "Hao, Ruochen",
+      "Li, Can",
+      "Ma, Wanjing"
+    ],
+    "source": "https://arxiv.org/abs/2602.13769",
+    "source_title": "OR-Agent: Bridging Evolutionary Search and Structured Research for Automated Heuristic Design",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "evolution-fine-tuning": {
+    "authors": [
+      "Lee, Young-Jun",
+      "Kim, Seungone",
+      "Kang, Minki",
+      "Chuen, Alistair Cheong Liang",
+      "Chen, Zerui",
+      "Han, Seungho",
+      "Jung, Taehee",
+      "Kang, Dongyeop"
+    ],
+    "source": "https://arxiv.org/abs/2606.29082",
+    "source_title": "Evolution Fine-Tuning: Learning to Discover Across 371 Optimization Tasks",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "agentrxiv": {
+    "authors": [
+      "Schmidgall, Samuel",
+      "Moor, Michael"
+    ],
+    "source": "https://arxiv.org/abs/2503.18102",
+    "source_title": "AgentRxiv: Towards Collaborative Autonomous Research",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "evoscientist": {
+    "authors": [
+      "Lyu, Yougang",
+      "Zhang, Xi",
+      "Zhao, Yuyue",
+      "Papakostas, Konstantinos",
+      "Yi, Xinhao",
+      "Guo, Shuyu",
+      "Hu, Wenxiang",
+      "Piotrowski, Jan",
+      "Kaliski, Jakub",
+      "Urbani, Jacopo",
+      "Meng, Zaiqiao",
+      "Zhou, Lun",
+      "Ren, Zhaochun",
+      "Yan, Xiaohui"
+    ],
+    "source": "https://arxiv.org/abs/2603.08127",
+    "source_title": "EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "agora": {
+    "authors": [
+      "Zhang, Yifan",
+      "Zou, Yunheng",
+      "Zhang, Shaokun",
+      "Hu, Jian",
+      "Zhang, Hao",
+      "Xu, Binfeng",
+      "Kautz, Jan",
+      "Dong, Yi"
+    ],
+    "source": "https://arxiv.org/abs/2609.18094",
+    "source_title": "Agora: Git as Shared Memory for Collective AutoResearch",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "hypoforge": {
+    "authors": [
+      "Qian, Ziqing",
+      "Lei, Jiaying",
+      "Wang, Yifang",
+      "Cao, Nan"
+    ],
+    "source": "https://arxiv.org/abs/2608.25770",
+    "source_title": "HypoForge: A Self-Improving Multi-Agent Framework for Automated Hypothesis Generation and Testing via Scientific Skill Learning",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "cycleresearcher": {
+    "authors": [
+      "Weng, Yixuan",
+      "Zhu, Minjun",
+      "Bao, Guangsheng",
+      "Zhang, Hongbo",
+      "Wang, Jindong",
+      "Zhang, Yue",
+      "Yang, Linyi"
+    ],
+    "source": "https://arxiv.org/abs/2411.00816",
+    "source_title": "CycleResearcher: Improving Automated Research via Automated Review",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "dolphin": {
+    "authors": [
+      "Jiakang Yuan",
+      "Xiangchao Yan",
+      "Bo Zhang",
+      "Tao Chen",
+      "Botian Shi",
+      "Wanli Ouyang",
+      "Yu Qiao",
+      "Lei Bai",
+      "Bowen Zhou"
+    ],
+    "source": "https://aclanthology.org/2025.acl-long.1056/",
+    "source_title": "Dolphin: Moving Towards Closed-loop Auto-research through Thinking, Practice, and Feedback",
+    "doi": "10.18653/v1/2025.acl-long.1056",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "reflexion": {
+    "authors": [
+      "Shinn, Noah",
+      "Cassano, Federico",
+      "Berman, Edward",
+      "Gopinath, Ashwin",
+      "Narasimhan, Karthik",
+      "Yao, Shunyu"
+    ],
+    "source": "https://arxiv.org/abs/2303.11366",
+    "source_title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "adas": {
+    "authors": [
+      "Hu, Shengran",
+      "Lu, Cong",
+      "Clune, Jeff"
+    ],
+    "source": "https://arxiv.org/abs/2408.08435",
+    "source_title": "Automated Design of Agentic Systems",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "darwin-godel-machine": {
+    "authors": [
+      "Zhang, Jenny",
+      "Hu, Shengran",
+      "Lu, Cong",
+      "Lange, Robert",
+      "Clune, Jeff"
+    ],
+    "source": "https://arxiv.org/abs/2505.22954",
+    "source_title": "Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "colah-taste-exercises": {
+    "authors": [
+      "Olah, Chris"
+    ],
+    "source": "https://colah.github.io/notes/taste/",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "karpathy-phd-guide": {
+    "authors": [
+      "Karpathy, Andrej"
+    ],
+    "source": "https://karpathy.github.io/2016/09/07/phd/",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "hamming-you-and-your-research": {
+    "authors": [
+      "Hamming, Richard W."
+    ],
+    "source": "https://www.cs.virginia.edu/~robins/YouAndYourResearch",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "research-debt": {
+    "authors": [
+      "Olah, Chris",
+      "Carter, Shan"
+    ],
+    "source": "https://distill.pub/2017/research-debt/",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "nielsen-research-heuristics": {
+    "authors": [
+      "Nielsen, Michael"
+    ],
+    "source": "https://michaelnotebook.com/qtr/index.html",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "vision-of-metascience": {
+    "authors": [
+      "Nielsen, Michael",
+      "Qiu, Kanjun"
+    ],
+    "source": "https://scienceplusplus.org/metascience/index.html",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "ideasynth": {
+    "authors": [
+      "Pu, Kevin",
+      "Feng, K. J. Kevin",
+      "Grossman, Tovi",
+      "Hope, Tom",
+      "Mishra, Bhavana Dalvi",
+      "Latzke, Matt",
+      "Bragg, Jonathan",
+      "Chang, Joseph Chee",
+      "Siangliulue, Pao"
+    ],
+    "source": "https://arxiv.org/abs/2410.04025",
+    "source_title": "IdeaSynth: Iterative Research Idea Development Through Evolving and Composing Idea Facets with Literature-Grounded Feedback",
+    "doi": "10.1145/3706598.3714057",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "coquest": {
+    "authors": [
+      "Liu, Yiren",
+      "Chen, Si",
+      "Cheng, Haocong",
+      "Yu, Mengxia",
+      "Ran, Xiao",
+      "Mo, Andrew",
+      "Tang, Yiliu",
+      "Huang, Yun"
+    ],
+    "source": "https://arxiv.org/abs/2310.06155",
+    "source_title": "CoQuest: Exploring Research Question Co-Creation with an LLM-based Agent",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "hypogenic": {
+    "authors": [
+      "Yangqiaoyu Zhou",
+      "Haokun Liu",
+      "Tejes Srivastava",
+      "Hongyuan Mei",
+      "Chenhao Tan"
+    ],
+    "source": "https://aclanthology.org/2024.nlp4science-1.10/",
+    "source_title": "Hypothesis Generation with Large Language Models",
+    "doi": "10.18653/v1/2024.nlp4science-1.10",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "hyporefine": {
+    "authors": [
+      "Haokun Liu",
+      "Yangqiaoyu Zhou",
+      "Mingxuan Li",
+      "Chenfei Yuan",
+      "Chenhao Tan"
+    ],
+    "source": "https://aclanthology.org/2025.acl-long.12/",
+    "source_title": "Literature Meets Data: A Synergistic Approach to Hypothesis Generation",
+    "doi": "10.18653/v1/2025.acl-long.12",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "moose": {
+    "authors": [
+      "Zonglin Yang",
+      "Xinya Du",
+      "Junxian Li",
+      "Jie Zheng",
+      "Soujanya Poria",
+      "Erik Cambria"
+    ],
+    "source": "https://aclanthology.org/2024.findings-acl.804/",
+    "source_title": "Large Language Models for Automated Open-domain Scientific Hypotheses Discovery",
+    "doi": "10.18653/v1/2024.findings-acl.804",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "sciagents": {
+    "authors": [
+      "Ghafarollahi, Alireza",
+      "Buehler, Markus J."
+    ],
+    "source": "https://arxiv.org/abs/2409.05556",
+    "source_title": "SciAgents: Automating scientific discovery through multi-agent intelligent graph reasoning",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ideabench": {
+    "authors": [
+      "Guo, Sikun",
+      "Shariatmadari, Amir Hassan",
+      "Xiong, Guangzhi",
+      "Huang, Albert",
+      "Xie, Eric",
+      "Bekiranov, Stefan",
+      "Zhang, Aidong"
+    ],
+    "source": "https://arxiv.org/abs/2411.02429",
+    "source_title": "IdeaBench: Benchmarking Large Language Models for Research Idea Generation",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "liveideabench": {
+    "authors": [
+      "Ruan, Kai",
+      "Wang, Xuan",
+      "Hong, Jixiang",
+      "Wang, Peng",
+      "Liu, Yang",
+      "Sun, Hao"
+    ],
+    "source": "https://www.nature.com/articles/s41467-026-70245-1",
+    "source_title": "Evaluating LLMs' divergent thinking capabilities for scientific idea generation with minimal context",
+    "doi": "10.1038/s41467-026-70245-1",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "opennovelty": {
+    "authors": [
+      "Zhang, Ming",
+      "Tan, Kexin",
+      "Huang, Yueyuan",
+      "Shen, Yujiong",
+      "Ma, Chunchun",
+      "Ju, Li",
+      "Zhang, Xinran",
+      "Wang, Yuhui",
+      "Jing, Wenqing",
+      "Deng, Jingyi",
+      "Sha, Huayu",
+      "Hu, Binze",
+      "Tong, Jingqi",
+      "Jiang, Changhao",
+      "Geng, Yage",
+      "Ying, Yuankai",
+      "Zhang, Yue",
+      "Yin, Zhangyue",
+      "Xi, Zhiheng",
+      "Dou, Shihan",
+      "Gui, Tao",
+      "Zhang, Qi",
+      "Huang, Xuanjing"
+    ],
+    "source": "https://arxiv.org/abs/2601.01576",
+    "source_title": "OpenNovelty: An LLM-powered Agentic System for Verifiable Scholarly Novelty Assessment",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "innoeval": {
+    "authors": [
+      "Qiao, Shuofei",
+      "Wei, Yunxiang",
+      "Wang, Xuehai",
+      "Wu, Bin",
+      "Xue, Boyang",
+      "Zhang, Ningyu",
+      "Rahmani, Hossein A.",
+      "Wang, Yanshan",
+      "Zhang, Qiang",
+      "Ding, Keyan",
+      "Pan, Jeff Z.",
+      "Chen, Huajun",
+      "Yilmaz, Emine"
+    ],
+    "source": "https://arxiv.org/abs/2602.14367",
+    "source_title": "InnoEval: On Research Idea Evaluation as a Knowledge-Grounded, Multi-Perspective Reasoning Problem",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ai-can-learn-scientific-taste": {
+    "authors": [
+      "Tong, Jingqi",
+      "Li, Mingzhe",
+      "Li, Hangcheng",
+      "Yang, Yongzhuo",
+      "Mou, Yurong",
+      "Ma, Weijie",
+      "Chen, Hongji",
+      "Liu, Xiaoran",
+      "Cheng, Qinyuan",
+      "Zhang, Ming",
+      "Chen, Qiguang",
+      "Ge, Weifeng",
+      "Guo, Qipeng",
+      "Ying, Tianlei",
+      "Sun, Tianxiang",
+      "Zheng, Yining",
+      "Xi, Zhiheng",
+      "Chen, Xinchi",
+      "Zhao, Jun",
+      "Ding, Ning",
+      "Huang, Xuanjing",
+      "Jiang, Yu-Gang",
+      "Qiu, Xipeng"
+    ],
+    "source": "https://arxiv.org/abs/2603.14473",
+    "source_title": "AI Can Learn Scientific Taste",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "tasteval": {
+    "authors": [
+      "Jaffe, Oliver",
+      "Sherburn, Dane"
+    ],
+    "source": "https://arxiv.org/abs/2610.06824",
+    "source_title": "TasteVal: Measuring the Experimental Research Taste of AI Systems Against Human Experts",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "hindsight": {
+    "authors": [
+      "Jiang, Bo"
+    ],
+    "source": "https://arxiv.org/abs/2603.15164",
+    "source_title": "HindSight: Evaluating LLM-Generated Research Ideas via Future Impact",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scistylebench": {
+    "authors": [
+      "Ji, Fengxian",
+      "Li, Yuke",
+      "Yang, Jingpu",
+      "Wu, Juanfan",
+      "Zhang, Fan",
+      "Cui, Zhexuan",
+      "Xie, Yu",
+      "Peng, Min",
+      "Xie, Qianqian",
+      "Chen, Xiuying",
+      "Xie, Zhuohan"
+    ],
+    "source": "https://arxiv.org/abs/2608.01666",
+    "source_title": "Style Wins, Substance Loses: A Diagnosis of LLM-as-Judge in Idea Generation",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "rinobench": {
+    "authors": [
+      "Tim Schopf",
+      "Michael Färber"
+    ],
+    "source": "https://aclanthology.org/2026.lrec-1.370/",
+    "source_title": "Is This Idea Novel? An Automated Benchmark for Judgment of Research Ideas",
+    "doi": "10.63317/4c3gy3f7epnj",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ideation-execution-gap": {
+    "authors": [
+      "Si, Chenglei",
+      "Hashimoto, Tatsunori",
+      "Yang, Diyi"
+    ],
+    "source": "https://arxiv.org/abs/2506.20803",
+    "source_title": "The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "llm-novel-research-ideas-human-study": {
+    "authors": [
+      "Si, Chenglei",
+      "Yang, Diyi",
+      "Hashimoto, Tatsunori"
+    ],
+    "source": "https://arxiv.org/abs/2409.04109",
+    "source_title": "Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scimon": {
+    "authors": [
+      "Qingyun Wang",
+      "Doug Downey",
+      "Heng Ji",
+      "Tom Hope"
+    ],
+    "source": "https://aclanthology.org/2024.acl-long.18/",
+    "source_title": "SciMON: Scientific Inspiration Machines Optimized for Novelty",
+    "doi": "10.18653/v1/2024.acl-long.18",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "researchagent": {
+    "authors": [
+      "Jinheon Baek",
+      "Sujay Kumar Jauhar",
+      "Silviu Cucerzan",
+      "Sung Ju Hwang"
+    ],
+    "source": "https://aclanthology.org/2025.naacl-long.342/",
+    "source_title": "ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models",
+    "doi": "10.18653/v1/2025.naacl-long.342",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scideator": {
+    "authors": [
+      "Radensky, Marissa",
+      "Shahid, Simra",
+      "Fok, Raymond",
+      "Siangliulue, Pao",
+      "Hope, Tom",
+      "Weld, Daniel S."
+    ],
+    "source": "https://arxiv.org/abs/2409.14634",
+    "source_title": "Human-LLM Compound System for Scientific Ideation through Facet Recombination and Novelty Evaluation",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "scipip": {
+    "authors": [
+      "Wang, Wenxiao",
+      "Gu, Lihui",
+      "Zhang, Liye",
+      "Luo, Yunxiang",
+      "Dai, Yi",
+      "Shen, Chen",
+      "Xie, Liang",
+      "Lin, Binbin",
+      "He, Xiaofei",
+      "Ye, Jieping"
+    ],
+    "source": "https://arxiv.org/abs/2410.23166",
+    "source_title": "SciPIP: An LLM-based Scientific Paper Idea Proposer",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "chain-of-ideas": {
+    "authors": [
+      "Long Li",
+      "Weiwen Xu",
+      "Jiayan Guo",
+      "Ruochen Zhao",
+      "Xingxuan Li",
+      "Yuqian Yuan",
+      "Boqiang Zhang",
+      "Yuming Jiang",
+      "Yifei Xin",
+      "Ronghao Dang",
+      "Yu Rong",
+      "Deli Zhao",
+      "Tian Feng",
+      "Lidong Bing"
+    ],
+    "source": "https://aclanthology.org/2025.findings-emnlp.477/",
+    "source_title": "Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents",
+    "doi": "10.18653/v1/2025.findings-emnlp.477",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ai-scientist": {
+    "authors": [
+      "Lu, Chris",
+      "Lu, Cong",
+      "Lange, Robert Tjarko",
+      "Foerster, Jakob",
+      "Clune, Jeff",
+      "Ha, David"
+    ],
+    "source": "https://arxiv.org/abs/2408.06292",
+    "source_title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ai-scientist-v2": {
+    "authors": [
+      "Yamada, Yutaro",
+      "Lange, Robert Tjarko",
+      "Lu, Cong",
+      "Hu, Shengran",
+      "Lu, Chris",
+      "Foerster, Jakob",
+      "Clune, Jeff",
+      "Ha, David"
+    ],
+    "source": "https://arxiv.org/abs/2504.08066",
+    "source_title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "ai-researcher": {
+    "authors": [
+      "Tang, Jiabin",
+      "Xia, Lianghao",
+      "Li, Zhonghang",
+      "Huang, Chao"
+    ],
+    "source": "https://arxiv.org/abs/2505.18705",
+    "source_title": "AI-Researcher: Autonomous Scientific Innovation",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "agent-laboratory": {
+    "authors": [
+      "Samuel Schmidgall",
+      "Yusheng Su",
+      "Ze Wang",
+      "Ximeng Sun",
+      "Jialian Wu",
+      "Xiaodong Yu",
+      "Jiang Liu",
+      "Michael Moor",
+      "Zicheng Liu",
+      "Emad Barsoum"
+    ],
+    "source": "https://aclanthology.org/2025.findings-emnlp.320/",
+    "source_title": "Agent Laboratory: Using LLM Agents as Research Assistants",
+    "doi": "10.18653/v1/2025.findings-emnlp.320",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "co-scientist": {
+    "authors": [
+      "Gottweis, Juraj",
+      "Weng, Wei-Hung",
+      "Daryin, Alexander",
+      "Tu, Tao",
+      "Sirkovic, Petar",
+      "Myaskovsky, Artiom",
+      "Glowaty, Grzegorz",
+      "Weissenberger, Felix",
+      "Orlandi, Alessio",
+      "Popovici, Dan",
+      "Palepu, Anil",
+      "Rong, Keran",
+      "Tanno, Ryutaro",
+      "Saab, Khaled",
+      "Zhang, Fan",
+      "Blum, Jacob",
+      "Carroll, Andrew",
+      "Kulkarni, Kavita",
+      "Tomašev, Nenad",
+      "Zverinski, Dina",
+      "Rendulic, Ivor",
+      "Vedadi, Elahe",
+      "Hasler, Florian",
+      "Rimanic, Luka",
+      "Boia, Marina",
+      "Budiselic, Ivan",
+      "Feinstein, Ben",
+      "Bellaiche, Mathias",
+      "Sheffer, Tom",
+      "Freyberg, Jan",
+      "Ratcliff, Jeremy",
+      "Bertolli, Ottavia",
+      "Chou, Katherine",
+      "Hassidim, Avinatan",
+      "Gokturk, Burak",
+      "Vahdat, Amin",
+      "Guan, Yuan",
+      "Dhillon, Vikram",
+      "Vaishnav, Eeshit Dhaval",
+      "Lee, Byron",
+      "Costa, Tiago R. D.",
+      "Penadés, José R.",
+      "Peltz, Gary",
+      "Matias, Yossi",
+      "Manyika, James",
+      "Hassabis, Demis",
+      "Xu, Yunhan",
+      "Kohli, Pushmeet",
+      "Pawlosky, Annalisa",
+      "Karthikesalingam, Alan",
+      "Natarajan, Vivek"
+    ],
+    "source": "https://www.nature.com/articles/s41586-026-10644-y",
+    "source_title": "Accelerating scientific discovery with Co-Scientist",
+    "doi": "10.1038/s41586-026-10644-y",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "kosmos": {
+    "authors": [
+      "Mitchener, Ludovico",
+      "Yiu, Angela",
+      "Chang, Benjamin",
+      "Bourdenx, Mathieu",
+      "Nadolski, Tyler",
+      "Sulovari, Arvis",
+      "Landsness, Eric C.",
+      "Barabasi, Daniel L.",
+      "Narayanan, Siddharth",
+      "Evans, Nicky",
+      "Reddy, Shriya",
+      "Foiani, Martha",
+      "Kamal, Aizad",
+      "Shriver, Leah P.",
+      "Cao, Fang",
+      "Wassie, Asmamaw T.",
+      "Laurent, Jon M.",
+      "Melville-Green, Edwin",
+      "Caldas, Mayk",
+      "Bou, Albert",
+      "Roberts, Kaleigh F.",
+      "Zagorac, Sladjana",
+      "Orr, Timothy C.",
+      "Orr, Miranda E.",
+      "Zwezdaryk, Kevin J.",
+      "Ghareeb, Ali E.",
+      "McCoy, Laurie",
+      "Gomes, Bruna",
+      "Ashley, Euan A.",
+      "Duff, Karen E.",
+      "Buonassisi, Tonio",
+      "Rainforth, Tom",
+      "Bateman, Randall J.",
+      "Skarlinski, Michael",
+      "Rodriques, Samuel G.",
+      "Hinks, Michaela M.",
+      "White, Andrew D."
+    ],
+    "source": "https://arxiv.org/abs/2511.02824",
+    "source_title": "Kosmos: An AI Scientist for Autonomous Discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "funsearch": {
+    "authors": [
+      "Romera-Paredes, Bernardino",
+      "Barekatain, Mohammadamin",
+      "Novikov, Alexander",
+      "Balog, Matej",
+      "Kumar, M. Pawan",
+      "Dupont, Emilien",
+      "Ruiz, Francisco J. R.",
+      "Ellenberg, Jordan S.",
+      "Wang, Pengming",
+      "Fawzi, Omar",
+      "Kohli, Pushmeet",
+      "Fawzi, Alhussein"
+    ],
+    "source": "https://www.nature.com/articles/s41586-023-06924-6",
+    "source_title": "Mathematical discoveries from program search with large language models",
+    "doi": "10.1038/s41586-023-06924-6",
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "alphaevolve": {
+    "authors": [
+      "Novikov, Alexander",
+      "Vũ, Ngân",
+      "Eisenberger, Marvin",
+      "Dupont, Emilien",
+      "Huang, Po-Sen",
+      "Wagner, Adam Zsolt",
+      "Shirobokov, Sergey",
+      "Kozlovskii, Borislav",
+      "Ruiz, Francisco J. R.",
+      "Mehrabian, Abbas",
+      "Kumar, M. Pawan",
+      "See, Abigail",
+      "Chaudhuri, Swarat",
+      "Holland, George",
+      "Davies, Alex",
+      "Nowozin, Sebastian",
+      "Kohli, Pushmeet",
+      "Balog, Matej"
+    ],
+    "source": "https://arxiv.org/abs/2506.13131",
+    "source_title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "autoresearch": {
+    "authors": [
+      "Karpathy, Andrej"
+    ],
+    "source": "https://github.com/karpathy/autoresearch",
+    "method": "primary-source manual attribution",
+    "checked_on": "2026-10-26"
+  },
+  "arbor": {
+    "authors": [
+      "Jin, Jiajie",
+      "Hu, Yuyang",
+      "Qiu, Kai",
+      "Dai, Qi",
+      "Luo, Chong",
+      "Dong, Guanting",
+      "Li, Xiaoxi",
+      "Zhao, Tong",
+      "Ma, Xiaolong",
+      "Zhang, Gongrui",
+      "Wu, Zhirong",
+      "Liu, Bei",
+      "Yang, Zhengyuan",
+      "Li, Linjie",
+      "Wang, Lijuan",
+      "Qian, Hongjin",
+      "Zhu, Yutao",
+      "Dou, Zhicheng"
+    ],
+    "source": "https://arxiv.org/abs/2606.11926",
+    "source_title": "Toward Generalist Autonomous Research via Hypothesis-Tree Refinement",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  },
+  "aletheia": {
+    "authors": [
+      "Feng, Tony",
+      "Trinh, Trieu H.",
+      "Bingham, Garrett",
+      "Hwang, Dawsen",
+      "Chervonyi, Yuri",
+      "Jung, Junehyuk",
+      "Lee, Joonkyung",
+      "Pagano, Carlo",
+      "Kim, Sang-hyun",
+      "Pasqualotto, Federico",
+      "Gukov, Sergei",
+      "Lee, Jonathan N.",
+      "Kim, Junsu",
+      "Hou, Kaiying",
+      "Ghiasi, Golnaz",
+      "Tay, Yi",
+      "Li, YaGuang",
+      "Kuang, Chenkai",
+      "Liu, Yuan",
+      "Lin, Hanzhao",
+      "Liu, Evan Zheran",
+      "Nayakanti, Nigamaa",
+      "Yang, Xiaomeng",
+      "Cheng, Heng-Tze",
+      "Hassabis, Demis",
+      "Kavukcuoglu, Koray",
+      "Le, Quoc V.",
+      "Luong, Thang"
+    ],
+    "source": "https://arxiv.org/abs/2602.10177",
+    "source_title": "Towards Autonomous Mathematics Research",
+    "doi": null,
+    "method": "citation meta tags",
+    "checked_on": "2026-10-26"
+  }
+}

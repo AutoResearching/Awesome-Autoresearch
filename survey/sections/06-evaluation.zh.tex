@@ -1,0 +1,74 @@
+\section{Q5：如何评价更好的科研？}
+\label{sec:evaluation}
+
+评价 AI researcher，首先需要说明哪些决策由 agent 作出、哪些条件由评估者提供。答案正确、模型改进、结果复现与问题值得研究，是不同的成就。现有评价工作提供了测量科研不同环节的工具，而非统一的科学能力刻度。本节按输入条件、决策自由度和验证程序组织这些工具，再提出把问题质量与后续证据连接起来的研究方案。
+
+\subsection{现有评价实际测量什么}
+
+MLAgentBench 通过文件操作、代码执行和迭代式模型改进，使实验过程可被观察；MLE-bench 将此类行为放入源自 Kaggle 的预测任务；MLGym 则支持更多任务环境和研究产物，包括算法研究场景。三者共同提供可执行的反馈循环，但任务与成功标准仍由外部给定。MLGym 明确区分其 baseline-improvement benchmark 与更高层次的科研能力。AIRS-Bench 从论文中构建任务且不提供基线代码，增加了实现自由度，却仍指定问题、数据集与评价指标。这些变化扩大了执行难度和范围，并不意味着问题选择已由 agent 自主完成 \cite{mlagentbench,mle-bench,mlgym,airs-bench}。
+
+RE-Bench 引入人类专家尝试，并比较时间预算和重复尝试的不同分配方式，说明性能结论需要注明资源条件，不能只比较单个最高分。FML-bench 则控制代码编辑和执行基础设施，隔离“下一步尝试什么”的研究决策，将验证反馈与最终 held-out test 分开，并记录搜索行为。其实验步数预算并不等于所有推理成本相同：额外 reasoning calls 仍会消耗资源。这两类设计帮助区分工程基础设施、科研策略与可用计算机会 \cite{re-bench,fml-bench}。
+
+复现提供了另一种可测量目标。CORE-Bench 从已有计算研究产物出发：easy 设置直接提供输出，更难设置则逐步增加环境配置与实际运行要求。PaperBench 从论文及补充说明出发，要求实现方法，并分别评价代码开发、执行和结果匹配；其 Code-Dev 变体省略复现运行，因此支持的结论更窄。PaperBench 还使用人工标签独立评价自动 judge。复现已有产物与依据论文独立实现是互补能力，二者均不能确立新选研究问题的价值 \cite{core-bench,paperbench}。
+
+ScienceAgentBench 区分程序成功运行与满足科学任务的输出要求，其检查采用任务特定标准，并未给出科学发现的统一定义。SciCode 测试通过可运行程序表达科学知识的能力，包含子问题结构，以及是否提供科学背景或中间答案等不同设置。DiscoveryBench 进一步评价假设内容，把发现的关系分解为多个 facets，再与参考发现比较。这些工作分别强调科研流程可靠性、scientific coding 和数据支持的发现恢复，但仍保留外部指定的任务或发现目标 \cite{scienceagentbench,scicode,discoverybench}。
+
+交互环境让调查过程本身成为评价对象。ScienceWorld 测试基础科学中的行动式实验；DiscoveryWorld 分别评价任务完成、相关研究步骤和解释性知识，其中知识评价依赖参考内容。受控世界便于检查干预行为，但向真实科研迁移仍是额外问题。FrontierMath 提供答案可自动核验的高难度数学问题；原始 benchmark 不要求形式化验证证明，也不要求 agent 自主选择猜想。易于验证使这些环境有价值，却不会自动让其分数成为科学重要性的度量 \cite{scienceworld,discoveryworld,frontiermath}。
+
+MLR-Bench 在给定研究主题内，将输出扩展到 idea、proposal、实验与论文，并采用结构化 review rubrics；这让预测准确率之外的质量进入评价，同时也使 judge calibration 和独立验证更加必要。Many AI Analysts, One Dataset 提供了互补的方法学研究：固定数据、假设与 estimand，改变模型和 persona 后，分析路径及结论仍会变化。AI auditor 可以过滤方法错误，却无法穷尽人类可接受的分析路径，也不能为每个保留结果提供正确性证明。因此，科研质量不仅取决于最终报告，也取决于生成分析和评价分析的程序 \cite{mlr-bench,many-ai-analysts-one-dataset}。
+
+\begin{table}[tbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}P{0.20\linewidth}YYYY@{}}
+\toprule
+评价类别 & 给定内容 & Agent 决策 & 核验对象 & 尚未覆盖 \\
+\midrule
+MLAgentBench；MLE-bench；MLGym；AIRS-Bench & 任务、数据、指标；初始代码因设置而异 & 模型、代码与实验 & 任务表现 & 问题价值 \\
+RE-Bench；FML-bench & 有限任务与初始方案 & 改进及搜索 & 分数与过程 & 研究议程选择 \\
+CORE-Bench；PaperBench & 研究产物或目标论文 & 配置或实现 & 输出或复现要求 & 新贡献 \\
+ScienceAgentBench；SciCode & 科学任务与输入 & 程序与分析 & 执行与任务测试 & 问题重要性 \\
+DiscoveryBench；MLR-Bench & 发现目标与数据，或研究主题 & 假设或研究方案 & 参考 facets 或评审 rubric & 独立确立的价值 \\
+ScienceWorld；DiscoveryWorld & 模拟世界与任务 & 行动与实验 & 任务与过程；后者另评解释 & 真实世界迁移 \\
+FrontierMath & 数学问题 & 推理与计算 & 提交答案 & 证明与猜想选择 \\
+Many AI Analysts & 数据、假设、estimand & 分析设定 & 经审计的结果变异 & 完备的有效性验证 \\
+\bottomrule
+\end{tabularx}
+\caption{评价工作的决策范围与证据边界。合并行概括相关工具，不表示其协议可互换；Many AI Analysts 是实证研究而非 benchmark。}
+\label{tab:evaluation-boundaries}
+\end{table}
+
+\subsection{从评分到有依据的比较}
+
+我们建议报告多维结果：问题价值、方法有效性、执行成功、可复现性、泛化能力与资源消耗。单一综合分数可以作为补充，但需公开权重。Judge agreement 应在独立保留的人工标注上评价，同时记录分歧和对无支持主张的错误接受；表面一致不等于 ground truth。比较时应固定模型访问、检索条件、可用数据与停止规则，并分别报告 inference tokens、实验计算量、wall time、并行度和人工协助。所有尝试都应纳入资源核算。Best-of-many 结果需要计入筛选成本，依据 validation 选择方案后仍需独立最终测试。任务、评价器、环境版本与完整轨迹归档，使这些结论可以检查。
+
+\subsection{局限与开放问题}
+
+现有工具留下一个核心缺口：benchmark 可以测量在有价值任务上的进展，但任务的价值可能早已由人类选择。基于参考答案的评价可能拒绝有效的新发现，开放式评审又可能偏好有说服力的表述。公开任务可能与预训练或检索材料重叠；新任务能够减少可观察的暴露，却不能证明训练独立性。科学价值也可能在后来被他人使用时才显现，而负结果即使不改善预测指标，也可能提供信息。如何以前瞻方式测量这些性质，同时维持可负担、可重复的比较，仍是开放问题。
+
+\subsection{拟议项目一：从 idea 到结果的前瞻评价}
+
+\paragraph{尚未验证的方案与设计。}
+构建包含 generation 与 selection 两条独立赛道的前瞻 AI research benchmark。在结果产生前，预注册宽泛研究 brief、候选资格、预算，以及重要性、新颖性、可检验性和证据质量 rubric。按相同配额收集人类与 AI 的候选问题，然后冻结文本及来源信息。所有 selector 对同一冻结候选池排序；generation 赛道另行评价各 generator 提供的候选。这样可以避免把更好的执行能力或更有利的候选池误认为更好的选题能力。
+
+\paragraph{数据划分与对照。}
+按研究主题和数据集、代码谱系划分开发集与测试集，并在 agent 开发完成后收集最终前瞻任务批次。隐藏实验测试数据，冻结文献快照并记录后续所有检索。Baselines 包括随机选择、固定 novelty/feasibility heuristic、one-shot model、使用相同基础模型的迭代 agent，以及专家排序。对候选问题进行随机分层抽样，由不了解提案来源和选择分数的独立执行者，在统一资源下运行。已知抽样概率支持对选择偏差作调整；失败、不可行及结论不明确的尝试都保留为显式结果。
+
+\paragraph{结果指标与归因。}
+独立评审者先在不知道实验结果时评价问题价值，再依据冻结 rubric 审查匿名 evidence packages；由另一轮独立复现检查核心发现。报告排序与后续价值评估的一致性、可行性预测校准、单位预算的有效发现、复现结果，以及有信息量的负结果。分别记录事前潜力和事后证据。使用共同 executor 比较被选问题，以隔离 selection；固定问题比较不同执行方案。消融文献访问、迭代 critique 与仅来自开发集的执行反馈，并计入全部成本，而不只对齐候选数量。如果研究目标任务上的 pilot 反馈，应另设独立 track，明确 pilot 预算，在 pilot 后冻结排序，并将独立的最终结果封存至评价时；其结果不得与执行前的选择混合统计。
+
+\paragraph{不确定性与失败风险。}
+采用多个 agent seeds 和多位评审者，按主题或问题聚类估计不确定性，避免将重复实验运行当作独立科研成功。报告评审分歧及对 rubric 权重的敏感性。隐藏的先前暴露、执行者专长差异、选择性执行和不断变化的新颖性标准仍会带来风险；应保留访问日志与裁定记录，并将结论限制在抽样研究分布内。看似较弱的 idea 也可能产生有用证据，因此不应仅以正向效应定义选题质量。
+
+\subsection{拟议项目二：科研评价的稳健性}
+
+\paragraph{尚未验证的方案与任务构建。}
+围绕已经独立检查代码、输出与主张的研究包，构建配对 stress test。结合真实分析和已知数据生成过程的模拟，后者提供已知 null 与 effect。固定 estimand，枚举合理的预处理及建模方案。建立两类独立扰动集：保留科学含义的排版、顺序及修辞置信度变化；以及实质性 negative controls，例如在已知 null 下不受证据支持的正效应主张。同时加入正确报告 null findings 的有效对照：null data 或负结果本身并不意味着研究包无效。领域专家需确认哪些扰动保持含义、哪些扰动应改变结论。
+
+\paragraph{划分、基线与指标。}
+按原始论文、数据谱系和扰动模板划分数据，保留未见组合用于测试。比较固定预注册分析流程、适用时的可执行检查、rubric-based LLM judges、多 judge 系统，以及分层子集上的盲法人工评价。测量错误接受与错误拒绝、等价表述下结论的不变性、对确实无效证据的敏感度，以及合理分析之间的结论分布。报告原始与纠正后的结果分布，不把所有 multiverse 分歧都解释为错误，也不把共识等同于证明。
+
+\paragraph{消融、成本与不确定性。}
+固定研究产物、改变 judges，再固定 judges、改变分析选择，从而区分评价不稳定与执行不稳定。消融对轨迹、可执行结果和修辞文本的访问。按包含全部分析分支和 judge calls 的总预算进行比较，同时报告质量--成本曲线；增加投票的系统还应与等成本 resampling baseline 比较。采用按来源任务聚类的配对不确定性估计，同时报告平均及最差组稳健性。失败风险包括无效 null controls、暗中改变科学含义的扰动、auditor 的共同盲点和有限的 multiverse；应独立审计抽样案例，并保留无法裁定的情况，而非强行给出二元正确性标签。

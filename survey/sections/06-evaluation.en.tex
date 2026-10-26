@@ -1,0 +1,74 @@
+\section{Q5: How should better research be evaluated?}
+\label{sec:evaluation}
+
+Evaluating an AI researcher requires specifying which decisions belong to the agent and which are supplied by the evaluator. A correct answer, an improved model, a reproduced result, and a worthwhile research question are different achievements. The evaluation literature provides instruments for parts of this process, rather than a common scale of scientific ability. We organize these instruments by their inputs, decision freedoms, and verification procedures, then propose protocols connecting question quality to subsequent evidence.
+
+\subsection{What existing evaluations actually measure}
+
+MLAgentBench makes experimentation observable through file operations, code execution, and iterative model improvement. MLE-bench situates such behavior in Kaggle-derived prediction tasks, while MLGym supports varied task environments and research artifacts, including algorithmic settings. Their common strength is an executable feedback loop; their common boundary is that the task and success criterion are provided. MLGym explicitly distinguishes its baseline-improvement benchmark from more ambitious research capabilities. AIRS-Bench removes supplied baseline code and uses paper-derived tasks, increasing implementation freedom while retaining a specified problem, dataset, and metric. These changes alter the difficulty and scope of execution without making question selection autonomous \cite{mlagentbench,mle-bench,mlgym,airs-bench}.
+
+RE-Bench adds expert human attempts and comparisons across allocations of time and repeated attempts. It shows why a performance claim must identify its resource regime rather than compare isolated headline scores. FML-bench instead controls the editing and execution infrastructure to isolate decisions about what to try next, separates validation feedback from final held-out testing, and records search behavior. Its experimental-step budget does not equalize all deliberation costs: additional reasoning calls can still consume resources. Together these designs separate engineering infrastructure, research strategy, and computational opportunity \cite{re-bench,fml-bench}.
+
+Reproduction offers another measurable target. CORE-Bench starts from existing computational artifacts: its easy setting supplies outputs, whereas harder settings require increasingly substantial environment setup and execution. PaperBench starts from a paper and clarifications, requiring an implementation assessed through distinct code-development, execution, and result-matching requirements. Its Code-Dev variant omits the reproduction step and therefore supports a narrower inference. PaperBench also evaluates its automated judge against human labels. Reproducing an artifact and independently implementing a paper are complementary capabilities, neither of which establishes the value of a newly selected question \cite{core-bench,paperbench}.
+
+ScienceAgentBench distinguishes successful execution from satisfying a scientific task's output requirements; its checks include task-dependent criteria rather than a universal definition of discovery. SciCode tests scientific knowledge expressed as working programs, with subproblem structure and evaluation settings that vary the supplied background or intermediate solutions. DiscoveryBench moves toward hypothesis content by comparing facets of a discovered relationship with reference findings. These benchmarks respectively emphasize workflow reliability, scientific coding, and recovery of data-supported findings, while retaining externally specified tasks or discovery goals \cite{scienceagentbench,scicode,discoverybench}.
+
+Interactive environments expose investigation itself. ScienceWorld tests grounded experimentation in elementary science; DiscoveryWorld separately assesses task completion, relevant procedures, and explanatory knowledge, with reference-based grading for the latter. Their controlled worlds enable inspection of interventions, but transfer to real research remains a further question. FrontierMath provides difficult mathematical problems with automatically checked answers; the original benchmark does not require formally verified proofs or agent-selected conjectures. Verifiability makes these environments useful, but does not make their scores measures of scientific significance \cite{scienceworld,discoveryworld,frontiermath}.
+
+MLR-Bench broadens the output to ideas, proposals, experiments, and papers within supplied research topics, using structured review rubrics. This exposes qualities missed by prediction accuracy, while making judge calibration and independent verification essential. Many AI Analysts, One Dataset provides a complementary methodological study: with data, hypothesis, and estimand fixed, different model and persona conditions produce different analytical paths and conclusions. Its AI auditor filters methodological failures, but neither exhaustively represents defensible human analyses nor certifies every retained result. Research quality therefore depends on the analysis and evaluation procedures as well as the final report \cite{mlr-bench,many-ai-analysts-one-dataset}.
+
+\begin{table}[tbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}P{0.20\linewidth}YYYY@{}}
+\toprule
+Evaluation family & Supplied & Agent chooses & Checked & Still missing \\
+\midrule
+MLAgentBench; MLE-bench; MLGym; AIRS-Bench & Task, data, metric; starting code varies & Models, code, experiments & Task performance & Question value \\
+RE-Bench; FML-bench & Bounded task and starting solution & Improvements and search & Scores and process & Agenda selection \\
+CORE-Bench; PaperBench & Artifacts or target paper & Setup or implementation & Outputs or replication requirements & New contribution \\
+ScienceAgentBench; SciCode & Scientific task and inputs & Program and analysis & Execution and task tests & Problem significance \\
+DiscoveryBench; MLR-Bench & Discovery goal/data or topic & Hypothesis or research plan & Reference facets or review rubric & Independently established value \\
+ScienceWorld; DiscoveryWorld & Simulated world and task & Actions and experiments & Task/process; explanations in DiscoveryWorld & Real-world transfer \\
+FrontierMath & Mathematical problem & Reasoning and computation & Submitted answer & Proof and conjecture selection \\
+Many AI Analysts & Data, hypothesis, estimand & Analytical specification & Audited outcome variation & Exhaustive validity \\
+\bottomrule
+\end{tabularx}
+\caption{Decision and evidence boundaries of the evaluation literature. Grouped rows summarize related instruments, not interchangeable protocols; Many AI Analysts is an empirical study rather than a benchmark.}
+\label{tab:evaluation-boundaries}
+\end{table}
+
+\subsection{From scores to defensible comparisons}
+
+We recommend reporting a profile: question value, methodological validity, execution success, reproducibility, generalization, and resource use. A scalar aggregate can be supplementary, with its weights declared. Judge agreement should be measured on held-out human annotations, including disagreements and false acceptance of unsupported claims; apparent agreement is not ground truth. Comparisons should fix model access, retrieval conditions, available data, and stopping rules, while separately reporting inference tokens, experiment compute, wall time, parallelism, and human assistance. Every attempted run belongs in the accounting. A best-of-many result must include selection costs, and validation-guided selection must remain separate from final testing. Versioned tasks, evaluators, environments, and archived traces make these claims inspectable.
+
+\subsection{Limitations and open questions}
+
+These instruments leave a central gap: a benchmark can measure progress on a valuable task after humans have already selected it. Reference-based scoring may reject valid unexpected findings, while open-ended reviewing can reward persuasive presentation. Public tasks can overlap with pretraining or retrieval material; fresh tasks reduce observable exposure without proving training independence. Scientific value may emerge only after later reuse, and negative findings can be informative without improving a predictive metric. The unresolved question is how to measure these properties prospectively while maintaining affordable, repeatable comparisons.
+
+\subsection{Proposed project I: prospective idea-to-result evaluation}
+
+\paragraph{Untested proposal and design.}
+Build a prospective AI-research benchmark with separate generation and selection tracks. Before outcomes exist, preregister broad briefs, eligibility rules, budgets, and a rubric for importance, novelty, testability, and evidential quality. Obtain human and AI candidate questions under equal quotas, then freeze their text and provenance. All selectors rank the same frozen pool; the generation track separately evaluates which candidates each generator contributes. This prevents better execution or a favorable candidate pool from being mistaken for better selection.
+
+\paragraph{Splits and controls.}
+Separate development and test sets by research topic and dataset/code lineage, with a final prospective cohort collected after agent development. Keep experimental test data hidden and freeze literature snapshots, logging all subsequent retrieval. Baselines should include random selection, a fixed novelty/feasibility heuristic, a one-shot model, an iterative agent using the same base model, and expert ranking. Independent executors, blinded to proposal origin and selection score, run a randomized, stratified sample of questions under common resources. Known sampling probabilities allow adjustment for selection; failed, infeasible, and inconclusive attempts remain explicit outcomes.
+
+\paragraph{Outcomes and attribution.}
+Independent reviewers first rate question value without results, then assess anonymized evidence packages using the frozen rubric; a separate replication checks central findings. Report ranking agreement with subsequent assessed value, calibration of predicted feasibility, validated findings per budget, replication outcomes, and informative negative results. Keep ex ante promise separate from ex post evidence. Cross selected questions with a shared executor to isolate selection, and hold questions fixed when comparing execution. Ablate literature access, iterative critique, and development-only execution feedback, charging their full costs rather than matching only candidate counts. If target-task pilot feedback is studied, place it in a separate track with an explicit pilot budget, freeze rankings after the pilot, and keep independent final outcomes sealed until evaluation; do not pool its results with selection before execution.
+
+\paragraph{Uncertainty and failure risks.}
+Use repeated agent seeds and multiple reviewers, with uncertainty clustered by topic or question rather than treating experiment runs as independent research successes. Report reviewer disagreement and sensitivity to rubric weights. Hidden prior exposure, unequal executor expertise, selective execution, and shifting standards of novelty remain risks; preserve access logs and adjudication records, and bound conclusions to the sampled research distribution. An apparently weak idea can still produce useful evidence, so selection quality should not be defined only by positive effects.
+
+\subsection{Proposed project II: robustness of research evaluation}
+
+\paragraph{Untested proposal and task construction.}
+Construct a paired stress test around completed research packages with independently checked code, outputs, and claims. Combine real analyses with simulations whose generating processes supply known nulls and effects. Keep the estimand fixed while enumerating defensible preprocessing and modeling alternatives. Create separate perturbation sets: meaning-preserving changes to formatting, ordering, and rhetorical confidence; and substantive negative controls such as positive-effect claims unsupported by the evidence under a known null. Include correctly reported null findings as valid controls: null data or a negative finding alone does not make a research package invalid. Domain experts must verify which perturbations preserve meaning and which should change the verdict.
+
+\paragraph{Splits, baselines, and metrics.}
+Split by originating paper, dataset lineage, and perturbation template; reserve unseen combinations for testing. Compare a fixed preregistered analysis pipeline, executable checks where applicable, rubric-based LLM judges, a multi-judge system, and blinded human assessment on a stratified subset. Measure false acceptance and rejection, verdict invariance under equivalent presentations, sensitivity to genuinely invalid evidence, and conclusion dispersion across valid analyses. Report both the original and corrected outcome distributions, without interpreting all multiverse disagreement as error or treating consensus as proof.
+
+\paragraph{Ablations, cost, and uncertainty.}
+Freeze generated artifacts while varying judges, then freeze judges while varying analysis choices, separating evaluation instability from execution instability. Ablate access to traces, executable results, and stylistic text. Compare methods under matched total budgets that include all analysis branches and judge calls, alongside quality--cost curves; an extra-vote system must also face an equal-cost resampling baseline. Use paired uncertainty estimates clustered by source task and report both average and worst-group robustness. Failure risks include invalid null controls, perturbations that subtly change scientific meaning, shared auditor blind spots, and a restricted multiverse; independently audit sampled cases and report unresolved cases instead of forcing binary correctness.

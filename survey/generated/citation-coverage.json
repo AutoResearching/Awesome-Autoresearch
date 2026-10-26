@@ -1,0 +1,684 @@
+{
+  "snapshot_date": "2026-10-26",
+  "corpus_count": 79,
+  "validation": "Included active citations, bibliography keys, and bilingual heading hierarchy checked; semantic relevance requires editorial review.",
+  "languages": {
+    "en": {
+      "unique_citations": 79,
+      "citation_occurrences": 100,
+      "included_sections": 8,
+      "headings": {
+        "section": 7,
+        "subsection": 34,
+        "paragraph": 38
+      }
+    },
+    "zh": {
+      "unique_citations": 79,
+      "citation_occurrences": 100,
+      "included_sections": 8,
+      "headings": {
+        "section": 7,
+        "subsection": 34,
+        "paragraph": 38
+      }
+    }
+  },
+  "entries": {
+    "adas": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "agent-laboratory": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "agentrxiv": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "agora": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "ai-can-learn-scientific-taste": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "ai-researcher": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "ai-scientist": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "ai-scientist-v2": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "aide": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "airs-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "aletheia": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "alphaevolve": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "arbor": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "autora": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "autoresearch": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "autoresearchclaw": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "bilevel-autoresearch": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "chain-of-ideas": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "co-scientist": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "colah-taste-exercises": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    },
+    "coquest": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "core-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "curie": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "cycleresearcher": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "darwin-godel-machine": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "deep-adaptive-design": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "discoverybench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "discoveryworld": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "dolphin": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "evolution-fine-tuning": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "evoscientist": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "fml-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "frontiermath": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "funsearch": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "hamming-you-and-your-research": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    },
+    "hindsight": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "hypoforge": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "hypogenic": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "hyporefine": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "ideabench": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "ideasynth": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "ideation-execution-gap": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "innoeval": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "internagent-1-5": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "karpathy-phd-guide": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    },
+    "kosmos": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "liveideabench": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "llm-novel-research-ideas-human-study": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "many-ai-analysts-one-dataset": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "mlagentbench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "mle-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "mle-ideator": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "mlgym": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "mlr-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "moose": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "nielsen-research-heuristics": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    },
+    "opennovelty": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "or-agent": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "paperbench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "popper": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "rd-agent": {
+      "en": [
+        "sections/04-execution.en.tex"
+      ],
+      "zh": [
+        "sections/04-execution.zh.tex"
+      ]
+    },
+    "re-bench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "reflexion": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "research-debt": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    },
+    "researchagent": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "researchtrails": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "rinobench": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "sciagents": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "scicode": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "scideator": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "scienceagentbench": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "scienceworld": {
+      "en": [
+        "sections/06-evaluation.en.tex"
+      ],
+      "zh": [
+        "sections/06-evaluation.zh.tex"
+      ]
+    },
+    "scimon": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "scipip": {
+      "en": [
+        "sections/03-questions.en.tex"
+      ],
+      "zh": [
+        "sections/03-questions.zh.tex"
+      ]
+    },
+    "scisense": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "scistylebench": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "tasteval": {
+      "en": [
+        "sections/02-taste.en.tex"
+      ],
+      "zh": [
+        "sections/02-taste.zh.tex"
+      ]
+    },
+    "ttt-discover": {
+      "en": [
+        "sections/05-learning.en.tex"
+      ],
+      "zh": [
+        "sections/05-learning.zh.tex"
+      ]
+    },
+    "vision-of-metascience": {
+      "en": [
+        "sections/01-framing.en.tex"
+      ],
+      "zh": [
+        "sections/01-framing.zh.tex"
+      ]
+    }
+  },
+  "source_files": [
+    "generated/catalog-snapshot.json",
+    "main.en.tex",
+    "main.zh.tex",
+    "preamble.tex",
+    "references.bib",
+    "sections/00-abstract.en.tex",
+    "sections/00-abstract.zh.tex",
+    "sections/01-framing.en.tex",
+    "sections/01-framing.zh.tex",
+    "sections/02-taste.en.tex",
+    "sections/02-taste.zh.tex",
+    "sections/03-questions.en.tex",
+    "sections/03-questions.zh.tex",
+    "sections/04-execution.en.tex",
+    "sections/04-execution.zh.tex",
+    "sections/05-learning.en.tex",
+    "sections/05-learning.zh.tex",
+    "sections/06-evaluation.en.tex",
+    "sections/06-evaluation.zh.tex",
+    "sections/07-agenda.en.tex",
+    "sections/07-agenda.zh.tex"
+  ]
+}

@@ -1,0 +1,66 @@
+\section{可执行的研究议程}
+\label{sec:agenda}
+
+前面的十项方案是一组选择，而不是同时开发十个系统的计划。合适的首个项目应当隔离一种决策，复用可检查的 executor，并且在新方法失败时仍能产生知识。我们建议从表~\ref{tab:priorities} 的三个项目中选择。这个顺序属于本文的实践判断：先获得可信轨迹，再研究选择，之后才训练更一般的策略。
+
+\begin{table}[tbp]
+\centering\small
+\caption{三个起始项目，以及值得继续扩展它们的证据。}
+\label{tab:priorities}
+\begin{tabularx}{\linewidth}{@{}P{0.20\linewidth}YYY@{}}
+\toprule
+项目 & 最小方法 & 首个有意义的结果 & 停止或修订的理由\\
+\midrule
+1. 有用的科研记忆 & 有来源的决策记录；固定检索器和执行器 & 比证据匹配的 prose 和 shuffled memory 更少重复错误或更好决策 & 匹配上下文和证据后，收益消失\\
+2. Outcome-grounded taste & 共享候选池；使用 pilot 结果和专家比较的 pairwise ranker & 在留出任务上，选中更多经独立检查且有信息量的结果 & 收益只反映容易实现或文风优势\\
+3. 可迁移科研策略 & 在已执行决策轨迹上对小模型进行监督适应 & 在留出任务家族上优于 retrieval 和仅模仿 action & 计入数据采集或改变任务接口后，收益消失\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{先明确研究的最小单位}
+
+最小有用产物是一张 question card 加一份 experiment record，而不是生成的论文。表~\ref{tab:card} 给出一个例子。它适合用来调试研究基础设施，不代表新颖科学方向。Generator 可以生成 cards，selector 对其排序，固定 executor 执行检验。这种表示允许替换模块，同时避免悄悄改变任务定义。
+
+\begin{table}[tbp]
+\centering\small
+\caption{面向冻结 retrieval system 的示例 question card。若作为原创研究贡献，仍需进行新颖性核查。}
+\label{tab:card}
+\begin{tabularx}{\linewidth}{@{}P{0.22\linewidth}Y@{}}
+\toprule
+字段 & 具体内容\\
+\midrule
+未知问题 & Disagreement-based query rewriting 是否比单纯增加候选检索更能提高证据覆盖？\\
+竞争解释 & 收益来自额外 retrieval calls，而不是所提出的选择规则。\\
+干预 & 原始 query、随机选择 rewrite、根据 disagreement 选择 rewrite。固定 encoder、corpus 和总调用数。\\
+测量 & 已标注支持段落的 recall、盲审 support judgments、latency，以及 inference 与 retrieval 总成本。\\
+划分 & 用开发 queries 调参；相关问题和来源文档成组划分；最终 queries 与 relevance labels 保持封存。\\
+决策规则 & 报告配对效应与不确定性，区分有用增益、在检验范围内的负结果以及证据不足。\\
+证据记录 & Query 来源关系、模型版本、段落标识、随机种子、输出，以及支持每个 claim 的具体比较。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+对于 outcome-grounded taste，先使用简单 pairwise model，例如在固定表示上的正则化 Bradley--Terry ranker，再考虑训练大型生成式 judge。分别采集专家对\emph{问题本身}的偏好和对\emph{已完成证据}的判断，否则模型可能只学会识别容易实现的 proposal。价值、可行性、有效性和成本应分别报告，在引入聚合 reward 之前先检查敏感性。Active annotation 需要保留随机 audit sample，以发现模型很少主动查看区域中的错误。
+
+对于 memory，archive 应记录尝试了什么、为什么尝试、发生了什么，以及经验何时适用。“方法 X 不好”这样的失败记录过于笼统。有用的记录应该指出收益在匹配 compute 后消失，链接所比较的 runs，并写明尚存的不确定性。先分别检验内容和表示，再添加复杂 retrieval 或 reflection agents。对于策略训练，监督 baseline 比标签与 evaluator 同时变化的 reward loop 更容易诊断。
+
+\subsection{分阶段实现与决策}
+
+\paragraph{阶段 1：验证 executor 与记录。}
+选择现有硬件实际能运行的小型公开任务。先做 smoke tests，再固定最终任务集合，冻结依赖、模型版本、数据来源和 timeout。保存每次行动，包括失败尝试。实现确定性的产物和指标检查，并人工抽查 controls 是否检验了所声称的命题。在独立重跑能够恢复关键测量之前，不启动策略学习。
+
+\paragraph{阶段 2：隔离拟议机制。}
+从 Q1--Q4 已定义的受控比较中选择一项，根据问题固定 executor、候选池或任务输入，以及预算。使用 development set 调试 prompts 和评价，然后冻结方法。前文的小规模 pilot 应视为 feasibility study：报告每个任务的结果、效应量与不确定性，不依赖一个名义显著性阈值。多个随机种子可以降低随机噪声，但不会把三个测试任务变成广泛的研究总体。
+
+\paragraph{阶段 3：检验一个重要边界。}
+在初始设置中获得可信结果后，每次只改变任务家族、backbone、evaluator interface 或数据分布中的一项。Memory 方法需要在相关分布变化下有效，而不是复用答案；taste model 在规范化表述后仍应选中有用问题；planning 方法在换掉原有 coding agent 后仍应保留价值。负结果能说明方法的哪部分依赖初始条件。
+
+\paragraph{阶段 4：前瞻地评价新问题。}
+完成前几个阶段后，再让系统生成尚无完成结果的问题。冻结候选文本与知识访问，按公开规则分配执行预算，由独立评审检查匿名证据。跟踪有用负结果和后续问题，而不只统计正向指标变化。这一步对于更强的科研判断力主张是必要的，但它仍是在有限研究分布上的评价，而非科学重要性的完整测量。
+
+\subsection{什么样的结果有说服力？}
+
+首篇论文可以建立一个明确而有限的主张：在匹配证据和上下文后，结构化 memory 减少重复实验错误；pilot-informed ranker 从固定池中选出更有信息量的问题；或者计入采集成本后，decision-context training 仍能迁移到留出的任务家族。应发布可执行任务定义、原始与处理后结果、决策轨迹、评价代码以及人类参与记录，并说明哪些更广泛的主张尚未检验。
+
+共同的方法目标是把科研决策与后续证据连接起来，再检验所得经验能否超出原始任务。沿着这条联系，可以具体研究如何改善 research taste，而不预先把流畅提案、更长工作流或更高 benchmark 分数视为其完整测量。

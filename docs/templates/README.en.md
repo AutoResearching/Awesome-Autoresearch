@@ -3,6 +3,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+**Survey paper:** [English PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf) · [Editable LaTeX](survey/) · [Source ZIP](output/autoresearch-survey-latex.zip)
+
 **How can AI choose worthwhile questions, investigate them rigorously, and become a better researcher through experience?**
 
 A curated collection on **research taste, question formulation, scientific reasoning, and learning from research experience**, with benchmarks, implementations, and researcher essays.

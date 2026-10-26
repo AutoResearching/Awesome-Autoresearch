@@ -3,6 +3,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+**Survey 综述：** [英文 PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf) · [可编辑 LaTeX](survey/) · [源码 ZIP](output/autoresearch-survey-latex.zip)
+
 **如何让 AI 选择值得研究的问题，严谨地开展研究，并通过经验成为更好的研究者？**
 
 围绕 **research taste、question formulation、scientific reasoning 与 learning from research experience** 整理的精选资源，涵盖论文、基准、实现与研究者文章。

@@ -1,0 +1,66 @@
+\section{A practical research agenda}
+\label{sec:agenda}
+
+The ten proposals above are a menu, not a plan to build ten systems at once. A useful first project should isolate one decision, reuse an inspectable executor, and produce evidence even if the new method fails. We would start with the three projects in Table~\ref{tab:priorities}. The ordering is our practical judgment: first obtain trustworthy traces, then study selection, and only then train a more general strategy.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Three starting projects and the evidence needed to justify expanding them.}
+\label{tab:priorities}
+\begin{tabularx}{\linewidth}{@{}P{0.20\linewidth}YYY@{}}
+\toprule
+Project & Minimal method & First meaningful result & Reason to stop or revise\\
+\midrule
+1. Useful research memory & Provenance-linked decision records; fixed retriever and executor & Fewer repeated errors or better decisions than matched prose and shuffled memory & Gains disappear when context and source evidence are matched\\
+2. Outcome-grounded taste & Shared candidate pool; pairwise ranker with pilot outcomes and expert comparisons & Better held-out selection of independently checked informative outcomes & Gains only predict ease of execution or proposal style\\
+3. Transferable strategy & Small-model supervised adaptation on executed decision transitions & Benefit on a held-out task family beyond retrieval and action-only imitation & Benefit disappears after counting data collection or changing task interfaces\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Make the unit of research explicit}
+
+The smallest useful artifact is a question card coupled to an experiment record, not a generated paper. Table~\ref{tab:card} gives an example. It is a diagnostic problem for developing the infrastructure, not a claim of a new scientific direction. A generator can propose such cards, a selector can rank them, and a fixed executor can test them. This representation makes module substitutions possible without changing the task definition silently.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Illustrative question card for a frozen retrieval system. The example would require a novelty review before being proposed as an original research contribution.}
+\label{tab:card}
+\begin{tabularx}{\linewidth}{@{}P{0.22\linewidth}Y@{}}
+\toprule
+Field & Concrete content\\
+\midrule
+Uncertainty & Does disagreement-based query rewriting improve evidence coverage beyond simply retrieving more candidates?\\
+Competing explanation & Any observed improvement comes from extra retrieval calls, not the proposed selection rule.\\
+Interventions & Original queries; randomly chosen rewrites; disagreement-selected rewrites. Fix the encoder, corpus, and total calls.\\
+Measurement & Recall of annotated supporting passages, blinded support judgments, latency, and total inference and retrieval cost.\\
+Splits & Tune on development queries; group related questions and source documents; keep final queries and relevance labels sealed.\\
+Decision rule & Report paired effects and uncertainty. Distinguish a useful gain, a bounded null result, and insufficient evidence.\\
+Evidence record & Query lineage, model/version, retrieved passage identifiers, run seed, outputs, and the exact comparison supporting each claim.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For outcome-grounded taste, begin with a simple pairwise model, such as a regularized Bradley--Terry ranker over fixed representations, before training a large generative judge. Compare expert preferences about the \emph{question} with judgments about the \emph{completed evidence}. Otherwise a model may learn only which proposals are easy to implement. Keep value, feasibility, validity, and cost as separately reported outcomes; test sensitivity before introducing an aggregate reward. Active annotation should reserve a random audit sample. This provides a way to detect errors in the regions the model rarely chooses to inspect.
+
+For memory, the archive should store what was tried, why it was tried, what happened, and when that lesson applies. A failure record saying ``method X is bad'' is too broad. A useful record says that a particular effect disappeared after matching compute, identifies the compared runs, and states the remaining uncertainty. Test the content and representation separately before adding complex retrieval or reflection agents. For strategy training, a supervised baseline is easier to diagnose than a reward loop whose labels and evaluator are both moving.
+
+\subsection{A staged implementation and decision process}
+
+\paragraph{Stage 1: validate the executor and the record.}
+Choose a small set of publicly accessible tasks that the available hardware can actually run. Conduct smoke tests before fixing the final task list; then freeze dependencies, model versions, data lineage, and timeouts. Store a record of every attempted action, including unsuccessful runs. Build deterministic artifact and metric checks, and manually audit whether the proposed controls test the stated claim. Do not start strategy learning until an independent rerun can recover the central measurements.
+
+\paragraph{Stage 2: isolate the proposed mechanism.}
+Select one of the controlled comparisons already specified in Q1--Q4. Keep executor, candidate pool or task inputs, and budget fixed as appropriate. Use a development set to debug prompts and metrics, then freeze the method. Treat the small task counts in the pilots as feasibility studies: publish per-task outcomes, effect sizes, and uncertainty rather than relying on a nominal significance threshold. Multiple seeds reduce stochastic noise but do not turn three test tasks into a broad research population.
+
+\paragraph{Stage 3: test a boundary that matters.}
+After a credible within-setting result, change the task family, model backbone, evaluator interface, or data distribution one at a time. A memory method should survive a relevant distribution change without reusing answers. A taste model should still select useful questions when presentation is normalized. A planning method should retain value when its original coding agent is replaced. A negative result identifies which part of the method was specific to the initial setup.
+
+\paragraph{Stage 4: evaluate new questions prospectively.}
+Only after the previous stages should the system generate questions for which no completed outcome exists. Freeze candidate text and knowledge access, allocate execution by a declared rule, and have independent reviewers assess anonymized evidence. Track useful negative results and follow-up questions, not only positive metric changes. This stage is necessary for a stronger claim about research judgment, but it remains a study of a bounded research distribution rather than a complete measure of scientific importance.
+
+\subsection{What a convincing result would look like}
+
+A convincing first paper could make a narrow claim: structured memory reduces repeated experimental mistakes under matched evidence and context; a pilot-informed ranker chooses more informative questions from a fixed pool; or decision-context training transfers to a held-out task family after all collection costs are counted. It should release executable task definitions, raw and derived results, decision traces, evaluation code, and a clear account of human input. It should also state which broader claims remain untested.
+
+The common methodological objective is to connect a research decision to its downstream evidence and then test whether the lesson survives beyond the original task. That connection offers concrete routes to better research taste without assuming that fluent proposals, longer workflows, or higher benchmark scores already measure it.
