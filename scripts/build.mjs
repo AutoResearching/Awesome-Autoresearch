@@ -12,10 +12,11 @@ const categories = [
   { id: 'learning', en: 'Learning from Research Experience', zh: '从研究经验中学习 · Learning from Experience', question_en: 'How do outcomes and feedback improve future research decisions, including on new tasks?', question_zh: '如何利用研究结果和反馈，改善后续研究以及新任务上的决策？' },
   { id: 'evaluation', en: 'Benchmarks and Evaluation', zh: '基准与评价 · Benchmarks and Evaluation', question_en: 'How can we measure question value, valid discoveries, resource efficiency, and transfer separately?', question_zh: '如何分别评价问题价值、发现的可靠性、资源效率与迁移能力？' },
   { id: 'systems', en: 'Integrated AI Scientist Systems', zh: '完整科研系统 · AI Scientist Systems', question_en: 'How are research capabilities assembled, and which decisions remain human-supplied?', question_zh: '科研能力如何组合成系统？哪些决策仍由人类提供？' },
+  { id: 'perspectives', en: 'Essays on Research Taste and Scientific Practice', zh: '科研品味与科学实践 · Essays and Perspectives', question_en: 'Researcher perspectives on choosing problems, developing judgment, and improving science. These essays offer ideas and heuristics, not empirical validation of AI capabilities.', question_zh: '研究者关于选题、判断力和改进科学实践的思考。这些文章提供观点与启发，并非 AI 能力的实证验证。' },
 ];
 const required = ['id', 'title', 'short_name', 'year', 'category', 'kind', 'status', 'venue', 'paper', 'code', 'project', 'focus_en', 'focus_zh', 'boundary_en', 'boundary_zh', 'evidence_urls', 'verified_on'];
-const kinds = ['method', 'benchmark', 'study', 'system', 'foundation'];
-const statuses = ['preprint', 'published', 'project'];
+const kinds = ['method', 'benchmark', 'study', 'system', 'foundation', 'perspective'];
+const statuses = ['preprint', 'published', 'project', 'essay'];
 const dataFiles = fs.readdirSync(path.join(root, 'data')).filter(f => f.endsWith('.json')).sort();
 const records = dataFiles.flatMap(file => {
   const values = JSON.parse(fs.readFileSync(path.join(root, 'data', file), 'utf8').replace(/^\uFEFF/, ''));
@@ -54,7 +55,9 @@ for (const r of records) {
   if (!Number.isInteger(r.year) || r.year < 1900 || r.year > Number(r.verified_on.slice(0, 4))) fail(r, 'invalid first-release year');
   if (!/\p{Script=Han}/u.test(r.focus_zh) || !/\p{Script=Han}/u.test(r.boundary_zh)) fail(r, 'missing Chinese description');
   for (const field of ['paper', 'code', 'project']) if (r[field] !== null && !validateURL(r[field])) fail(r, `invalid ${field} URL`);
-  if (!r.paper && r.status !== 'project') fail(r, 'non-project needs a paper');
+  if (!r.paper && !['project', 'essay'].includes(r.status)) fail(r, 'research entry needs a paper or project status');
+  if ((r.category === 'perspectives') !== (r.kind === 'perspective' && r.status === 'essay')) fail(r, 'perspectives must use kind perspective and status essay');
+  if (r.status === 'essay' && (!r.project || r.paper)) fail(r, 'essays need a primary article URL in project and no paper URL');
   if (!r.paper && !r.code && !r.project) fail(r, 'entry needs a primary link');
   if (!Array.isArray(r.evidence_urls) || !r.evidence_urls.length || !r.evidence_urls.every(validateURL)) fail(r, 'invalid evidence_urls');
   if (![r.paper, r.code, r.project].filter(Boolean).some(url => r.evidence_urls.includes(url))) fail(r, 'evidence must include a listed primary link');
@@ -67,25 +70,27 @@ for (const c of categories) if (!records.some(r => r.category === c.id)) throw n
 const byId = new Map(records.map(r => [r.id, r]));
 const latest = records.map(r => r.verified_on).sort().at(-1);
 const oldest = records.map(r => r.verified_on).sort()[0];
-const kindLabels = { en: { method: 'Method', benchmark: 'Benchmark', study: 'Study', system: 'System', foundation: 'Foundation' }, zh: { method: '方法', benchmark: '基准', study: '实证研究', system: '系统', foundation: '基础方法' } };
-const sourceLabels = { en: { preprint: 'Preprint / report', published: 'Published', project: 'Project' }, zh: { preprint: '预印本 / 报告', published: '已发表', project: '项目' } };
+const kindLabels = { en: { method: 'Method', benchmark: 'Benchmark', study: 'Study', system: 'System', foundation: 'Foundation', perspective: 'Perspective' }, zh: { method: '方法', benchmark: '基准', study: '实证研究', system: '系统', foundation: '基础方法', perspective: '观点' } };
+const sourceLabels = { en: { preprint: 'Preprint / report', published: 'Published', project: 'Project', essay: 'Essay / talk' }, zh: { preprint: '预印本 / 报告', published: '已发表', project: '项目', essay: '文章 / 演讲' } };
 function cell(text) { return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('|', '&#124;'); }
 function links(r, lang) {
-  return [['Paper', r.paper], ['Code', r.code], [r.project?.includes('github.com') ? 'Resources' : 'Project', r.project]]
+  return [['Paper', r.paper], ['Code', r.code], [r.status === 'essay' ? 'Read' : r.project?.includes('github.com') ? 'Resources' : 'Project', r.project]]
     .filter(([, url]) => url).map(([label, url]) => `[${label}](${url})`).join(' · ');
 }
 function table(items, lang) {
   const header = lang === 'en'
-    ? '| Work / source | Why it matters | What the evidence does not establish | Links |\n| --- | --- | --- | --- |'
-    : '| 工作 / 来源 | 与本方向的关系 | 证据边界 | 链接 |\n| --- | --- | --- | --- |';
-  return [header, ...items.map(r => {
-    const name = r.short_name === r.title ? `**${cell(r.title)}**` : `**${cell(r.short_name)}**<br>${cell(r.title)}`;
-    const metadata = `${r.year} · ${cell(r.venue)}<br>${kindLabels[lang][r.kind]} · ${sourceLabels[lang][r.status]}`;
-    return `| <a id="work-${r.id}"></a>${name}<br>${metadata} | ${cell(r[`focus_${lang}`])} | ${cell(r[`boundary_${lang}`])} | ${links(r, lang)} |`;
+    ? '| Work | Contribution / idea | Sources |\n| --- | --- | --- |'
+    : '| 工作 | 贡献 / 观点 | 来源 |\n| --- | --- | --- |';
+  const rows = [header, ...items.map(r => {
+    const metadata = `${r.year} · ${cell(r.venue)}`;
+    return `| <a id="work-${r.id}"></a>**${cell(r.short_name)}**<br><sub>${metadata}</sub> | ${cell(r[`focus_${lang}`])} | ${links(r, lang)} |`;
   })].join('\n');
+  const label = lang === 'en' ? 'Full titles, evidence and scope notes' : '展开完整标题、评价证据与适用范围';
+  const notes = items.map(r => `- **${cell(r.short_name)}** — *${cell(r.title)}*. ${kindLabels[lang][r.kind]} · ${sourceLabels[lang][r.status]}. ${cell(r[`boundary_${lang}`])}`).join('\n');
+  return `${rows}\n\n<details>\n<summary>${label} (${items.length})</summary>\n\n${notes}\n\n</details>`;
 }
 const starter = [
-  { en: 'Taste and its proxies', zh: 'Taste 及其代理指标', ids: ['ai-can-learn-scientific-taste', 'tasteval'], why_en: 'Compare learned preference signals with experimental decision efficiency.', why_zh: '对照学习得到的偏好信号与实验决策效率。' },
+  { en: 'Taste and its proxies', zh: 'Taste 及其代理指标', ids: ['colah-taste-exercises', 'ai-can-learn-scientific-taste', 'tasteval'], why_en: 'Move from human heuristics to learned preferences and experimental decisions.', why_zh: '从人类经验出发，对照学习得到的偏好与实验决策。' },
   { en: 'Ideas and realized outcomes', zh: 'Idea 与实际研究结果', ids: ['llm-novel-research-ideas-human-study', 'ideation-execution-gap'], why_en: 'Read proposal ratings alongside what happens when researchers execute the ideas.', why_zh: '把提案评分与研究者实际执行 idea 后的结果放在一起看。' },
   { en: 'Executable research loops', zh: '可执行的科研循环', ids: ['autoresearch', 'arbor'], why_en: 'Start with a compact loop, then inspect hypothesis and evidence management.', why_zh: '从简洁循环入手，再研究假设与证据的管理。' },
   { en: 'Learning across research runs', zh: '跨研究过程的经验积累', ids: ['agentrxiv', 'evoscientist'], why_en: 'Compare shared reports with explicit ideation and experimentation memories.', why_zh: '比较共享报告与显式的构思、实验经验记忆。' },
@@ -116,13 +121,13 @@ function catalog(lang) {
   }).join('\n\n');
 }
 function mapTable(lang) {
-  const header = lang === 'en' ? '| Area | Core question | Entries |\n| --- | --- | ---: |' : '| 方向 | 核心问题 | 条目数 |\n| --- | --- | ---: |';
-  return [header, ...categories.map(c => `| [${c[lang]}](#${c.id}) | ${c[`question_${lang}`]} | ${records.filter(r => r.category === c.id).length} |`)].join('\n');
+  const header = lang === 'en' ? '| Explore the collection | Entries |\n| --- | ---: |' : '| 浏览目录 | 条目数 |\n| --- | ---: |';
+  return [header, ...categories.map(c => `| [${c[lang]}](#${c.id}) | ${records.filter(r => r.category === c.id).length} |`)].join('\n');
 }
 const rendered = new Map();
 for (const lang of ['en', 'zh']) {
   const template = fs.readFileSync(path.join(root, 'docs', 'templates', `README.${lang}.md`), 'utf8');
-  const replacements = { COUNT: String(records.length), PAPER_COUNT: String(papers.size), CODE_COUNT: String(records.filter(r => r.code).length), VERIFIED_ON: latest, REVIEW_RANGE: oldest === latest ? latest : `${oldest}–${latest}`, MAP: mapTable(lang), STARTER: starterTable(lang), CATALOG: catalog(lang) };
+  const replacements = { COUNT: String(records.length), PAPER_COUNT: String(papers.size), ESSAY_COUNT: String(records.filter(r => r.status === 'essay').length), CODE_COUNT: String(records.filter(r => r.code).length), VERIFIED_ON: latest, REVIEW_RANGE: oldest === latest ? latest : `${oldest}–${latest}`, MAP: mapTable(lang), STARTER: starterTable(lang), CATALOG: catalog(lang) };
   const content = template.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
     if (!(key in replacements)) throw new Error(`Unknown template placeholder: ${key}`);
     return replacements[key];

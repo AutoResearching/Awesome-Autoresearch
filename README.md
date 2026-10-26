@@ -3,56 +3,51 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-A curated collection of papers, systems, and benchmarks on **research taste, question formulation, scientific reasoning, and learning from research experience**.
+**How can AI choose worthwhile questions, investigate them rigorously, and become a better researcher through experience?**
 
-How can AI identify worthwhile unknowns, ask meaningful questions, investigate them rigorously, and become a better researcher through experience?
+A curated collection on **research taste, question formulation, scientific reasoning, and learning from research experience**, with benchmarks, implementations, and researcher essays.
 
-**44 curated works · 43 paper records · 33 verified official code links**
+**79 resources · 72 paper records · 6 essays and talks · 60 official code links**
 
-Source review dates: **2026-10-24**. This is a selective starting collection, not an exhaustive survey or a performance ranking.
+Sources reviewed: 2026-10-24–2026-10-26. A selective collection, not a performance ranking.
 
 ## Scope
 
-The research process itself is the object of study. **AI research is the primary experimental setting; mathematics is a complementary testbed.** Work from other disciplines is included when it contributes a reusable discovery method, research capability, or evaluation protocol.
+The **research process itself** is the object of study. AI research is the primary experimental setting; mathematics is a complementary testbed. Work from other disciplines belongs here when it contributes a reusable method or evaluation of how research is done.
 
-We use **autoresearch** broadly, including human–AI collaboration and autonomous research systems. Individual methods need not automate the whole process to belong here. The term is not limited to Karpathy's project, which is included as one concrete execution loop.
-
-The emphasis is on choosing and investigating questions, scientific evidence, and improvements in research decisions. General writing assistants, literature-search products, generic agent frameworks, and domain prediction models are included only when they provide a specific methodological contribution to these questions. Peer review and meta-science are relevant where they inform research judgment or reliable evaluation.
+We use *autoresearch* broadly: human–AI collaboration, individual research capabilities, and autonomous research systems. It includes, but is not limited to, Karpathy's project. General writing tools, search products, and domain predictors need a specific contribution to the research questions below to qualify.
 
 ## Research map
 
-The first four areas describe capabilities; evaluation cuts across them. Integrated systems provide an additional implementation perspective. Each work has one primary location; overlap is handled through reading paths and links.
+Four capabilities form a feedback loop. Evaluation asks whether each improves; integrated AI scientist systems combine them in practice. The arrows show relationships, not a required pipeline.
 
-| Area | Core question | Entries |
-| --- | --- | ---: |
-| [Research Taste and Problem Selection](#taste) | Which questions deserve attention, and how can that judgment be learned or evaluated? | 6 |
-| [Question Formulation and Hypothesis Generation](#questions) | How can AI turn gaps, contradictions, and observations into valuable, testable questions? | 6 |
-| [Scientific Reasoning and Research Execution](#execution) | Which experiments, proofs, and revisions turn a question into reliable new knowledge? | 5 |
-| [Learning from Research Experience](#learning) | How do outcomes and feedback improve future research decisions, including on new tasks? | 9 |
-| [Benchmarks and Evaluation](#evaluation) | How can we measure question value, valid discoveries, resource efficiency, and transfer separately? | 12 |
-| [Integrated AI Scientist Systems](#systems) | How are research capabilities assembled, and which decisions remain human-supplied? | 6 |
+```mermaid
+flowchart TB
+    subgraph cycle["Learning to do research"]
+        direction LR
+        T["1 · Research taste<br/>What is worth pursuing?"] --> Q["2 · Question formulation<br/>What should we ask?"]
+        Q --> X["3 · Research execution<br/>What does the evidence show?"]
+        X --> L["4 · Learning from experience<br/>What improves next time?"]
+        L --> T
+    end
+    E["Evaluation across the loop<br/>Value · validity · efficiency · transfer"] -.-> cycle
+    classDef capability fill:#eaf2ff,stroke:#6485b5,color:#162b4d;
+    classDef evaluation fill:#eaf6ef,stroke:#6a987e,color:#153c27;
+    class T,Q,X,L capability;
+    class E evaluation;
+```
 
-## Suggested reading paths
+| Explore the collection | Entries |
+| --- | ---: |
+| [Research Taste and Problem Selection](#taste) | 8 |
+| [Question Formulation and Hypothesis Generation](#questions) | 14 |
+| [Scientific Reasoning and Research Execution](#execution) | 11 |
+| [Learning from Research Experience](#learning) | 18 |
+| [Benchmarks and Evaluation](#evaluation) | 16 |
+| [Integrated AI Scientist Systems](#systems) | 6 |
+| [Essays on Research Taste and Scientific Practice](#perspectives) | 6 |
 
-These routes emphasize complementary evidence and mechanisms. They are editorial suggestions, not claims that one system is best.
-
-| Route | Start with | Reading question |
-| --- | --- | --- |
-| Taste and its proxies | [Scientific Taste / RLCF](#work-ai-can-learn-scientific-taste) → [TasteVal](#work-tasteval) | Compare learned preference signals with experimental decision efficiency. |
-| Ideas and realized outcomes | [Human Study of Research Ideation](#work-llm-novel-research-ideas-human-study) → [Ideation-Execution Gap](#work-ideation-execution-gap) | Read proposal ratings alongside what happens when researchers execute the ideas. |
-| Executable research loops | [Karpathy's autoresearch](#work-autoresearch) → [Arbor](#work-arbor) | Start with a compact loop, then inspect hypothesis and evidence management. |
-| Learning across research runs | [AgentRxiv](#work-agentrxiv) → [EvoScientist](#work-evoscientist) | Compare shared reports with explicit ideation and experimentation memories. |
-| Evaluation for AI research | [MLR-Bench](#work-mlr-bench) → [FML-bench](#work-fml-bench) → [PaperBench](#work-paperbench) | Separate open-ended proposals, controlled search comparisons, and replication. |
-
-For an integrated implementation, continue with [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For mathematical discovery, compare [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), and [Aletheia](#work-aletheia).
-
-## How to read the collection
-
-- **First year** means the first public release of the cited work; the venue may refer to a later publication. The source label describes the cited version. An arXiv entry does not assert that no later publication exists.
-- **Paper / Code / Project / Resources** links point to primary sources. A missing Code link means no official implementation was verified for this review. Project pages and released prompts or outputs are not automatically implementation releases.
-- **Foundation** marks a transferable method whose original experiments do not directly demonstrate scientific discovery or research taste.
-- **Source-verified** means metadata and the stated scope were checked against primary material. It does not mean we reran the experiments or independently established the authors' scientific claims.
-- Read the evidence-boundary column alongside each contribution: proposal ratings, executable experiments, replicated results, and scientific significance measure different things.
+[Research opportunities](#research-opportunities) · [Learning mechanisms](#learning-mechanisms) · [Choosing a testbed](#choosing-a-testbed) · [Reading paths](#reading-paths)
 
 ## Research Taste and Problem Selection
 
@@ -60,14 +55,30 @@ For an integrated implementation, continue with [The AI Scientist-v2](#work-ai-s
 
 Which questions deserve attention, and how can that judgment be learned or evaluated?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-ai-can-learn-scientific-taste"></a>**Scientific Taste / RLCF**<br>AI Can Learn Scientific Taste<br>2026 · arXiv<br>Method · Preprint / report | Learns a Scientific Judge from field- and time-matched citation preferences, then uses its rewards to train a Scientific Thinker for follow-up idea generation. | Citations operationalize community reception, not scientific value itself; generated ideas are mainly evaluated by LLM judges and are not experimentally validated. | [Paper](https://arxiv.org/abs/2603.14473) · [Code](https://github.com/tongjingqi/AI-Can-Learn-Scientific-Taste) · [Project](https://tongjingqi.github.io/AI-Can-Learn-Scientific-Taste/) |
-| <a id="work-hindsight"></a>**HindSight**<br>HindSight: Evaluating LLM-Generated Research Ideas via Future Impact<br>2026 · arXiv<br>Benchmark · Preprint / report | Proposes retrospective evaluation by matching generated ideas to later publications and weighting matches using citations and venue acceptance. | Publication matching is an impact proxy that can undervalue unexplored ideas; the stated model knowledge cutoff is later than the retrieval cutoff, so temporal leakage is not excluded. | [Paper](https://arxiv.org/abs/2603.15164) |
-| <a id="work-rinobench"></a>**RINoBench**<br>Is This Idea Novel? An Automated Benchmark for Judgment of Research Ideas<br>2026 · LREC 2026<br>Benchmark · Published | Benchmarks research-idea novelty scores and their justifications against expert-derived judgments, making novelty assessment a separately measurable research capability. | Agreement with novelty judgments is distinct from generating new questions, predicting feasibility, or demonstrating scientific importance; plausible rationales need not imply correct judgments. | [Paper](https://aclanthology.org/2026.lrec-1.370/) · [Code](https://github.com/TimSchopf/RINoBench) |
-| <a id="work-scistylebench"></a>**SciStyleBench**<br>Style Wins, Substance Loses: A Diagnosis of LLM-as-Judge in Idea Generation<br>2026 · arXiv<br>Benchmark · Preprint / report | Uses controlled changes to idea presentation and substance to test whether LLM judges reward scientific content or persuasive writing style. | Measures evaluator robustness and ranking bias under constructed perturbations; it does not establish the long-term scientific value of the evaluated ideas. | [Paper](https://arxiv.org/abs/2608.01666) |
-| <a id="work-tasteval"></a>**TasteVal**<br>TasteVal: Measuring the Experimental Research Taste of AI Systems Against Human Experts<br>2026 · arXiv<br>Benchmark · Preprint / report | Evaluates iterative experiment design and result interpretation on AI R&amp;D tasks while using a fixed coding agent to separate research decisions from implementation. | Taste is operationalized as experimental compute efficiency on assigned problems; open-ended problem selection is not measured, and the tasks are not publicly released. | [Paper](https://arxiv.org/abs/2610.06824) · [Project](https://pzeroresearch.com/work/tasteval/) |
-| <a id="work-ideation-execution-gap"></a>**Ideation-Execution Gap**<br>The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas<br>2025 · ICLR 2026<br>Study · Published | Has researchers execute human- and LLM-generated ideas and compares expert assessments before and after execution, connecting proposal quality to realized research outcomes. | Execution is human-led and outcomes are assessed within an NLP research study; this is evidence about idea evaluation, not a demonstration of autonomous research execution. | [Paper](https://arxiv.org/abs/2506.20803) · [Code](https://github.com/NoviScl/AI-Researcher) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-ai-can-learn-scientific-taste"></a>**Scientific Taste / RLCF**<br><sub>2026 · arXiv</sub> | Learns a Scientific Judge from field- and time-matched citation preferences, then uses its rewards to train a Scientific Thinker for follow-up idea generation. | [Paper](https://arxiv.org/abs/2603.14473) · [Code](https://github.com/tongjingqi/AI-Can-Learn-Scientific-Taste) · [Project](https://tongjingqi.github.io/AI-Can-Learn-Scientific-Taste/) |
+| <a id="work-hindsight"></a>**HindSight**<br><sub>2026 · arXiv</sub> | Proposes retrospective evaluation by matching generated ideas to later publications and weighting matches using citations and venue acceptance. | [Paper](https://arxiv.org/abs/2603.15164) |
+| <a id="work-innoeval"></a>**InnoEval**<br><sub>2026 · ICML 2026</sub> | Evaluates novelty, feasibility, and significance through evidence retrieval and reviewer-style perspectives, treating idea assessment as grounded reasoning rather than an unsupported scalar score. | [Paper](https://arxiv.org/abs/2602.14367) · [Code](https://github.com/zjunlp/InnoEval) |
+| <a id="work-rinobench"></a>**RINoBench**<br><sub>2026 · LREC 2026</sub> | Benchmarks research-idea novelty scores and their justifications against expert-derived judgments, making novelty assessment a separately measurable research capability. | [Paper](https://aclanthology.org/2026.lrec-1.370/) · [Code](https://github.com/TimSchopf/RINoBench) |
+| <a id="work-opennovelty"></a>**OpenNovelty**<br><sub>2026 · arXiv</sub> | Extracts a manuscript's contribution claims and grounds novelty assessment in retrieved literature, full-text comparisons, and an auditable report. | [Paper](https://arxiv.org/abs/2601.01576) · [Code](https://github.com/january-blue/OpenNovelty) · [Project](https://opennovelty.org/) |
+| <a id="work-scistylebench"></a>**SciStyleBench**<br><sub>2026 · arXiv</sub> | Uses controlled changes to idea presentation and substance to test whether LLM judges reward scientific content or persuasive writing style. | [Paper](https://arxiv.org/abs/2608.01666) |
+| <a id="work-tasteval"></a>**TasteVal**<br><sub>2026 · arXiv</sub> | Evaluates iterative experiment design and result interpretation on AI R&amp;D tasks while using a fixed coding agent to separate research decisions from implementation. | [Paper](https://arxiv.org/abs/2610.06824) · [Project](https://pzeroresearch.com/work/tasteval/) |
+| <a id="work-ideation-execution-gap"></a>**Ideation-Execution Gap**<br><sub>2025 · ICLR 2026</sub> | Has researchers execute human- and LLM-generated ideas and compares expert assessments before and after execution, connecting proposal quality to realized research outcomes. | [Paper](https://arxiv.org/abs/2506.20803) · [Code](https://github.com/NoviScl/AI-Researcher) |
+
+<details>
+<summary>Full titles, evidence and scope notes (8)</summary>
+
+- **Scientific Taste / RLCF** — *AI Can Learn Scientific Taste*. Method · Preprint / report. Citations operationalize community reception, not scientific value itself; generated ideas are mainly evaluated by LLM judges and are not experimentally validated.
+- **HindSight** — *HindSight: Evaluating LLM-Generated Research Ideas via Future Impact*. Benchmark · Preprint / report. Publication matching is an impact proxy that can undervalue unexplored ideas; the stated model knowledge cutoff is later than the retrieval cutoff, so temporal leakage is not excluded.
+- **InnoEval** — *InnoEval: On Research Idea Evaluation as a Knowledge-Grounded, Multi-Perspective Reasoning Problem*. Method · Published. Agreement with human reviews evaluates a judgment proxy; it does not establish experimental success, long-term scientific value, or autonomous problem selection.
+- **RINoBench** — *Is This Idea Novel? An Automated Benchmark for Judgment of Research Ideas*. Benchmark · Published. Agreement with novelty judgments is distinct from generating new questions, predicting feasibility, or demonstrating scientific importance; plausible rationales need not imply correct judgments.
+- **OpenNovelty** — *OpenNovelty: An LLM-powered Agentic System for Verifiable Scholarly Novelty Assessment*. System · Preprint / report. Assesses novelty of supplied manuscripts rather than generating questions or estimating scientific importance; conclusions remain limited by retrieval coverage and model judgments.
+- **SciStyleBench** — *Style Wins, Substance Loses: A Diagnosis of LLM-as-Judge in Idea Generation*. Benchmark · Preprint / report. Measures evaluator robustness and ranking bias under constructed perturbations; it does not establish the long-term scientific value of the evaluated ideas.
+- **TasteVal** — *TasteVal: Measuring the Experimental Research Taste of AI Systems Against Human Experts*. Benchmark · Preprint / report. Taste is operationalized as experimental compute efficiency on assigned problems; open-ended problem selection is not measured, and the tasks are not publicly released.
+- **Ideation-Execution Gap** — *The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas*. Study · Published. Execution is human-led and outcomes are assessed within an NLP research study; this is evidence about idea evaluation, not a demonstration of autonomous research execution.
+
+</details>
 
 ## Question Formulation and Hypothesis Generation
 
@@ -75,14 +86,42 @@ Which questions deserve attention, and how can that judgment be learned or evalu
 
 How can AI turn gaps, contradictions, and observations into valuable, testable questions?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-llm-novel-research-ideas-human-study"></a>**Human Study of Research Ideation**<br>Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers<br>2024 · ICLR 2025<br>Study · Published | Compares LLM-generated research proposals with expert-written ideas through blinded expert review and examines generation diversity and self-evaluation failures. | The main evidence concerns perceived novelty and feasibility of NLP proposals before execution; expert preference is not proof of successful discoveries or downstream scientific value. | [Paper](https://arxiv.org/abs/2409.04109) · [Code](https://github.com/NoviScl/AI-Researcher) |
-| <a id="work-chain-of-ideas"></a>**Chain of Ideas / Idea Arena**<br>Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents<br>2024 · Findings of EMNLP 2025<br>Method · Published | Organizes literature into chains of research developments to generate ideas and experiment designs, and introduces Idea Arena for comparative proposal evaluation. | Comparative proposal ratings measure judged idea quality; they do not demonstrate executed discoveries, and organizing past literature is not itself learning from new experiments. | [Paper](https://aclanthology.org/2025.findings-emnlp.477/) · [Code](https://github.com/DAMO-NLP-SG/CoI-Agent) |
-| <a id="work-researchagent"></a>**ResearchAgent**<br>ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models<br>2024 · NAACL 2025<br>Method · Published | Uses a seed paper, academic graph, and entity knowledge store to formulate problems, methods, and experiment plans refined by reviewing agents. | Evidence is based on human and model evaluations of generated proposals; producing an experiment design is not the same as executing and validating it. | [Paper](https://aclanthology.org/2025.naacl-long.342/) · [Code](https://github.com/JinheonBaek/ResearchAgent) |
-| <a id="work-scideator"></a>**Scideator**<br>Scideator: Human-LLM Compound System for Scientific Ideation through Facet Recombination and Novelty Evaluation<br>2024 · ACM CAIS 2026<br>System · Published | Supports human-AI ideation by recombining purpose, mechanism, and evaluation facets of papers, with literature-grounded checks of proposed ideas' novelty. | A mixed-initiative system evaluated through user studies and novelty-checker ablations; creativity support and novelty judgments do not establish autonomous discoveries or realized impact. | [Paper](https://arxiv.org/abs/2409.14634) |
-| <a id="work-scipip"></a>**SciPIP**<br>SciPIP: An LLM-based Scientific Paper Idea Proposer<br>2024 · arXiv<br>Method · Preprint / report | Combines semantic, keyword, and citation-aware literature retrieval with brainstorming and retrieval-based generation to propose ideas for supplied research backgrounds. | Evaluation uses expert ratings of NLP and computer-vision proposals; perceived feasibility and helpfulness are not evidence that the proposals were successfully executed. | [Paper](https://arxiv.org/abs/2410.23166) · [Code](https://github.com/cheerss/SciPIP) |
-| <a id="work-scimon"></a>**SciMON**<br>SciMON: Scientific Inspiration Machines Optimized for Novelty<br>2023 · ACL 2024<br>Method · Published | Generates natural-language research directions from supplied backgrounds by retrieving scientific inspirations and iteratively revising ideas against related work. | Novelty-oriented proposal generation is conditioned on supplied contexts; novelty relative to retrieved literature does not establish experimental validity or research importance. | [Paper](https://aclanthology.org/2024.acl-long.18/) · [Code](https://github.com/EagleW/Scientific-Inspiration-Machines-Optimized-for-Novelty) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-llm-novel-research-ideas-human-study"></a>**Human Study of Research Ideation**<br><sub>2024 · ICLR 2025</sub> | Compares LLM-generated research proposals with expert-written ideas through blinded expert review and examines generation diversity and self-evaluation failures. | [Paper](https://arxiv.org/abs/2409.04109) · [Code](https://github.com/NoviScl/AI-Researcher) |
+| <a id="work-chain-of-ideas"></a>**Chain of Ideas / Idea Arena**<br><sub>2024 · Findings of EMNLP 2025</sub> | Organizes literature into chains of research developments to generate ideas and experiment designs, and introduces Idea Arena for comparative proposal evaluation. | [Paper](https://aclanthology.org/2025.findings-emnlp.477/) · [Code](https://github.com/DAMO-NLP-SG/CoI-Agent) |
+| <a id="work-liveideabench"></a>**LiveIdeaBench**<br><sub>2024 · Nature Communications 2026</sub> | Evaluates scientific divergent thinking from minimal keyword prompts using a changing panel of LLM judges and criteria including originality, feasibility, fluency, flexibility, and clarity. | [Paper](https://www.nature.com/articles/s41467-026-70245-1) · [Code](https://github.com/x66ccff/liveideabench) · [Project](https://liveideabench.com/) |
+| <a id="work-hypogenic"></a>**HypoGeniC**<br><sub>2024 · NLP4Science 2024</sub> | Generates natural-language hypotheses from labeled examples and uses prediction errors and bandit-inspired selection to expand and update a hypothesis bank. | [Paper](https://aclanthology.org/2024.nlp4science-1.10/) · [Code](https://github.com/ChicagoHAI/hypothesis-generation) |
+| <a id="work-ideabench"></a>**IdeaBench**<br><sub>2024 · arXiv</sub> | Benchmarks idea generation from published papers' reference contexts and uses GPT-4o rankings to score selected criteria such as novelty and feasibility. | [Paper](https://arxiv.org/abs/2411.02429) · [Code](https://github.com/amir-hassan25/IdeaBench) |
+| <a id="work-ideasynth"></a>**IdeaSynth**<br><sub>2024 · CHI 2025</sub> | Supports iterative human-AI ideation by separating an idea into problem, solution, evaluation, and contribution facets that users can vary, combine, and refine with literature-grounded feedback. | [Paper](https://arxiv.org/abs/2410.04025) |
+| <a id="work-hyporefine"></a>**HypoRefine / Literature Meets Data**<br><sub>2024 · ACL 2025</sub> | Combines literature-based knowledge with data-driven hypothesis generation and refinement, evaluating both predictive usefulness and assistance to human decisions. | [Paper](https://aclanthology.org/2025.acl-long.12/) · [Code](https://github.com/ChicagoHAI/hypothesis-generation) |
+| <a id="work-researchagent"></a>**ResearchAgent**<br><sub>2024 · NAACL 2025</sub> | Uses a seed paper, academic graph, and entity knowledge store to formulate problems, methods, and experiment plans refined by reviewing agents. | [Paper](https://aclanthology.org/2025.naacl-long.342/) · [Code](https://github.com/JinheonBaek/ResearchAgent) |
+| <a id="work-sciagents"></a>**SciAgents**<br><sub>2024 · Advanced Materials 2025</sub> | Combines ontological knowledge graphs with specialist agents to connect distant concepts and generate, critique, and refine interdisciplinary research hypotheses. | [Paper](https://doi.org/10.1002/adma.202413523) · [Code](https://github.com/lamm-mit/SciAgentsDiscovery) |
+| <a id="work-scideator"></a>**Scideator**<br><sub>2024 · ACM CAIS 2026</sub> | Supports human-AI ideation by recombining purpose, mechanism, and evaluation facets of papers, with literature-grounded checks of proposed ideas' novelty. | [Paper](https://arxiv.org/abs/2409.14634) |
+| <a id="work-scipip"></a>**SciPIP**<br><sub>2024 · arXiv</sub> | Combines semantic, keyword, and citation-aware literature retrieval with brainstorming and retrieval-based generation to propose ideas for supplied research backgrounds. | [Paper](https://arxiv.org/abs/2410.23166) · [Code](https://github.com/cheerss/SciPIP) |
+| <a id="work-coquest"></a>**CoQuest**<br><sub>2023 · CHI 2024</sub> | Studies human-AI research-question co-creation through breadth-first and depth-first generation strategies, examining how interaction design affects researchers' exploration, reflection, and control. | [Paper](https://arxiv.org/abs/2310.06155) · [Code](https://github.com/yiren-liu/coquest) |
+| <a id="work-moose"></a>**MOOSE**<br><sub>2023 · Findings of ACL 2024</sub> | Generates social-science hypotheses from raw web corpora through background and inspiration extraction, followed by multiple feedback mechanisms for hypothesis refinement. | [Paper](https://aclanthology.org/2024.findings-acl.804/) · [Code](https://github.com/ZonglinY/MOOSE) |
+| <a id="work-scimon"></a>**SciMON**<br><sub>2023 · ACL 2024</sub> | Generates natural-language research directions from supplied backgrounds by retrieving scientific inspirations and iteratively revising ideas against related work. | [Paper](https://aclanthology.org/2024.acl-long.18/) · [Code](https://github.com/EagleW/Scientific-Inspiration-Machines-Optimized-for-Novelty) |
+
+<details>
+<summary>Full titles, evidence and scope notes (14)</summary>
+
+- **Human Study of Research Ideation** — *Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers*. Study · Published. The main evidence concerns perceived novelty and feasibility of NLP proposals before execution; expert preference is not proof of successful discoveries or downstream scientific value.
+- **Chain of Ideas / Idea Arena** — *Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents*. Method · Published. Comparative proposal ratings measure judged idea quality; they do not demonstrate executed discoveries, and organizing past literature is not itself learning from new experiments.
+- **LiveIdeaBench** — *Evaluating LLMs' divergent thinking capabilities for scientific idea generation with minimal context*. Benchmark · Published. Brainstorming and judge ratings do not establish which questions are worth pursuing or yield discoveries; changing the judge panel also complicates comparisons over time.
+- **HypoGeniC** — *Hypothesis Generation with Large Language Models*. Method · Published. Held-out predictive accuracy tests whether hypotheses capture useful dataset patterns; it does not establish causal explanations or the broader scientific importance of the questions.
+- **IdeaBench** — *IdeaBench: Benchmarking Large Language Models for Research Idea Generation*. Benchmark · Preprint / report. Its relative scores measure judged proposal quality against a reference set; they do not demonstrate experimental success, causal validity, or realized scientific value.
+- **IdeaSynth** — *IdeaSynth: Iterative Research Idea Development Through Evolving and Composing Idea Facets with Literature-Grounded Feedback*. System · Published. User studies measure support for exploring and developing proposals; they do not demonstrate autonomous question selection or scientifically validated outcomes.
+- **HypoRefine / Literature Meets Data** — *Literature Meets Data: A Synergistic Approach to Hypothesis Generation*. Method · Published. Evidence comes from classification and decision-support tasks, including deception and AI-content detection; predictive utility is not causal validation or open-ended scientific discovery.
+- **ResearchAgent** — *ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models*. Method · Published. Evidence is based on human and model evaluations of generated proposals; producing an experiment design is not the same as executing and validating it.
+- **SciAgents** — *SciAgents: Automating Scientific Discovery Through Bioinspired Multi-Agent Intelligent Graph Reasoning*. System · Published. Demonstrations focus on bioinspired materials ideas; proposed mechanisms and predicted properties are starting points for research, not experimentally established discoveries or evidence of transfer to AI research.
+- **Scideator** — *Scideator: Human-LLM Compound System for Scientific Ideation through Facet Recombination and Novelty Evaluation*. System · Published. A mixed-initiative system evaluated through user studies and novelty-checker ablations; creativity support and novelty judgments do not establish autonomous discoveries or realized impact.
+- **SciPIP** — *SciPIP: An LLM-based Scientific Paper Idea Proposer*. Method · Preprint / report. Evaluation uses expert ratings of NLP and computer-vision proposals; perceived feasibility and helpfulness are not evidence that the proposals were successfully executed.
+- **CoQuest** — *CoQuest: Exploring Research Question Co-Creation with an LLM-based Agent*. System · Published. Evidence concerns HCI researchers' ideation experience and perceived creativity; it does not establish the questions' eventual scientific importance or autonomous research success.
+- **MOOSE** — *Large Language Models for Automated Open-domain Scientific Hypotheses Discovery*. Method · Published. Expert and GPT-based judgments assess proposed hypotheses; judgments of novelty or plausibility do not substitute for experiments establishing that the hypotheses are true.
+- **SciMON** — *SciMON: Scientific Inspiration Machines Optimized for Novelty*. Method · Published. Novelty-oriented proposal generation is conditioned on supplied contexts; novelty relative to retrieved literature does not establish experimental validity or research importance.
+
+</details>
 
 ## Scientific Reasoning and Research Execution
 
@@ -90,13 +129,36 @@ How can AI turn gaps, contradictions, and observations into valuable, testable q
 
 Which experiments, proofs, and revisions turn a question into reliable new knowledge?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-autoresearch"></a>**Karpathy's autoresearch**<br>autoresearch<br>2026 · Open-source project<br>System · Project | A compact modify-train-evaluate-retain loop for single-GPU language-model training, useful as an accessible research execution baseline. | Optimizes a fixed metric in short training runs. Research instructions are human-written; metric gains do not demonstrate question selection or learned taste. | [Code](https://github.com/karpathy/autoresearch) |
-| <a id="work-arbor"></a>**Arbor**<br>Toward Generalist Autonomous Research via Hypothesis-Tree Refinement<br>2026 · arXiv<br>System · Preprint / report | Stores hypotheses, experimental artifacts, evidence, and reusable lessons in a persistent tree managed by a coordinator and isolated executors. | Evaluated mainly as autonomous optimization of supplied artifacts and objectives. Evidence accumulation is not by itself broad scientific question selection. | [Paper](https://arxiv.org/abs/2606.11926) · [Code](https://github.com/RUC-NLPIR/Arbor) · [Project](https://RUC-NLPIR.github.io/Arbor/) |
-| <a id="work-aletheia"></a>**Aletheia**<br>Towards Autonomous Mathematics Research<br>2026 · arXiv<br>System · Preprint / report | Iterates generation, verification, revision, and literature use for research-level mathematics; also discusses autonomy, novelty, and human contribution reporting. | Uses natural-language reasoning, not universal formal proof checking. The linked release contains prompts and outputs, not the complete agent implementation. | [Paper](https://arxiv.org/abs/2602.10177) · [Resources](https://github.com/google-deepmind/superhuman/tree/main/aletheia) |
-| <a id="work-alphaevolve"></a>**AlphaEvolve**<br>AlphaEvolve: A coding agent for scientific and algorithmic discovery<br>2025 · arXiv / technical report<br>System · Preprint / report | Evolves algorithm implementations using LLM proposals and automated evaluator feedback across mathematical and computational tasks. | Requires an executable objective and evaluation procedure. Verified improvements within supplied tasks do not measure the value of self-selected research questions. | [Paper](https://arxiv.org/abs/2506.13131) · [Project](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) |
-| <a id="work-funsearch"></a>**FunSearch**<br>Mathematical discoveries from program search with large language models<br>2023 · Nature 2023<br>Method · Published | Combines LLM program generation, executable evaluation, and evolutionary search for mathematical constructions and algorithms. | The objective and evaluator are supplied by humans. Released research code excludes the language model, sandbox, and distributed infrastructure. | [Paper](https://www.nature.com/articles/s41586-023-06924-6) · [Code](https://github.com/google-deepmind/funsearch) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-autoresearch"></a>**Karpathy's autoresearch**<br><sub>2026 · Open-source project</sub> | A compact modify-train-evaluate-retain loop for single-GPU language-model training, useful as an accessible research execution baseline. | [Code](https://github.com/karpathy/autoresearch) |
+| <a id="work-arbor"></a>**Arbor**<br><sub>2026 · arXiv</sub> | Stores hypotheses, experimental artifacts, evidence, and reusable lessons in a persistent tree managed by a coordinator and isolated executors. | [Paper](https://arxiv.org/abs/2606.11926) · [Code](https://github.com/RUC-NLPIR/Arbor) · [Project](https://RUC-NLPIR.github.io/Arbor/) |
+| <a id="work-aletheia"></a>**Aletheia**<br><sub>2026 · arXiv</sub> | Iterates generation, verification, revision, and literature use for research-level mathematics; also discusses autonomy, novelty, and human contribution reporting. | [Paper](https://arxiv.org/abs/2602.10177) · [Resources](https://github.com/google-deepmind/superhuman/tree/main/aletheia) |
+| <a id="work-aide"></a>**AIDE**<br><sub>2025 · arXiv</sub> | Treats ML experimentation as tree search over executable code, using measured results to choose whether to draft, debug, or improve candidate solutions. | [Paper](https://arxiv.org/abs/2502.13138) · [Code](https://github.com/WecoAI/aideml) |
+| <a id="work-alphaevolve"></a>**AlphaEvolve**<br><sub>2025 · arXiv / technical report</sub> | Evolves algorithm implementations using LLM proposals and automated evaluator feedback across mathematical and computational tasks. | [Paper](https://arxiv.org/abs/2506.13131) · [Project](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) |
+| <a id="work-popper"></a>**POPPER**<br><sub>2025 · ICML 2025</sub> | Pairs experiment-design and execution agents with sequential e-value aggregation to test measurable implications of a supplied natural-language hypothesis. | [Paper](https://proceedings.mlr.press/v267/huang25n.html) · [Code](https://github.com/snap-stanford/POPPER) |
+| <a id="work-curie"></a>**Curie**<br><sub>2025 · arXiv</sub> | Coordinates planning and experiment-execution agents with setup checks, controlled task transitions, and structured experimental records to reproduce, extend, and challenge computational findings. | [Paper](https://arxiv.org/abs/2502.16069) · [Code](https://github.com/Just-Curieous/Curie) · [Project](https://www.just-curieous.com/) |
+| <a id="work-rd-agent"></a>**R&amp;D-Agent**<br><sub>2025 · arXiv</sub> | Separates proposing and evaluating improvement ideas from implementing and debugging them, making the iterative research-and-development loop explicit and extensible. | [Paper](https://arxiv.org/abs/2505.14738) · [Code](https://github.com/microsoft/RD-Agent) · [Project](https://rdagent.readthedocs.io/en/latest/index.html) |
+| <a id="work-autora"></a>**AutoRA**<br><sub>2024 · Journal of Open Source Software 2024</sub> | Provides a modular loop connecting experimental design, data collection, and scientific model discovery, with interchangeable experimentalist, experiment-runner, and theorist components. | [Paper](https://joss.theoj.org/papers/10.21105/joss.06839) · [Code](https://github.com/AutoResearch/autora) · [Project](https://autoresearch.github.io/autora/) |
+| <a id="work-funsearch"></a>**FunSearch**<br><sub>2023 · Nature 2023</sub> | Combines LLM program generation, executable evaluation, and evolutionary search for mathematical constructions and algorithms. | [Paper](https://www.nature.com/articles/s41586-023-06924-6) · [Code](https://github.com/google-deepmind/funsearch) |
+| <a id="work-deep-adaptive-design"></a>**Deep Adaptive Design (DAD)**<br><sub>2021 · ICML 2021</sub> | Learns a reusable experimental-design policy that maps previous observations to the next experiment and optimizes information gained across the full experiment sequence. | [Paper](https://proceedings.mlr.press/v139/foster21a.html) · [Code](https://github.com/ae-foster/dad) |
+
+<details>
+<summary>Full titles, evidence and scope notes (11)</summary>
+
+- **Karpathy's autoresearch** — *autoresearch*. System · Project. Optimizes a fixed metric in short training runs. Research instructions are human-written; metric gains do not demonstrate question selection or learned taste.
+- **Arbor** — *Toward Generalist Autonomous Research via Hypothesis-Tree Refinement*. System · Preprint / report. Evaluated mainly as autonomous optimization of supplied artifacts and objectives. Evidence accumulation is not by itself broad scientific question selection.
+- **Aletheia** — *Towards Autonomous Mathematics Research*. System · Preprint / report. Uses natural-language reasoning, not universal formal proof checking. The linked release contains prompts and outputs, not the complete agent implementation.
+- **AIDE** — *AIDE: AI-Driven Exploration in the Space of Code*. Method · Preprint / report. The goal, data, and optimization metric are supplied, so performance on Kaggle, MLE-bench, and RE-Bench measures execution and search rather than research-question significance.
+- **AlphaEvolve** — *AlphaEvolve: A coding agent for scientific and algorithmic discovery*. System · Preprint / report. Requires an executable objective and evaluation procedure. Verified improvements within supplied tasks do not measure the value of self-selected research questions.
+- **POPPER** — *Automated Hypothesis Validation with Agentic Sequential Falsifications*. Method · Published. Evaluation uses existing datasets, and Type-I error control depends on valid logical implications and conditional tests; it does not establish false discovery rate control across many hypotheses.
+- **Curie** — *Curie: Toward Rigorous and Automated Scientific Experimentation with AI Agents*. Method · Preprint / report. The original study starts from supplied questions and context in four computer-science domains and uses hybrid LLM/human evaluation, which is not a formal guarantee of scientific validity or autonomous question selection.
+- **R&amp;D-Agent** — *R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science*. Method · Preprint / report. The linked report evaluates ML engineering on MLE-bench; the repository's separate finance and fine-tuning papers do not establish general autonomous scientific question selection for this work.
+- **AutoRA** — *AutoRA: Automated Research Assistant for Closed-Loop Empirical Research*. Method · Published. Users specify variables, experimental access, and model-discovery components; the framework does not itself establish autonomous selection of scientifically important questions.
+- **FunSearch** — *Mathematical discoveries from program search with large language models*. Method · Published. The objective and evaluator are supplied by humans. Released research code excludes the language model, sandbox, and distributed infrastructure.
+- **Deep Adaptive Design (DAD)** — *Deep Adaptive Design: Amortizing Sequential Bayesian Experimental Design*. Method · Published. This is a Bayesian design foundation with a supplied likelihood, prior, and design space, rather than a demonstrated ability to invent new research goals or scientific model classes.
+
+</details>
 
 ## Learning from Research Experience
 
@@ -104,24 +166,63 @@ Which experiments, proofs, and revisions turn a question into reliable new knowl
 
 How do outcomes and feedback improve future research decisions, including on new tasks?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-agora"></a>**Agora**<br>Agora: Git as Shared Memory for Collective AutoResearch<br>2026 · arXiv<br>System · Preprint / report | Git records a shared graph of hypotheses, results, and verifications so research agents in separate sessions can reuse and extend collective work. | The weight-transfer case study documents reuse and verification; the paper says a matched comparison is needed to establish discovery gains per compute. Shared state is not model training. | [Paper](https://arxiv.org/abs/2609.18094) · [Project](https://yifanzhang-pro.github.io/Agora/) |
-| <a id="work-evoscientist"></a>**EvoScientist**<br>EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery<br>2026 · arXiv<br>System · Preprint / report | An evolution manager distills completed research trajectories into persistent ideation and experimentation memories that researcher and engineer agents retrieve for subsequent tasks. | The adaptation mechanism is memory-based strategy reuse; measured idea ratings and execution outcomes do not establish general scientific importance or foundation-model training. | [Paper](https://arxiv.org/abs/2603.08127) · [Code](https://github.com/EvoScientist/EvoScientist) |
-| <a id="work-hypoforge"></a>**HypoForge**<br>HypoForge: A Self-Improving Multi-Agent Framework for Automated Hypothesis Generation and Testing via Scientific Skill Learning<br>2026 · arXiv<br>Method · Preprint / report | Learns reusable hypothesis-generation and testing skills from comparative critique and execution feedback, then evaluates the refined skills on held-out tasks without fine-tuning the backbone. | The test-pass metric rewards successful execution and p &lt; 0.05 for reference hypotheses; this alone establishes neither false-positive control nor scientific importance. Adaptation does not update backbone weights. | [Paper](https://arxiv.org/abs/2608.25770) |
-| <a id="work-agentrxiv"></a>**AgentRxiv**<br>AgentRxiv: Towards Collaborative Autonomous Research<br>2025 · arXiv<br>System · Preprint / report | Agent laboratories retrieve and publish research reports through shared memory, building on earlier reasoning and prompting experiments across research runs. | Evidence concerns cumulative progress on a specified benchmark objective; report reuse does not establish learned scientific taste or general cross-domain research strategy. | [Paper](https://arxiv.org/abs/2503.18102) · [Code](https://github.com/SamuelSchmidgall/AgentLaboratory) · [Project](https://agentrxiv.github.io/) |
-| <a id="work-dolphin"></a>**Dolphin**<br>Dolphin: Moving Towards Closed-loop Auto-research through Thinking, Practice, and Feedback<br>2025 · ACL 2025<br>System · Published | Connects idea generation, code implementation, and experimental analysis in a loop that feeds previous results into the next research iteration. | Feedback improves search within a supplied topic; it does not by itself demonstrate cross-task learning of research strategies, model-weight updates, or learned scientific taste. | [Paper](https://aclanthology.org/2025.acl-long.1056/) · [Code](https://github.com/InternScience/Dolphin) · [Project](https://alpha-innovator.github.io/Dolphin-project-page/) |
-| <a id="work-cycleresearcher"></a>**CycleResearcher**<br>CycleResearcher: Improving Automated Research via Automated Review<br>2024 · ICLR 2025<br>Method · Published | Uses iterative preference training with a research-generation policy and an automated reviewer to improve research planning and manuscript generation. | Main evaluations concern generated manuscripts and review scores, with model-generated, unexecuted experimental results; actual execution is outside the core method, although an appendix demonstrates external execution integration. | [Paper](https://arxiv.org/abs/2411.00816) · [Code](https://github.com/zhu-minjun/Researcher) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-agora"></a>**Agora**<br><sub>2026 · arXiv</sub> | Git records a shared graph of hypotheses, results, and verifications so research agents in separate sessions can reuse and extend collective work. | [Paper](https://arxiv.org/abs/2609.18094) · [Project](https://yifanzhang-pro.github.io/Agora/) |
+| <a id="work-autoresearchclaw"></a>**AutoResearchClaw**<br><sub>2026 · arXiv</sub> | Extracts structured lessons from failed research runs into a persistent, time-decayed store and retrieves safeguards for later runs, alongside a research pipeline with configurable human involvement. | [Paper](https://arxiv.org/abs/2605.20025) · [Code](https://github.com/aiming-lab/AutoResearchClaw) |
+| <a id="work-bilevel-autoresearch"></a>**Bilevel Autoresearch**<br><sub>2026 · arXiv</sub> | Uses an outer loop to analyze search traces, adjust search strategy, and generate Python mechanisms that change how an inner autoresearch loop proposes and evaluates training configurations. | [Paper](https://arxiv.org/abs/2603.23420) · [Code](https://github.com/EdwardOptimization/Bilevel-Autoresearch) |
+| <a id="work-evolution-fine-tuning"></a>**Evolution Fine-Tuning / Finch**<br><sub>2026 · NeurIPS 2026 (accepted)</sub> | Turns evolutionary search trajectories from multiple optimization domains into supervised training data for Finch models, testing whether solution-improvement strategies transfer to held-out tasks and complement test-time reinforcement learning. | [Paper](https://arxiv.org/abs/2606.29082) · [Code](https://github.com/Open-Galapagos/evolution-fine-tuning) · [Project](https://open-galapagos.github.io/evolution_finetuning/) |
+| <a id="work-evoscientist"></a>**EvoScientist**<br><sub>2026 · arXiv</sub> | An evolution manager distills completed research trajectories into persistent ideation and experimentation memories that researcher and engineer agents retrieve for subsequent tasks. | [Paper](https://arxiv.org/abs/2603.08127) · [Code](https://github.com/EvoScientist/EvoScientist) |
+| <a id="work-hypoforge"></a>**HypoForge**<br><sub>2026 · arXiv</sub> | Learns reusable hypothesis-generation and testing skills from comparative critique and execution feedback, then evaluates the refined skills on held-out tasks without fine-tuning the backbone. | [Paper](https://arxiv.org/abs/2608.25770) |
+| <a id="work-internagent-1-5"></a>**InternAgent-1.5**<br><sub>2026 · arXiv</sub> | Connects generation, verification, and evolution through procedural strategy memory, within-trajectory experiment episodes, and semantic knowledge consolidated across sessions for long research cycles. | [Paper](https://arxiv.org/abs/2602.08990) · [Code](https://github.com/InternScience/InternAgent) |
+| <a id="work-researchtrails"></a>**ResearchTrails**<br><sub>2026 · arXiv</sub> | Extracts human research decisions from Git histories and compares inference-time demonstrations and distilled skills with supervised and reinforcement learning of next research decisions. | [Paper](https://arxiv.org/abs/2610.07184) · [Code](https://github.com/xuchengong/ResearchTrails) · [Project](https://researchtrails.org/blog/) |
+| <a id="work-ttt-discover"></a>**TTT-Discover**<br><sub>2026 · ICML 2026</sub> | Updates language-model weights with reinforcement learning during search on a single problem, using continuous rewards to seek a high-quality solution in mathematics, kernels, algorithms, or biological data analysis. | [Paper](https://proceedings.mlr.press/v306/yuksekgonul26a.html) · [Code](https://github.com/test-time-training/discover) · [Project](https://test-time-training.github.io/discover/) |
+| <a id="work-mle-ideator"></a>**MLE-Ideator**<br><sub>2026 · EACL 2026 (Short Papers)</sub> | Separates strategic ideation from implementation and trains the ideator with reinforcement learning from execution-based rewards, evaluating its guidance on held-out machine-learning engineering tasks. | [Paper](https://aclanthology.org/2026.eacl-short.32/) |
+| <a id="work-or-agent"></a>**OR-Agent**<br><sub>2026 · arXiv</sub> | Combines tree-based heuristic search and backtracking with experiment reflections, outcome summaries, and accumulated lessons that guide subsequent branches within an optimization run. | [Paper](https://arxiv.org/abs/2602.13769) · [Code](https://github.com/qiliuchn/OR-Agent) |
+| <a id="work-scisense"></a>**SciSense**<br><sub>2026 · arXiv</sub> | Constructs structured, citation-conditioned ideation trajectories and distills them into planning models through supervised fine-tuning, comparing reconstruction of known contributions with forward-looking idea generation. | [Paper](https://arxiv.org/abs/2605.00557) · [Code](https://github.com/minnesotanlp/SciSense) |
+| <a id="work-agentrxiv"></a>**AgentRxiv**<br><sub>2025 · arXiv</sub> | Agent laboratories retrieve and publish research reports through shared memory, building on earlier reasoning and prompting experiments across research runs. | [Paper](https://arxiv.org/abs/2503.18102) · [Code](https://github.com/SamuelSchmidgall/AgentLaboratory) · [Project](https://agentrxiv.github.io/) |
+| <a id="work-dolphin"></a>**Dolphin**<br><sub>2025 · ACL 2025</sub> | Connects idea generation, code implementation, and experimental analysis in a loop that feeds previous results into the next research iteration. | [Paper](https://aclanthology.org/2025.acl-long.1056/) · [Code](https://github.com/InternScience/Dolphin) · [Project](https://alpha-innovator.github.io/Dolphin-project-page/) |
+| <a id="work-cycleresearcher"></a>**CycleResearcher**<br><sub>2024 · ICLR 2025</sub> | Uses iterative preference training with a research-generation policy and an automated reviewer to improve research planning and manuscript generation. | [Paper](https://arxiv.org/abs/2411.00816) · [Code](https://github.com/zhu-minjun/Researcher) |
+
+<details>
+<summary>Full titles, evidence and scope notes (15)</summary>
+
+- **Agora** — *Agora: Git as Shared Memory for Collective AutoResearch*. System · Preprint / report. The weight-transfer case study documents reuse and verification; the paper says a matched comparison is needed to establish discovery gains per compute. Shared state is not model training.
+- **AutoResearchClaw** — *AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration*. System · Preprint / report. Cross-run adaptation is external lesson reuse rather than model training. Its ablation mainly supports avoiding known failure modes; the paper does not establish a higher scientific-quality ceiling or learned judgment of research importance.
+- **Bilevel Autoresearch** — *Bilevel Autoresearch: Meta-Autoresearching Itself*. Method · Preprint / report. Evidence is limited to a small repeated study of one GPT-pretraining task. The adaptation changes search code, not the agent model's weights, and does not demonstrate cross-task transfer or unbounded recursive self-improvement.
+- **Evolution Fine-Tuning / Finch** — *Evolution Fine-Tuning: Learning to Discover Across 371 Optimization Tasks*. Method · Preprint / report. This provides cross-task training evidence under supplied objectives and evaluators, not learned question importance. Trajectory collection and primary search evaluation use one scaffold, leaving general transfer across research workflows unestablished.
+- **EvoScientist** — *EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery*. System · Preprint / report. The adaptation mechanism is memory-based strategy reuse; measured idea ratings and execution outcomes do not establish general scientific importance or foundation-model training.
+- **HypoForge** — *HypoForge: A Self-Improving Multi-Agent Framework for Automated Hypothesis Generation and Testing via Scientific Skill Learning*. Method · Preprint / report. The test-pass metric rewards successful execution and p &lt; 0.05 for reference hypotheses; this alone establishes neither false-positive control nor scientific importance. Adaptation does not update backbone weights.
+- **InternAgent-1.5** — *InternAgent-1.5: A Unified Agentic Framework for Long-Horizon Autonomous Scientific Discovery*. System · Preprint / report. Its memory mechanisms mix within-run adaptation and reuse of earlier workflows. Task and case-study results do not isolate general cross-domain strategy transfer or demonstrate that the foundation model learns research taste through weight updates.
+- **ResearchTrails** — *Learning Scientific Exploration from Human Research Decision Trajectories*. Method · Preprint / report. Git commits are incomplete proxies for research experience. The main target is similarity to recorded next decisions, not prospective evidence that a learned policy produces important discoveries.
+- **TTT-Discover** — *Learning to Discover at Test Time*. Method · Published. This is task-specific test-time training with a supplied objective and evaluator. It does not by itself establish retained improvement across new research tasks or the ability to select scientifically important questions.
+- **MLE-Ideator** — *Learning to Ideate for Machine Learning Engineering Agents*. Method · Published. The agent improves solutions to supplied MLE-Bench objectives; this tests transferable engineering guidance rather than choosing valuable open research questions. The reported evaluation excludes the high-complexity task subset.
+- **OR-Agent** — *OR-Agent: Bridging Evolutionary Search and Structured Research for Automated Heuristic Design*. Method · Preprint / report. Evaluations concern specified combinatorial and simulation optimization tasks. Its verbal gradients and momentum are reflection analogies, not model-weight updates or evidence of learned research strategy transfer across tasks.
+- **SciSense** — *Structure Liberates: How Constrained Sensemaking Produces More Novel Research Output*. Method · Preprint / report. Trajectories are synthetic reconstructions, not recorded human deliberations; judged novelty and a small computer-science execution study do not establish general scientific value. Released code covers SFT and evaluation, not the paper's exploratory RL experiments.
+- **AgentRxiv** — *AgentRxiv: Towards Collaborative Autonomous Research*. System · Preprint / report. Evidence concerns cumulative progress on a specified benchmark objective; report reuse does not establish learned scientific taste or general cross-domain research strategy.
+- **Dolphin** — *Dolphin: Moving Towards Closed-loop Auto-research through Thinking, Practice, and Feedback*. System · Published. Feedback improves search within a supplied topic; it does not by itself demonstrate cross-task learning of research strategies, model-weight updates, or learned scientific taste.
+- **CycleResearcher** — *CycleResearcher: Improving Automated Research via Automated Review*. Method · Published. Main evaluations concern generated manuscripts and review scores, with model-generated, unexecuted experimental results; actual execution is outside the core method, although an appendix demonstrates external execution integration.
+
+</details>
 
 ### Transferable foundations
 
 These methods inform research-agent design; their original evaluations do not directly establish scientific discovery or research taste.
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-darwin-godel-machine"></a>**Darwin Gödel Machine**<br>Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents<br>2025 · ICLR 2026<br>Foundation · Published | Maintains an evolving archive of coding agents that modify their own code and assess resulting variants through empirical coding benchmarks. | A foundation for agent-level self-improvement, demonstrated in coding; empirical benchmark gains are neither proofs of beneficial self-modification nor evidence of scientific taste. | [Paper](https://arxiv.org/abs/2505.22954) · [Code](https://github.com/jennyzzt/dgm) |
-| <a id="work-adas"></a>**ADAS**<br>Automated Design of Agentic Systems<br>2024 · ICLR 2025<br>Foundation · Published | A meta-agent searches over agent programs using an archive of prior designs and evaluations, with transfer tests across tasks and foundation models. | A foundation for improving agent workflows against specified task objectives; benchmark transfer does not establish the ability to choose important scientific questions. | [Paper](https://arxiv.org/abs/2408.08435) · [Code](https://github.com/ShengranHu/ADAS) · [Project](https://www.shengranhu.com/ADAS/) |
-| <a id="work-reflexion"></a>**Reflexion**<br>Reflexion: Language Agents with Verbal Reinforcement Learning<br>2023 · NeurIPS 2023<br>Foundation · Published | Stores verbal reflections on task feedback in episodic memory to guide subsequent trials without updating model weights. | A foundation for inference-time adaptation, evaluated on decision-making, coding, and reasoning tasks; it is not direct evidence of scientific discovery or research-taste learning. | [Paper](https://arxiv.org/abs/2303.11366) · [Code](https://github.com/noahshinn/reflexion) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-darwin-godel-machine"></a>**Darwin Gödel Machine**<br><sub>2025 · ICLR 2026</sub> | Maintains an evolving archive of coding agents that modify their own code and assess resulting variants through empirical coding benchmarks. | [Paper](https://arxiv.org/abs/2505.22954) · [Code](https://github.com/jennyzzt/dgm) |
+| <a id="work-adas"></a>**ADAS**<br><sub>2024 · ICLR 2025</sub> | A meta-agent searches over agent programs using an archive of prior designs and evaluations, with transfer tests across tasks and foundation models. | [Paper](https://arxiv.org/abs/2408.08435) · [Code](https://github.com/ShengranHu/ADAS) · [Project](https://www.shengranhu.com/ADAS/) |
+| <a id="work-reflexion"></a>**Reflexion**<br><sub>2023 · NeurIPS 2023</sub> | Stores verbal reflections on task feedback in episodic memory to guide subsequent trials without updating model weights. | [Paper](https://arxiv.org/abs/2303.11366) · [Code](https://github.com/noahshinn/reflexion) |
+
+<details>
+<summary>Full titles, evidence and scope notes (3)</summary>
+
+- **Darwin Gödel Machine** — *Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents*. Foundation · Published. A foundation for agent-level self-improvement, demonstrated in coding; empirical benchmark gains are neither proofs of beneficial self-modification nor evidence of scientific taste.
+- **ADAS** — *Automated Design of Agentic Systems*. Foundation · Published. A foundation for improving agent workflows against specified task objectives; benchmark transfer does not establish the ability to choose important scientific questions.
+- **Reflexion** — *Reflexion: Language Agents with Verbal Reinforcement Learning*. Foundation · Published. A foundation for inference-time adaptation, evaluated on decision-making, coding, and reasoning tasks; it is not direct evidence of scientific discovery or research-taste learning.
+
+</details>
 
 ## Benchmarks and Evaluation
 
@@ -129,20 +230,46 @@ These methods inform research-agent design; their original evaluations do not di
 
 How can we measure question value, valid discoveries, resource efficiency, and transfer separately?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-airs-bench"></a>**AIRS-Bench**<br>AIRS-Bench: a Suite of Tasks for Frontier AI Research Science Agents<br>2026 · arXiv<br>Benchmark · Preprint / report | Paper-derived ML tasks require agents to develop solutions without baseline code, connecting idea generation, experiment analysis, and iterative refinement across diverse domains. | Each task supplies a problem, dataset, and metric; exceeding a reference score does not demonstrate autonomous problem discovery or scientific significance. | [Paper](https://arxiv.org/abs/2602.06855) · [Code](https://github.com/facebookresearch/airs-bench) |
-| <a id="work-fml-bench"></a>**FML-bench**<br>FML-bench: A Controlled Study of AI Research Agent Strategies from the Perspective of Search Dynamics<br>2026 · arXiv<br>Benchmark · Preprint / report | Separates research search strategies from shared execution infrastructure and measures process-level behavior, enabling controlled study of exploration and empirical refinement. | Agents improve supplied baseline code on fixed tasks; the 2026 main-branch version differs from the 2025 legacy benchmark and should not be conflated with it. | [Paper](https://arxiv.org/abs/2605.17373) · [Code](https://github.com/qrzou/FML-bench) |
-| <a id="work-mlgym"></a>**MLGym**<br>MLGym: A New Framework and Benchmark for Advancing AI Research Agents<br>2025 · COLM 2025<br>Benchmark · Published | A Gym-style research environment spanning vision, language, reinforcement learning, and games, designed for evaluating agents and developing learning algorithms for research behavior. | Exploration happens within supplied tasks; improved benchmark scores alone do not establish novel algorithms or learned scientific judgment. | [Paper](https://arxiv.org/abs/2502.14499) · [Code](https://github.com/facebookresearch/MLGym) · [Project](https://sites.google.com/view/mlgym) |
-| <a id="work-mlr-bench"></a>**MLR-Bench**<br>MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research<br>2025 · NeurIPS 2025 Datasets and Benchmarks<br>Benchmark · Published | Workshop-derived research tasks support evaluation of ideas, proposals, experiments, and papers using MLR-Judge, making it relevant to research quality beyond a single prediction metric. | Topics are supplied and rubric-based LLM reviews are proxies; reported research quality still requires independent checks of experiments, novelty, and value. | [Paper](https://arxiv.org/abs/2505.19955) · [Code](https://github.com/chchenhui/mlrbench) · [Project](https://chchenhui.github.io/mlrbench/) |
-| <a id="work-paperbench"></a>**PaperBench**<br>PaperBench: Evaluating AI's Ability to Replicate AI Research<br>2025 · ICML 2025<br>Benchmark · Published | Evaluates replication of ML papers through author-informed hierarchical rubrics, covering implementation, execution, and matching results; includes evaluation of the automated judge. | Replication targets are provided; Code-Dev and full replication scores have different scopes, and neither measures original question selection. | [Paper](https://arxiv.org/abs/2504.01848) · [Code](https://github.com/openai/frontier-evals/tree/main/project/paperbench) · [Project](https://openai.com/index/paperbench/) |
-| <a id="work-discoverybench"></a>**DiscoveryBench**<br>DiscoveryBench: Towards Data-Driven Discovery with Large Language Models<br>2024 · ICLR 2025<br>Benchmark · Published | Evaluates hypothesis search and verification from datasets using real and synthetic discovery tasks, with faceted scoring of findings rather than only code execution. | Datasets and discovery goals are provided, and findings are compared with reference hypotheses; this does not evaluate choosing an unrestricted research agenda. | [Paper](https://arxiv.org/abs/2407.01725) · [Code](https://github.com/allenai/discoverybench) |
-| <a id="work-discoveryworld"></a>**DiscoveryWorld**<br>DISCOVERYWORLD: A Virtual Environment for Developing and Evaluating Automated Scientific Discovery Agents<br>2024 · NeurIPS 2024 Datasets and Benchmarks<br>Benchmark · Published | A simulated environment evaluates cycles of hypothesis formation, intervention, experimentation, and explanation, including discovered knowledge alongside task completion. | Controlled simulations make discovery behavior inspectable, but success does not establish transfer to real science or independent selection of significant questions. | [Paper](https://arxiv.org/abs/2406.06769) · [Code](https://github.com/allenai/discoveryworld) · [Project](https://allenai.github.io/discoveryworld/) |
-| <a id="work-frontiermath"></a>**FrontierMath**<br>FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI<br>2024 · arXiv<br>Benchmark · Preprint / report | Expert-authored advanced mathematical problems with automatically checkable answers provide a complementary testbed for difficult reasoning and computational investigation. | This entry concerns the original answer-checked benchmark, not formal proof verification or autonomous conjecture selection; correctness alone does not measure research taste. | [Paper](https://arxiv.org/abs/2411.04872) · [Project](https://epoch.ai/frontiermath/tiers-1-4/the-benchmark) |
-| <a id="work-mle-bench"></a>**MLE-bench**<br>MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering<br>2024 · ICLR 2025<br>Benchmark · Published | Kaggle-derived tasks evaluate data preparation, model training, and experiment iteration, with human competition baselines and analysis of resource scaling and contamination. | Measures ML engineering under specified objectives, not research taste; leaderboard submissions were paused in April 2026 pending comparability improvements. | [Paper](https://arxiv.org/abs/2410.07095) · [Code](https://github.com/openai/mle-bench) · [Project](https://openai.com/index/mle-bench/) |
-| <a id="work-re-bench"></a>**RE-Bench**<br>RE-Bench: Evaluating frontier AI R&amp;D capabilities of language model agents against human experts<br>2024 · ICML 2025<br>Benchmark · Published | Research engineering environments with expert human attempts support comparisons of agent performance, search strategies, and returns to additional time budgets. | A historical reference for bounded AI R&amp;D tasks, not research taste; the official task repository is now deprecated. | [Paper](https://arxiv.org/abs/2411.15114) · [Code](https://github.com/METR/RE-Bench) |
-| <a id="work-scienceagentbench"></a>**ScienceAgentBench**<br>ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery<br>2024 · ICLR 2025<br>Benchmark · Published | Expert-validated tasks from published science assess generated programs, execution outcomes, and costs, emphasizing reliable components of scientific workflows. | Evaluates specified data-driven tasks rather than unrestricted discovery; use the April 2026 verified split to reduce known false-negative grading issues. | [Paper](https://arxiv.org/abs/2410.05080) · [Code](https://github.com/OSU-NLP-Group/ScienceAgentBench) · [Project](https://osu-nlp-group.github.io/ScienceAgentBench/) |
-| <a id="work-mlagentbench"></a>**MLAgentBench**<br>MLAgentBench: Evaluating Language Agents on Machine Learning Experimentation<br>2023 · ICML 2024<br>Benchmark · Published | An early executable testbed for agents that inspect files, run experiments, and improve machine learning models; useful for studying planning and experimentation traces. | Datasets and research goals are supplied; model improvement measures experimentation ability, not autonomous selection of scientifically important questions. | [Paper](https://arxiv.org/abs/2310.03302) · [Code](https://github.com/snap-stanford/MLAgentBench) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-airs-bench"></a>**AIRS-Bench**<br><sub>2026 · arXiv</sub> | Paper-derived ML tasks require agents to develop solutions without baseline code, connecting idea generation, experiment analysis, and iterative refinement across diverse domains. | [Paper](https://arxiv.org/abs/2602.06855) · [Code](https://github.com/facebookresearch/airs-bench) |
+| <a id="work-fml-bench"></a>**FML-bench**<br><sub>2026 · arXiv</sub> | Separates research search strategies from shared execution infrastructure and measures process-level behavior, enabling controlled study of exploration and empirical refinement. | [Paper](https://arxiv.org/abs/2605.17373) · [Code](https://github.com/qrzou/FML-bench) |
+| <a id="work-many-ai-analysts-one-dataset"></a>**Many AI Analysts, One Dataset**<br><sub>2026 · PNAS 2026</sub> | Runs autonomous analyses of fixed dataset-hypothesis pairs under different models and personas, showing how analytic choices can change conclusions and motivating multiverse reporting. | [Paper](https://www.pnas.org/doi/10.1073/pnas.2606495123) · [Code](https://github.com/amazon-science/agentic-forking-path) |
+| <a id="work-mlgym"></a>**MLGym**<br><sub>2025 · COLM 2025</sub> | A Gym-style research environment spanning vision, language, reinforcement learning, and games, designed for evaluating agents and developing learning algorithms for research behavior. | [Paper](https://arxiv.org/abs/2502.14499) · [Code](https://github.com/facebookresearch/MLGym) · [Project](https://sites.google.com/view/mlgym) |
+| <a id="work-mlr-bench"></a>**MLR-Bench**<br><sub>2025 · NeurIPS 2025 Datasets and Benchmarks</sub> | Workshop-derived research tasks support evaluation of ideas, proposals, experiments, and papers using MLR-Judge, making it relevant to research quality beyond a single prediction metric. | [Paper](https://arxiv.org/abs/2505.19955) · [Code](https://github.com/chchenhui/mlrbench) · [Project](https://chchenhui.github.io/mlrbench/) |
+| <a id="work-paperbench"></a>**PaperBench**<br><sub>2025 · ICML 2025</sub> | Evaluates replication of ML papers through author-informed hierarchical rubrics, covering implementation, execution, and matching results; includes evaluation of the automated judge. | [Paper](https://arxiv.org/abs/2504.01848) · [Code](https://github.com/openai/frontier-evals/tree/main/project/paperbench) · [Project](https://openai.com/index/paperbench/) |
+| <a id="work-core-bench"></a>**CORE-Bench**<br><sub>2024 · TMLR 2025</sub> | Evaluates computational reproducibility through installing dependencies, executing supplied scientific code, and interpreting its numerical or visual outputs. | [Paper](https://arxiv.org/abs/2409.11363) · [Code](https://github.com/siegelz/core-bench) · [Project](https://hal.cs.princeton.edu/corebench_hard) |
+| <a id="work-discoverybench"></a>**DiscoveryBench**<br><sub>2024 · ICLR 2025</sub> | Evaluates hypothesis search and verification from datasets using real and synthetic discovery tasks, with faceted scoring of findings rather than only code execution. | [Paper](https://arxiv.org/abs/2407.01725) · [Code](https://github.com/allenai/discoverybench) |
+| <a id="work-discoveryworld"></a>**DiscoveryWorld**<br><sub>2024 · NeurIPS 2024 Datasets and Benchmarks</sub> | A simulated environment evaluates cycles of hypothesis formation, intervention, experimentation, and explanation, including discovered knowledge alongside task completion. | [Paper](https://arxiv.org/abs/2406.06769) · [Code](https://github.com/allenai/discoveryworld) · [Project](https://allenai.github.io/discoveryworld/) |
+| <a id="work-frontiermath"></a>**FrontierMath**<br><sub>2024 · arXiv</sub> | Expert-authored advanced mathematical problems with automatically checkable answers provide a complementary testbed for difficult reasoning and computational investigation. | [Paper](https://arxiv.org/abs/2411.04872) · [Project](https://epoch.ai/frontiermath/tiers-1-4/the-benchmark) |
+| <a id="work-mle-bench"></a>**MLE-bench**<br><sub>2024 · ICLR 2025</sub> | Kaggle-derived tasks evaluate data preparation, model training, and experiment iteration, with human competition baselines and analysis of resource scaling and contamination. | [Paper](https://arxiv.org/abs/2410.07095) · [Code](https://github.com/openai/mle-bench) · [Project](https://openai.com/index/mle-bench/) |
+| <a id="work-re-bench"></a>**RE-Bench**<br><sub>2024 · ICML 2025</sub> | Research engineering environments with expert human attempts support comparisons of agent performance, search strategies, and returns to additional time budgets. | [Paper](https://arxiv.org/abs/2411.15114) · [Code](https://github.com/METR/RE-Bench) |
+| <a id="work-scicode"></a>**SciCode**<br><sub>2024 · NeurIPS 2024 Datasets and Benchmarks</sub> | Measures whether models can combine scientific knowledge, reasoning, and executable code on scientist-curated research problems with testable subproblems. | [Paper](https://arxiv.org/abs/2407.13168) · [Code](https://github.com/scicode-bench/SciCode) · [Project](https://scicode-bench.github.io/) |
+| <a id="work-scienceagentbench"></a>**ScienceAgentBench**<br><sub>2024 · ICLR 2025</sub> | Expert-validated tasks from published science assess generated programs, execution outcomes, and costs, emphasizing reliable components of scientific workflows. | [Paper](https://arxiv.org/abs/2410.05080) · [Code](https://github.com/OSU-NLP-Group/ScienceAgentBench) · [Project](https://osu-nlp-group.github.io/ScienceAgentBench/) |
+| <a id="work-mlagentbench"></a>**MLAgentBench**<br><sub>2023 · ICML 2024</sub> | An early executable testbed for agents that inspect files, run experiments, and improve machine learning models; useful for studying planning and experimentation traces. | [Paper](https://arxiv.org/abs/2310.03302) · [Code](https://github.com/snap-stanford/MLAgentBench) |
+| <a id="work-scienceworld"></a>**ScienceWorld**<br><sub>2022 · EMNLP 2022</sub> | Tests action-grounded scientific reasoning by requiring agents to conduct experiments and complete tasks in an interactive text environment. | [Paper](https://aclanthology.org/2022.emnlp-main.775/) · [Code](https://github.com/allenai/ScienceWorld) · [Project](https://sciworld.apps.allenai.org/) |
+
+<details>
+<summary>Full titles, evidence and scope notes (16)</summary>
+
+- **AIRS-Bench** — *AIRS-Bench: a Suite of Tasks for Frontier AI Research Science Agents*. Benchmark · Preprint / report. Each task supplies a problem, dataset, and metric; exceeding a reference score does not demonstrate autonomous problem discovery or scientific significance.
+- **FML-bench** — *FML-bench: A Controlled Study of AI Research Agent Strategies from the Perspective of Search Dynamics*. Benchmark · Preprint / report. Agents improve supplied baseline code on fixed tasks; the 2026 main-branch version differs from the 2025 legacy benchmark and should not be conflated with it.
+- **Many AI Analysts, One Dataset** — *Many AI analysts, one dataset: Navigating the agentic data science multiverse*. Study · Published. The study holds the hypothesis and estimand fixed across three datasets and uses an AI auditor, so it diagnoses analytic variability without establishing correctness of every retained analysis or autonomous question selection.
+- **MLGym** — *MLGym: A New Framework and Benchmark for Advancing AI Research Agents*. Benchmark · Published. Exploration happens within supplied tasks; improved benchmark scores alone do not establish novel algorithms or learned scientific judgment.
+- **MLR-Bench** — *MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research*. Benchmark · Published. Topics are supplied and rubric-based LLM reviews are proxies; reported research quality still requires independent checks of experiments, novelty, and value.
+- **PaperBench** — *PaperBench: Evaluating AI's Ability to Replicate AI Research*. Benchmark · Published. Replication targets are provided; Code-Dev and full replication scores have different scopes, and neither measures original question selection.
+- **CORE-Bench** — *CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark*. Benchmark · Published. It reproduces existing artifacts rather than choosing new questions; the original harness is unmaintained and its recommended HAL successor is now archived.
+- **DiscoveryBench** — *DiscoveryBench: Towards Data-Driven Discovery with Large Language Models*. Benchmark · Published. Datasets and discovery goals are provided, and findings are compared with reference hypotheses; this does not evaluate choosing an unrestricted research agenda.
+- **DiscoveryWorld** — *DISCOVERYWORLD: A Virtual Environment for Developing and Evaluating Automated Scientific Discovery Agents*. Benchmark · Published. Controlled simulations make discovery behavior inspectable, but success does not establish transfer to real science or independent selection of significant questions.
+- **FrontierMath** — *FrontierMath: A Benchmark for Evaluating Advanced Mathematical Reasoning in AI*. Benchmark · Preprint / report. This entry concerns the original answer-checked benchmark, not formal proof verification or autonomous conjecture selection; correctness alone does not measure research taste.
+- **MLE-bench** — *MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering*. Benchmark · Published. Measures ML engineering under specified objectives, not research taste; leaderboard submissions were paused in April 2026 pending comparability improvements.
+- **RE-Bench** — *RE-Bench: Evaluating frontier AI R&amp;D capabilities of language model agents against human experts*. Benchmark · Published. A historical reference for bounded AI R&amp;D tasks, not research taste; the official task repository is now deprecated.
+- **SciCode** — *SciCode: A Research Coding Benchmark Curated by Scientists*. Benchmark · Published. Tests supplied coding problems rather than discovery significance; a 2026 SciCode-Verified audit reports specification and grading defects, so benchmark version and evaluation settings matter.
+- **ScienceAgentBench** — *ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery*. Benchmark · Published. Evaluates specified data-driven tasks rather than unrestricted discovery; use the April 2026 verified split to reduce known false-negative grading issues.
+- **MLAgentBench** — *MLAgentBench: Evaluating Language Agents on Machine Learning Experimentation*. Benchmark · Published. Datasets and research goals are supplied; model improvement measures experimentation ability, not autonomous selection of scientifically important questions.
+- **ScienceWorld** — *ScienceWorld: Is your Agent Smarter than a 5th Grader?*. Benchmark · Published. Tasks concern elementary science rather than frontier discovery, and version 1.3.0 changes simulation ordering and potentially trajectories, so comparisons must identify the environment version.
+
+</details>
 
 ## Integrated AI Scientist Systems
 
@@ -150,57 +277,134 @@ How can we measure question value, valid discoveries, resource efficiency, and t
 
 How are research capabilities assembled, and which decisions remain human-supplied?
 
-| Work / source | Why it matters | What the evidence does not establish | Links |
-| --- | --- | --- | --- |
-| <a id="work-co-scientist"></a>**Co-Scientist**<br>Accelerating scientific discovery with Co-Scientist<br>2025 · Nature 2026<br>System · Published | Generates, critiques, ranks, and evolves hypotheses conditioned on scientists' objectives, with experimental follow-up in biomedical case studies. | Hypothesis evolution uses test-time computation. Human-defined objectives and laboratory validation remain part of the workflow; cross-project taste learning is not established. | [Paper](https://www.nature.com/articles/s41586-026-10644-y) |
-| <a id="work-agent-laboratory"></a>**Agent Laboratory**<br>Agent Laboratory: Using LLM Agents as Research Assistants<br>2025 · Findings of EMNLP 2025<br>System · Published | Provides an inspectable pipeline from a human research idea to literature review, experiments, and reports, with human feedback at intermediate stages. | Starts with a human-provided idea; it is evidence about research assistance and execution, not autonomous selection of worthwhile questions. | [Paper](https://aclanthology.org/2025.findings-emnlp.320/) · [Code](https://github.com/SamuelSchmidgall/AgentLaboratory) · [Project](https://agentlaboratory.github.io/) |
-| <a id="work-ai-researcher"></a>**AI-Researcher / Scientist-Bench**<br>AI-Researcher: Autonomous Scientific Innovation<br>2025 · NeurIPS 2025<br>System · Published | Combines literature grounding, hypothesis generation, implementation, and reporting; Scientist-Bench separates guided innovation from exploration within research topics. | Implementation success and paper-quality ratings are distinct from independently replicated discoveries or unconstrained agenda selection. | [Paper](https://arxiv.org/abs/2505.18705) · [Code](https://github.com/HKUDS/AI-Researcher) |
-| <a id="work-kosmos"></a>**Kosmos**<br>Kosmos: An AI Scientist for Autonomous Discovery<br>2025 · arXiv<br>System · Preprint / report | Maintains a structured world model across literature search, hypothesis generation, and data analysis to support longer investigations. | Starts from a supplied objective and dataset. Traceable reports can still contain errors or statistically significant but scientifically unimportant findings. | [Paper](https://arxiv.org/abs/2511.02824) · [Project](https://edisonscientific.com/news/announcing-kosmos) |
-| <a id="work-ai-scientist-v2"></a>**The AI Scientist-v2**<br>The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search<br>2025 · arXiv<br>System · Preprint / report | Uses an experiment manager and agentic tree search to explore hypotheses and run ML experiments without v1's human-authored code templates. | The paper reports a limited workshop submission case study. Acceptance is one evaluation signal, not proof of general research taste. | [Paper](https://arxiv.org/abs/2504.08066) · [Code](https://github.com/SakanaAI/AI-Scientist-v2) |
-| <a id="work-ai-scientist"></a>**The AI Scientist**<br>The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery<br>2024 · arXiv<br>System · Preprint / report | Connects idea generation, coding, experiments, reporting, and automated review in an inspectable ML research workflow. | The original experiments use human-written code templates. Automated reviewer scores do not establish independent scientific significance. | [Paper](https://arxiv.org/abs/2408.06292) · [Code](https://github.com/SakanaAI/AI-Scientist) |
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-co-scientist"></a>**Co-Scientist**<br><sub>2025 · Nature 2026</sub> | Generates, critiques, ranks, and evolves hypotheses conditioned on scientists' objectives, with experimental follow-up in biomedical case studies. | [Paper](https://www.nature.com/articles/s41586-026-10644-y) |
+| <a id="work-agent-laboratory"></a>**Agent Laboratory**<br><sub>2025 · Findings of EMNLP 2025</sub> | Provides an inspectable pipeline from a human research idea to literature review, experiments, and reports, with human feedback at intermediate stages. | [Paper](https://aclanthology.org/2025.findings-emnlp.320/) · [Code](https://github.com/SamuelSchmidgall/AgentLaboratory) · [Project](https://agentlaboratory.github.io/) |
+| <a id="work-ai-researcher"></a>**AI-Researcher / Scientist-Bench**<br><sub>2025 · NeurIPS 2025</sub> | Combines literature grounding, hypothesis generation, implementation, and reporting; Scientist-Bench separates guided innovation from exploration within research topics. | [Paper](https://arxiv.org/abs/2505.18705) · [Code](https://github.com/HKUDS/AI-Researcher) |
+| <a id="work-kosmos"></a>**Kosmos**<br><sub>2025 · arXiv</sub> | Maintains a structured world model across literature search, hypothesis generation, and data analysis to support longer investigations. | [Paper](https://arxiv.org/abs/2511.02824) · [Project](https://edisonscientific.com/news/announcing-kosmos) |
+| <a id="work-ai-scientist-v2"></a>**The AI Scientist-v2**<br><sub>2025 · arXiv</sub> | Uses an experiment manager and agentic tree search to explore hypotheses and run ML experiments without v1's human-authored code templates. | [Paper](https://arxiv.org/abs/2504.08066) · [Code](https://github.com/SakanaAI/AI-Scientist-v2) |
+| <a id="work-ai-scientist"></a>**The AI Scientist**<br><sub>2024 · arXiv</sub> | Connects idea generation, coding, experiments, reporting, and automated review in an inspectable ML research workflow. | [Paper](https://arxiv.org/abs/2408.06292) · [Code](https://github.com/SakanaAI/AI-Scientist) |
+
+<details>
+<summary>Full titles, evidence and scope notes (6)</summary>
+
+- **Co-Scientist** — *Accelerating scientific discovery with Co-Scientist*. System · Published. Hypothesis evolution uses test-time computation. Human-defined objectives and laboratory validation remain part of the workflow; cross-project taste learning is not established.
+- **Agent Laboratory** — *Agent Laboratory: Using LLM Agents as Research Assistants*. System · Published. Starts with a human-provided idea; it is evidence about research assistance and execution, not autonomous selection of worthwhile questions.
+- **AI-Researcher / Scientist-Bench** — *AI-Researcher: Autonomous Scientific Innovation*. System · Published. Implementation success and paper-quality ratings are distinct from independently replicated discoveries or unconstrained agenda selection.
+- **Kosmos** — *Kosmos: An AI Scientist for Autonomous Discovery*. System · Preprint / report. Starts from a supplied objective and dataset. Traceable reports can still contain errors or statistically significant but scientifically unimportant findings.
+- **The AI Scientist-v2** — *The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search*. System · Preprint / report. The paper reports a limited workshop submission case study. Acceptance is one evaluation signal, not proof of general research taste.
+- **The AI Scientist** — *The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery*. System · Preprint / report. The original experiments use human-written code templates. Automated reviewer scores do not establish independent scientific significance.
+
+</details>
 
 **Version note:** The AI Scientist v1 and v2 are retained as distinct implementation reports. Their later journal synthesis is [Towards end-to-end automation of AI research](https://www.nature.com/articles/s41586-026-10265-5), Nature 2026; it is a follow-up, not an additional independently counted system.
 
-## Promising research directions
+## Essays on Research Taste and Scientific Practice
 
-The following are **editorial research hypotheses drawn from the collection**, not established conclusions or a claim that these problems are untouched.
+<a id="perspectives"></a>
 
-1. **Learn taste from research outcomes.** Compare citation- or reviewer-based rewards with feedback from executed investigations, including informative negative results. Ask whether the learned preferences transfer to new topics. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste), [TasteVal](#work-tasteval), and [The Ideation-Execution Gap](#work-ideation-execution-gap).
-2. **Connect question generation to execution.** Generate a question together with the cheapest discriminating experiment and explicit failure criteria. Evaluate both the proposal and what is learned after carrying it out. Start with [ResearchAgent](#work-researchagent), [The Ideation-Execution Gap](#work-ideation-execution-gap), and [MLR-Bench](#work-mlr-bench).
-3. **Learn research strategies that transfer.** Compare episodic memory, reusable skills, agent-program search, and parameter updates on held-out tasks under comparable budgets. Track which knowledge survives changes in the dataset, model, or research topic. Start with [EvoScientist](#work-evoscientist), [HypoForge](#work-hypoforge), [ADAS](#work-adas), and [FML-bench](#work-fml-bench).
-4. **Evaluate scientific judgment without rewarding style or leakage.** Combine blinded expert review, reproducible execution, explicit novelty checks, and documented knowledge cutoffs. Test for preference changes under harmless wording edits and for selection of trivial but easy-to-verify questions. Start with [SciStyleBench](#work-scistylebench), [RINoBench](#work-rinobench), and [HindSight](#work-hindsight).
-5. **Measure information gained, including from failure.** Study whether an agent chooses experiments that distinguish hypotheses, calibrates uncertainty, and stops unproductive directions. Treat held-out predictive performance and explanatory knowledge as separate outcomes. Start with [DiscoveryWorld](#work-discoveryworld), [DiscoveryBench](#work-discoverybench), and [Arbor](#work-arbor).
+Researcher perspectives on choosing problems, developing judgment, and improving science. These essays offer ideas and heuristics, not empirical validation of AI capabilities.
+
+| Work | Contribution / idea | Sources |
+| --- | --- | --- |
+| <a id="work-nielsen-research-heuristics"></a>**Quick Thoughts on Research**<br><sub>2023 · Michael Nielsen's notebook</sub> | Offers heuristics for discovering worthwhile problems, developing judgment through tacit knowledge, and learning from research postmortems, treating research ability as something cultivated through reflection on concrete experience. | [Read](https://michaelnotebook.com/qtr/index.html) |
+| <a id="work-vision-of-metascience"></a>**A Vision of Metascience**<br><sub>2022 · Science++</sub> | Proposes metascience as a way to improve science's social processes, including resource allocation and institutional design, by building institutions that learn how to support better research. | [Read](https://scienceplusplus.org/metascience/index.html) |
+| <a id="work-colah-taste-exercises"></a>**Research Taste Exercises**<br><sub>2021 · Chris Olah's notes</sub> | Proposes exercises for developing research taste through cheap, noisy feedback from mentors, making repeated judgments more practical than waiting for the expensive feedback of fully executed research. | [Read](https://colah.github.io/notes/taste/) |
+| <a id="work-research-debt"></a>**Research Debt**<br><sub>2017 · Distill</sub> | Frames accumulated complexity and poor communication as research debt, arguing that distillation, better abstractions, and clear explanations are productive research contributions that enable others to understand and extend existing knowledge. | [Read](https://distill.pub/2017/research-debt/) |
+| <a id="work-karpathy-phd-guide"></a>**Karpathy's PhD Guide**<br><sub>2016 · Andrej Karpathy's blog</sub> | Connects research taste with choosing promising problems, developing ideas, and executing them effectively, offering practical guidance on how computer science and machine learning researchers build research ability. | [Read](https://karpathy.github.io/2016/09/07/phd/) |
+| <a id="work-hamming-you-and-your-research"></a>**You and Your Research**<br><sub>1986 · Bellcore lecture; J. F. Kaiser transcript</sub> | Argues for deliberately choosing important, tractable problems and cultivating the habits, preparation, and working relationships that help researchers recognize opportunities and pursue work with substantial scientific consequences. | [Read](https://www.cs.virginia.edu/~robins/YouAndYourResearch) |
+
+<details>
+<summary>Full titles, evidence and scope notes (6)</summary>
+
+- **Quick Thoughts on Research** — *Quick thoughts on research*. Perspective · Essay / talk. These are individual research heuristics with limits acknowledged by the author, not a systematic evaluation; translating them into measurable training objectives or reliable AI learning mechanisms remains an open task.
+- **A Vision of Metascience** — *A Vision of Metascience: An Engine of Improvement for the Social Processes of Science*. Perspective · Essay / talk. This is a conceptual agenda for institutional improvement rather than an empirical AI method; better social processes and stronger individual research agents require distinct mechanisms and evidence.
+- **Research Taste Exercises** — *Research Taste Exercises*. Perspective · Essay / talk. The author presents a rough note rather than a validated training program; mentor ratings are proxies for research quality, and the exercises have not demonstrated improvements in AI research taste.
+- **Research Debt** — *Research Debt*. Perspective · Essay / talk. This conceptual editorial motivates improving cumulative research infrastructure; it does not provide a validated benchmark, causal estimate of distillation's benefits, or evidence that an AI system can perform these contributions.
+- **Karpathy's PhD Guide** — *A Survival Guide to a PhD*. Perspective · Essay / talk. This is first-person advice from a computer science PhD experience, not a controlled study; its recommendations do not establish which interventions reliably improve human or AI research performance.
+- **You and Your Research** — *You and Your Research*. Perspective · Essay / talk. This Bellcore lecture is preserved in a transcript by J. F. Kaiser mirrored at UVA; its autobiographical observations are not controlled evidence or demonstrated methods for training AI scientists.
+
+</details>
+
+<a id="research-opportunities"></a>
+
+## Promising research questions
+
+These are editorial research hypotheses inspired by the collection. They are starting points for experiments, not claims of unoccupied research territory.
+
+| Research question | A useful comparison | What to measure |
+| --- | --- | --- |
+| Can AI learn taste from outcomes? | Reviewer or citation rewards vs. executed investigations, including informative failures | Selection quality on new topics; value learned per unit of research budget. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
+| Can question generation anticipate execution? | A proposal alone vs. a proposal with a discriminating experiment and failure criteria | Proposal ratings alongside actual findings. Pair [IdeaSynth](#work-ideasynth) with [The Ideation-Execution Gap](#work-ideation-execution-gap). |
+| Which research experience transfers? | Reports, reusable skills, agent-code changes, and parameter training under matched budgets | Improvement on held-out tasks, including cost of collecting experience. Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
+| Can evaluation resist style and leakage? | Blinded review, evidence-grounded novelty checks, and executable validation | Sensitivity to wording, retrieval coverage, knowledge cutoffs, and trivial question selection. See [SciStyleBench](#work-scistylebench), [OpenNovelty](#work-opennovelty), and [HindSight](#work-hindsight). |
+| Does an agent learn from negative results? | Performance-driven search vs. experiments chosen to distinguish hypotheses | Information gain, calibrated uncertainty, stopping decisions, and robustness of conclusions. See [DAD](#work-deep-adaptive-design), [POPPER](#work-popper), and [Many AI Analysts](#work-many-ai-analysts-one-dataset). |
+
+<a id="learning-mechanisms"></a>
+
+## What changes when a researcher learns?
+
+Improving a candidate solution and improving the researcher are separate experimental targets. This map distinguishes mechanisms; a system may implement several, and transfer must be tested.
+
+```mermaid
+flowchart LR
+    H["Current hypothesis<br/>or candidate solution"] --> R["Run an experiment<br/>or check a proof"]
+    R --> F["Evidence and feedback"]
+    F -->|Revise within this task| H
+    F --> M["Store reports<br/>and reusable skills"]
+    F --> P["Update agent code<br/>or model parameters"]
+    M --> N["Evaluate on a new task"]
+    P --> N
+    classDef loop fill:#eaf2ff,stroke:#6485b5,color:#162b4d;
+    classDef transfer fill:#fff3df,stroke:#b49357,color:#4b3513;
+    class H,R,F loop;
+    class M,P,N transfer;
+```
+
+| Mechanism | What changes? | Representative starting points |
+| --- | --- | --- |
+| Within-task search | Candidate solutions and action choices during one investigation | [AIDE](#work-aide), [OR-Agent](#work-or-agent) |
+| Memory and reusable experience | External reports, lessons, or skills available to later runs | [AgentRxiv](#work-agentrxiv), [EvoScientist](#work-evoscientist), [AutoResearchClaw](#work-autoresearchclaw) |
+| Agent-program adaptation | The code or strategy controlling the research loop | [ADAS](#work-adas), [Bilevel Autoresearch](#work-bilevel-autoresearch) |
+| Parameter training | Model weights, trained before or during an investigation | [MLE-Ideator](#work-mle-ideator), [TTT-Discover](#work-ttt-discover), [Evolution Fine-Tuning](#work-evolution-fine-tuning) |
+
+<a id="choosing-a-testbed"></a>
 
 ## Choosing experimental settings
 
-| Setting | Useful evidence | Additional evaluation needed |
+| If you want to study… | Start with… | Add an evaluation of… |
 | --- | --- | --- |
-| ML engineering and optimization: MLE-bench, MLGym, AIRS-Bench, autoresearch | Executable iteration, resource use, held-out performance | Originality and importance of the chosen research question |
-| Paper replication: PaperBench | Implementation fidelity, execution, reproduction of reported findings | New question generation and original contributions |
-| Research proposals and topic-level investigations: MLR-Bench, Scientist-Bench | Ideation, research plans, execution, report quality | Independent novelty and validity checks; calibration of rubric-based judges |
-| Experimental decision-making: TasteVal, FML-bench, DiscoveryWorld | Choice of research actions, process efficiency, hypothesis testing | Transfer to open research settings and the value of the original agenda |
-| Mathematics: FunSearch, AlphaEvolve, Aletheia, FrontierMath | Algorithmic constructions, reasoning, checkable answers or proofs where provided | Novelty, mathematical significance, and whether verification is numerical, human, or formal |
+| ML experimentation and optimization | [MLE-bench](#work-mle-bench), [MLGym](#work-mlgym), [autoresearch](#work-autoresearch) | Originality and importance of the chosen question |
+| Reproduction and scientific coding | [PaperBench](#work-paperbench), [CORE-Bench](#work-core-bench), [SciCode](#work-scicode) | New contributions beyond supplied papers and tasks |
+| Question formation and research proposals | [IdeaBench](#work-ideabench), [MLR-Bench](#work-mlr-bench) | Executed outcomes, independent novelty checks, and judge calibration |
+| Experimental decisions and research strategy | [TasteVal](#work-tasteval), [FML-bench](#work-fml-bench), [DiscoveryWorld](#work-discoveryworld) | Transfer and the value of the original research agenda |
+| Mathematical reasoning and discovery | [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), [Aletheia](#work-aletheia), [FrontierMath](#work-frontiermath) | Significance and verification type: numerical, human, or formal |
 
-Freeze model access, data splits, tools, and compute budgets when comparing methods. Report separately what the human supplies, what the agent chooses, how conclusions are verified, and what carries over between research runs. A benchmark's name alone does not determine which capability it measures; see each entry's boundary notes and current official documentation.
+For a fair comparison, fix model access, data splits, tools, and compute budgets. Report what the human supplies, what the agent chooses, how conclusions are checked, and what survives between runs. Check each resource's scope notes for access, version, and maintenance limits.
 
 ## Surveys and communities
 
-- [AutoResearch AI: Towards AI-Powered Research Automation for Scientific Discovery](https://arxiv.org/abs/2605.23204) — a workflow-level survey and terminology reference.
+- [AutoResearch AI: Towards AI-Powered Research Automation for Scientific Discovery](https://arxiv.org/abs/2605.23204) — workflow overview and terminology.
 - [AI for Meta-Science](https://ai4metascience.org/) — research evaluation, reproducibility, and the organization of science.
-- [AI for Science community](https://ai4sciencecommunity.github.io/) — scientific discovery, AI scientists, and related workshops.
+- [AI for Science community](https://ai4sciencecommunity.github.io/) — scientific discovery, AI scientists, and workshops.
 
-## Contributing and maintenance
+## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, evidence requirements, and the bilingual update process. The source records live in [data/](data/); exact titles, evidence URLs, and per-entry review dates are retained there.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for inclusion criteria, source verification, and bilingual updates. The [catalog](data/) stores full metadata and review dates; both READMEs are generated from it. Original repository materials use the [MIT License](LICENSE); linked resources retain their own licenses.
 
-Both READMEs are generated from the same catalog. With Node.js 18 or newer:
+<a id="reading-paths"></a>
 
-```sh
-node scripts/build.mjs
-node scripts/build.mjs --check
-git diff --check
-```
+## Suggested reading paths
 
-The check validates metadata, duplicates, bilingual coverage, generated-file freshness, and local links/anchors. External source verification is an editorial task; the offline check does not assert that every remote URL is currently reachable.
+Choose the question closest to your interests. The order highlights complementary evidence and mechanisms, rather than ranking systems.
 
-The repository's original materials use the [MIT License](LICENSE). Linked papers, code, and other resources retain their respective licenses.
+| Route | Start with | Reading question |
+| --- | --- | --- |
+| Taste and its proxies | [Research Taste Exercises](#work-colah-taste-exercises) → [Scientific Taste / RLCF](#work-ai-can-learn-scientific-taste) → [TasteVal](#work-tasteval) | Move from human heuristics to learned preferences and experimental decisions. |
+| Ideas and realized outcomes | [Human Study of Research Ideation](#work-llm-novel-research-ideas-human-study) → [Ideation-Execution Gap](#work-ideation-execution-gap) | Read proposal ratings alongside what happens when researchers execute the ideas. |
+| Executable research loops | [Karpathy's autoresearch](#work-autoresearch) → [Arbor](#work-arbor) | Start with a compact loop, then inspect hypothesis and evidence management. |
+| Learning across research runs | [AgentRxiv](#work-agentrxiv) → [EvoScientist](#work-evoscientist) | Compare shared reports with explicit ideation and experimentation memories. |
+| Evaluation for AI research | [MLR-Bench](#work-mlr-bench) → [FML-bench](#work-fml-bench) → [PaperBench](#work-paperbench) | Separate open-ended proposals, controlled search comparisons, and replication. |
+
+For a complete implementation, continue with [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For the broader research-method perspective, pair [Hamming](#work-hamming-you-and-your-research) with [Nielsen's research heuristics](#work-nielsen-research-heuristics) and [Research Debt](#work-research-debt).

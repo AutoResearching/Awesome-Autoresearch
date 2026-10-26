@@ -3,86 +3,118 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-A curated collection of papers, systems, and benchmarks on **research taste, question formulation, scientific reasoning, and learning from research experience**.
+**How can AI choose worthwhile questions, investigate them rigorously, and become a better researcher through experience?**
 
-How can AI identify worthwhile unknowns, ask meaningful questions, investigate them rigorously, and become a better researcher through experience?
+A curated collection on **research taste, question formulation, scientific reasoning, and learning from research experience**, with benchmarks, implementations, and researcher essays.
 
-**{{COUNT}} curated works · {{PAPER_COUNT}} paper records · {{CODE_COUNT}} verified official code links**
+**{{COUNT}} resources · {{PAPER_COUNT}} paper records · {{ESSAY_COUNT}} essays and talks · {{CODE_COUNT}} official code links**
 
-Source review dates: **{{REVIEW_RANGE}}**. This is a selective starting collection, not an exhaustive survey or a performance ranking.
+Sources reviewed: {{REVIEW_RANGE}}. A selective collection, not a performance ranking.
 
 ## Scope
 
-The research process itself is the object of study. **AI research is the primary experimental setting; mathematics is a complementary testbed.** Work from other disciplines is included when it contributes a reusable discovery method, research capability, or evaluation protocol.
+The **research process itself** is the object of study. AI research is the primary experimental setting; mathematics is a complementary testbed. Work from other disciplines belongs here when it contributes a reusable method or evaluation of how research is done.
 
-We use **autoresearch** broadly, including human–AI collaboration and autonomous research systems. Individual methods need not automate the whole process to belong here. The term is not limited to Karpathy's project, which is included as one concrete execution loop.
-
-The emphasis is on choosing and investigating questions, scientific evidence, and improvements in research decisions. General writing assistants, literature-search products, generic agent frameworks, and domain prediction models are included only when they provide a specific methodological contribution to these questions. Peer review and meta-science are relevant where they inform research judgment or reliable evaluation.
+We use *autoresearch* broadly: human–AI collaboration, individual research capabilities, and autonomous research systems. It includes, but is not limited to, Karpathy's project. General writing tools, search products, and domain predictors need a specific contribution to the research questions below to qualify.
 
 ## Research map
 
-The first four areas describe capabilities; evaluation cuts across them. Integrated systems provide an additional implementation perspective. Each work has one primary location; overlap is handled through reading paths and links.
+Four capabilities form a feedback loop. Evaluation asks whether each improves; integrated AI scientist systems combine them in practice. The arrows show relationships, not a required pipeline.
+
+```mermaid
+flowchart TB
+    subgraph cycle["Learning to do research"]
+        direction LR
+        T["1 · Research taste<br/>What is worth pursuing?"] --> Q["2 · Question formulation<br/>What should we ask?"]
+        Q --> X["3 · Research execution<br/>What does the evidence show?"]
+        X --> L["4 · Learning from experience<br/>What improves next time?"]
+        L --> T
+    end
+    E["Evaluation across the loop<br/>Value · validity · efficiency · transfer"] -.-> cycle
+    classDef capability fill:#eaf2ff,stroke:#6485b5,color:#162b4d;
+    classDef evaluation fill:#eaf6ef,stroke:#6a987e,color:#153c27;
+    class T,Q,X,L capability;
+    class E evaluation;
+```
 
 {{MAP}}
 
-## Suggested reading paths
-
-These routes emphasize complementary evidence and mechanisms. They are editorial suggestions, not claims that one system is best.
-
-{{STARTER}}
-
-For an integrated implementation, continue with [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For mathematical discovery, compare [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), and [Aletheia](#work-aletheia).
-
-## How to read the collection
-
-- **First year** means the first public release of the cited work; the venue may refer to a later publication. The source label describes the cited version. An arXiv entry does not assert that no later publication exists.
-- **Paper / Code / Project / Resources** links point to primary sources. A missing Code link means no official implementation was verified for this review. Project pages and released prompts or outputs are not automatically implementation releases.
-- **Foundation** marks a transferable method whose original experiments do not directly demonstrate scientific discovery or research taste.
-- **Source-verified** means metadata and the stated scope were checked against primary material. It does not mean we reran the experiments or independently established the authors' scientific claims.
-- Read the evidence-boundary column alongside each contribution: proposal ratings, executable experiments, replicated results, and scientific significance measure different things.
+[Research opportunities](#research-opportunities) · [Learning mechanisms](#learning-mechanisms) · [Choosing a testbed](#choosing-a-testbed) · [Reading paths](#reading-paths)
 
 {{CATALOG}}
 
-## Promising research directions
+<a id="research-opportunities"></a>
 
-The following are **editorial research hypotheses drawn from the collection**, not established conclusions or a claim that these problems are untouched.
+## Promising research questions
 
-1. **Learn taste from research outcomes.** Compare citation- or reviewer-based rewards with feedback from executed investigations, including informative negative results. Ask whether the learned preferences transfer to new topics. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste), [TasteVal](#work-tasteval), and [The Ideation-Execution Gap](#work-ideation-execution-gap).
-2. **Connect question generation to execution.** Generate a question together with the cheapest discriminating experiment and explicit failure criteria. Evaluate both the proposal and what is learned after carrying it out. Start with [ResearchAgent](#work-researchagent), [The Ideation-Execution Gap](#work-ideation-execution-gap), and [MLR-Bench](#work-mlr-bench).
-3. **Learn research strategies that transfer.** Compare episodic memory, reusable skills, agent-program search, and parameter updates on held-out tasks under comparable budgets. Track which knowledge survives changes in the dataset, model, or research topic. Start with [EvoScientist](#work-evoscientist), [HypoForge](#work-hypoforge), [ADAS](#work-adas), and [FML-bench](#work-fml-bench).
-4. **Evaluate scientific judgment without rewarding style or leakage.** Combine blinded expert review, reproducible execution, explicit novelty checks, and documented knowledge cutoffs. Test for preference changes under harmless wording edits and for selection of trivial but easy-to-verify questions. Start with [SciStyleBench](#work-scistylebench), [RINoBench](#work-rinobench), and [HindSight](#work-hindsight).
-5. **Measure information gained, including from failure.** Study whether an agent chooses experiments that distinguish hypotheses, calibrates uncertainty, and stops unproductive directions. Treat held-out predictive performance and explanatory knowledge as separate outcomes. Start with [DiscoveryWorld](#work-discoveryworld), [DiscoveryBench](#work-discoverybench), and [Arbor](#work-arbor).
+These are editorial research hypotheses inspired by the collection. They are starting points for experiments, not claims of unoccupied research territory.
+
+| Research question | A useful comparison | What to measure |
+| --- | --- | --- |
+| Can AI learn taste from outcomes? | Reviewer or citation rewards vs. executed investigations, including informative failures | Selection quality on new topics; value learned per unit of research budget. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
+| Can question generation anticipate execution? | A proposal alone vs. a proposal with a discriminating experiment and failure criteria | Proposal ratings alongside actual findings. Pair [IdeaSynth](#work-ideasynth) with [The Ideation-Execution Gap](#work-ideation-execution-gap). |
+| Which research experience transfers? | Reports, reusable skills, agent-code changes, and parameter training under matched budgets | Improvement on held-out tasks, including cost of collecting experience. Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
+| Can evaluation resist style and leakage? | Blinded review, evidence-grounded novelty checks, and executable validation | Sensitivity to wording, retrieval coverage, knowledge cutoffs, and trivial question selection. See [SciStyleBench](#work-scistylebench), [OpenNovelty](#work-opennovelty), and [HindSight](#work-hindsight). |
+| Does an agent learn from negative results? | Performance-driven search vs. experiments chosen to distinguish hypotheses | Information gain, calibrated uncertainty, stopping decisions, and robustness of conclusions. See [DAD](#work-deep-adaptive-design), [POPPER](#work-popper), and [Many AI Analysts](#work-many-ai-analysts-one-dataset). |
+
+<a id="learning-mechanisms"></a>
+
+## What changes when a researcher learns?
+
+Improving a candidate solution and improving the researcher are separate experimental targets. This map distinguishes mechanisms; a system may implement several, and transfer must be tested.
+
+```mermaid
+flowchart LR
+    H["Current hypothesis<br/>or candidate solution"] --> R["Run an experiment<br/>or check a proof"]
+    R --> F["Evidence and feedback"]
+    F -->|Revise within this task| H
+    F --> M["Store reports<br/>and reusable skills"]
+    F --> P["Update agent code<br/>or model parameters"]
+    M --> N["Evaluate on a new task"]
+    P --> N
+    classDef loop fill:#eaf2ff,stroke:#6485b5,color:#162b4d;
+    classDef transfer fill:#fff3df,stroke:#b49357,color:#4b3513;
+    class H,R,F loop;
+    class M,P,N transfer;
+```
+
+| Mechanism | What changes? | Representative starting points |
+| --- | --- | --- |
+| Within-task search | Candidate solutions and action choices during one investigation | [AIDE](#work-aide), [OR-Agent](#work-or-agent) |
+| Memory and reusable experience | External reports, lessons, or skills available to later runs | [AgentRxiv](#work-agentrxiv), [EvoScientist](#work-evoscientist), [AutoResearchClaw](#work-autoresearchclaw) |
+| Agent-program adaptation | The code or strategy controlling the research loop | [ADAS](#work-adas), [Bilevel Autoresearch](#work-bilevel-autoresearch) |
+| Parameter training | Model weights, trained before or during an investigation | [MLE-Ideator](#work-mle-ideator), [TTT-Discover](#work-ttt-discover), [Evolution Fine-Tuning](#work-evolution-fine-tuning) |
+
+<a id="choosing-a-testbed"></a>
 
 ## Choosing experimental settings
 
-| Setting | Useful evidence | Additional evaluation needed |
+| If you want to study… | Start with… | Add an evaluation of… |
 | --- | --- | --- |
-| ML engineering and optimization: MLE-bench, MLGym, AIRS-Bench, autoresearch | Executable iteration, resource use, held-out performance | Originality and importance of the chosen research question |
-| Paper replication: PaperBench | Implementation fidelity, execution, reproduction of reported findings | New question generation and original contributions |
-| Research proposals and topic-level investigations: MLR-Bench, Scientist-Bench | Ideation, research plans, execution, report quality | Independent novelty and validity checks; calibration of rubric-based judges |
-| Experimental decision-making: TasteVal, FML-bench, DiscoveryWorld | Choice of research actions, process efficiency, hypothesis testing | Transfer to open research settings and the value of the original agenda |
-| Mathematics: FunSearch, AlphaEvolve, Aletheia, FrontierMath | Algorithmic constructions, reasoning, checkable answers or proofs where provided | Novelty, mathematical significance, and whether verification is numerical, human, or formal |
+| ML experimentation and optimization | [MLE-bench](#work-mle-bench), [MLGym](#work-mlgym), [autoresearch](#work-autoresearch) | Originality and importance of the chosen question |
+| Reproduction and scientific coding | [PaperBench](#work-paperbench), [CORE-Bench](#work-core-bench), [SciCode](#work-scicode) | New contributions beyond supplied papers and tasks |
+| Question formation and research proposals | [IdeaBench](#work-ideabench), [MLR-Bench](#work-mlr-bench) | Executed outcomes, independent novelty checks, and judge calibration |
+| Experimental decisions and research strategy | [TasteVal](#work-tasteval), [FML-bench](#work-fml-bench), [DiscoveryWorld](#work-discoveryworld) | Transfer and the value of the original research agenda |
+| Mathematical reasoning and discovery | [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), [Aletheia](#work-aletheia), [FrontierMath](#work-frontiermath) | Significance and verification type: numerical, human, or formal |
 
-Freeze model access, data splits, tools, and compute budgets when comparing methods. Report separately what the human supplies, what the agent chooses, how conclusions are verified, and what carries over between research runs. A benchmark's name alone does not determine which capability it measures; see each entry's boundary notes and current official documentation.
+For a fair comparison, fix model access, data splits, tools, and compute budgets. Report what the human supplies, what the agent chooses, how conclusions are checked, and what survives between runs. Check each resource's scope notes for access, version, and maintenance limits.
 
 ## Surveys and communities
 
-- [AutoResearch AI: Towards AI-Powered Research Automation for Scientific Discovery](https://arxiv.org/abs/2605.23204) — a workflow-level survey and terminology reference.
+- [AutoResearch AI: Towards AI-Powered Research Automation for Scientific Discovery](https://arxiv.org/abs/2605.23204) — workflow overview and terminology.
 - [AI for Meta-Science](https://ai4metascience.org/) — research evaluation, reproducibility, and the organization of science.
-- [AI for Science community](https://ai4sciencecommunity.github.io/) — scientific discovery, AI scientists, and related workshops.
+- [AI for Science community](https://ai4sciencecommunity.github.io/) — scientific discovery, AI scientists, and workshops.
 
-## Contributing and maintenance
+## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, evidence requirements, and the bilingual update process. The source records live in [data/](data/); exact titles, evidence URLs, and per-entry review dates are retained there.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for inclusion criteria, source verification, and bilingual updates. The [catalog](data/) stores full metadata and review dates; both READMEs are generated from it. Original repository materials use the [MIT License](LICENSE); linked resources retain their own licenses.
 
-Both READMEs are generated from the same catalog. With Node.js 18 or newer:
+<a id="reading-paths"></a>
 
-```sh
-node scripts/build.mjs
-node scripts/build.mjs --check
-git diff --check
-```
+## Suggested reading paths
 
-The check validates metadata, duplicates, bilingual coverage, generated-file freshness, and local links/anchors. External source verification is an editorial task; the offline check does not assert that every remote URL is currently reachable.
+Choose the question closest to your interests. The order highlights complementary evidence and mechanisms, rather than ranking systems.
 
-The repository's original materials use the [MIT License](LICENSE). Linked papers, code, and other resources retain their respective licenses.
+{{STARTER}}
+
+For a complete implementation, continue with [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For the broader research-method perspective, pair [Hamming](#work-hamming-you-and-your-research) with [Nielsen's research heuristics](#work-nielsen-research-heuristics) and [Research Debt](#work-research-debt).

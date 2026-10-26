@@ -10,6 +10,7 @@ We organize research around scientific capabilities and evidence: research taste
 - Research agents and integrated systems with enough primary documentation to understand their actual scope.
 - Benchmarks that isolate relevant abilities, including important negative findings and limitations of evaluation.
 - Selected foundations for memory, feedback, learning, and agent improvement, explicitly marked as foundations when their experiments are not scientific research.
+- Selected author essays and talks about research judgment and scientific practice, collected separately under `perspectives` as contextual reading rather than evidence of another scientific capability.
 
 A work does not need to solve the whole research process or be fully autonomous. We do not rank entries by stars, citation count, or claimed autonomy.
 
@@ -17,9 +18,9 @@ General writing tools, search interfaces, agent frameworks, or domain predictors
 
 ## Evidence requirements
 
-1. Read a primary source: the paper, publisher page, author project page, or official repository. Other lists and search results are leads, not sufficient verification.
+1. Read a primary source: the paper, publisher page, author project page, or official repository; for perspectives, read the author's essay or an attributable original talk/transcript. Other lists and search results are leads, not sufficient verification.
 2. Confirm the exact title, first public release year, and any claimed publication venue. A later venue year may differ from the first-release year. Use the title of the linked version; record version changes in the evidence notes when they affect interpretation.
-3. Link **Paper** and verified official **Code** where available. Use `null` when a link was not verified. A GitHub project page, prompts-only release, third-party implementation, or similarly named repository must not be mislabeled as the authors' implementation.
+3. Link **Paper** and verified official **Code** where available. Use `null` when a link was not verified. A GitHub project page, prompts-only release, third-party implementation, or similarly named repository must not be mislabeled as the authors' implementation. Essays use their primary reading URL in `project`, displayed as **Read**; they do not require a paper or code release.
 4. Write one concise contribution description and a concrete evidence boundary in **both English and Chinese**. Describe the problem actually studied, the feedback used, and the human inputs where relevant.
 5. Record the primary `evidence_urls` used and the actual `verified_on` date. Do not update all dates when only one entry was checked.
 
@@ -31,17 +32,15 @@ Keep these distinctions explicit:
 - Within-run search, cross-run memory, reusable skills, agent-code evolution, and model-parameter training are different improvement mechanisms.
 - Automatically checked answers, numerical validation, human-checked proofs, and formal proof checking are different verification procedures.
 - An author-reported result is not an independent replication. Record significant protocol, access, or maintenance limitations.
+- An essay's recommendations or an author's experience are perspectives, not empirical validation of a research agent or universal rules for good science.
+
+Source verification means checking bibliographic details, links, and claims against the cited material. It does not mean that contributors have executed the code or independently reproduced the results. State any reproduction separately, including its configuration and observed outcome.
 
 ## Update the catalog
 
-The canonical records are JSON arrays in `data/`:
+The canonical records are JSON arrays in `data/*.json`. The build reads every JSON file in that directory, including focused additions and `perspectives.json`; filenames do not determine categories. Update an appropriate existing file or add a clearly named batch using the same schema.
 
-| File | Primary categories |
-| --- | --- |
-| `questions.json` | `taste`, `questions` |
-| `systems.json` | `execution`, `systems` |
-| `learning.json` | `learning` |
-| `evaluation.json` | `evaluation` |
+The six research categories are `taste`, `questions`, `execution`, `learning`, `evaluation`, and `systems`. The seventh category, `perspectives`, is a separate collection of essays and talks, not an additional scientific capability.
 
 Each work appears once, in the category that best explains its main contribution. Use reading-path cross-links for overlap. Keep versions as separate records only when they represent meaningfully different methods or implementations; explain related publications rather than inflating the count with mirrors or minor revisions.
 
@@ -52,17 +51,33 @@ Required fields:
 | `id` | Stable lowercase kebab-case identifier used for links |
 | `title`, `short_name` | Exact source title and readable display name |
 | `year` | First public release year of the cited work |
-| `category` | One of the six categories above |
-| `kind` | `method`, `benchmark`, `study`, `system`, or `foundation` |
-| `status` | `published`, `preprint`, or `project`; describes the cited source version |
-| `venue` | Verified venue and publication year, or `arXiv` / project source |
+| `category` | One of the seven category identifiers above |
+| `kind` | `method`, `benchmark`, `study`, `system`, `foundation`, or `perspective` |
+| `status` | `published`, `preprint`, `project`, or `essay`; describes the cited source version |
+| `venue` | Verified venue and publication year, `arXiv`, or the project/essay source |
 | `paper`, `code`, `project` | HTTPS primary links, or `null` |
 | `focus_en`, `focus_zh` | Why the work is relevant; one concise sentence per language |
 | `boundary_en`, `boundary_zh` | What its evidence actually covers or does not establish |
 | `evidence_urls` | Nonempty array of the primary sources consulted |
 | `verified_on` | Source-review date in `YYYY-MM-DD` form |
 
-The prose templates live in `docs/templates/README.en.md` and `docs/templates/README.zh.md`. Edit those templates for scope, research questions, and editorial guidance. **Do not edit the generated root READMEs directly.** Reading-path selections and section labels live in `scripts/build.mjs`.
+For an essay or talk, use `category: "perspectives"`, `kind: "perspective"`, and `status: "essay"`, with its reading URL in `project` and `paper: null`. Describe the relevant argument and its limits, without turning advice into an experimental result.
+
+## Metadata and presentation conventions
+
+- `year` is the first public year of the cited work, not necessarily its conference or journal year. Confirm that earlier release from a primary source; keep the verified publication year in `venue`.
+- `published` records a verified publication venue, while `preprint`, `project`, and `essay` identify other source types; none of these labels is a quality score or an independent replication claim.
+- **Paper** links to the cited paper version, **Code** to a verified official implementation, and **Project** or **Resources** to supporting material; **Read** opens the primary text of a perspective. Missing code means no official implementation was verified for this record, not proof that none exists.
+- `focus_*` explains the contribution; `boundary_*` describes its demonstrated scope, required human inputs, evaluation limits, or relevant access and maintenance restrictions. Keep both languages aligned.
+- `verified_on` records a specific source review, not an experiment date or a promise that every external URL remains accessible.
+
+The READMEs use compact three-column tables for the work, its relevance, and links. Each section has expandable **Evidence and scope notes** containing full titles, type/status information, and evidence boundaries. Preserve those details when changing the layout, and review both the compact and expanded views.
+
+The prose templates live in `docs/templates/README.en.md` and `docs/templates/README.zh.md`. Edit those templates for scope, research questions, editorial guidance, and the Mermaid research-map and learning diagrams. Keep diagram labels and relationships aligned across languages, distinguish learning within a run from reuse across runs, and keep perspectives separate from demonstrated research capabilities. Metadata conventions belong in this guide rather than a separate “How to read the collection” section in the READMEs.
+
+**Do not edit the generated root READMEs directly.** Reading-path selections, section labels, and generated table/detail formatting live in `scripts/build.mjs`.
+
+## Generate and check
 
 Run from the repository root with Node.js 18 or newer; no package installation is needed:
 
@@ -80,6 +95,8 @@ Review both rendered READMEs before submitting a change. For corrections, give t
 
 欢迎用中文或英文提交建议。请先阅读原始论文或官方资料，再填写中英文贡献与证据边界；不要仅依据其他 Awesome list、宣传页摘要或模型生成的描述。
 
-修改 `data/` 中的记录，或 `docs/templates/` 中的介绍文字，然后运行上述生成与检查命令。保持首次公开年份、正式发表年份和所引版本之间的区别。对每项工作单独记录实际核查日期；无法核实的代码链接填 `null`。
+生成器会读取全部 `data/*.json`；请修改对应记录，或编辑 `docs/templates/` 中的文字与 Mermaid 图，再运行上述命令，不要直接修改根目录 README。正文采用三列表格，完整标题、类型、状态和证据边界保留在各节可展开的说明中。
 
-尤其注意区分科研品味与代理评分、问题生成与给定任务求解、真实执行与生成结果、单次搜索与跨任务学习，以及答案检查与形式化证明。发现数据泄漏、评价偏差或维护状态变化时，请附原始证据提出修正。
+保持首次公开年份、正式发表年份和所引版本之间的区别，逐项记录实际核查日期；无法核实的官方代码链接填 `null`。`perspectives` 单独收录作者文章与演讲，使用 `kind: "perspective"`、`status: "essay"`，将 **Read** 链接存入 `project`，无需补造 `paper`。
+
+来源核查不等于实验复现，作者观点也不等于实证结论。请区分科研品味与代理评分、问题生成与给定任务求解、真实执行与生成结果、单次搜索与跨任务学习，以及答案检查与形式化证明；发现评价偏差或维护状态变化时，请附原始证据提出修正。构建检查不会联网核验链接或科学结论。
