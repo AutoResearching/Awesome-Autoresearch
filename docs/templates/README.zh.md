@@ -7,35 +7,33 @@
 
 [![资源数量](https://img.shields.io/badge/resources-{{COUNT}}-2456a5)](#collection) [![License: MIT](https://img.shields.io/badge/license-MIT-09756e)](LICENSE) [![Validate collection](https://github.com/AutoResearching/Awesome-Autoresearch/actions/workflows/validate.yml/badge.svg)](https://github.com/AutoResearching/Awesome-Autoresearch/actions/workflows/validate.yml)
 
-**如何让 AI 选择值得研究的问题，严谨地开展研究，并通过经验成为更好的研究者？**
-
-精选关于 **AI 如何做研究的论文、代码、benchmarks 与研究者文章**：选择值得研究的问题，提出解释或方法，用实验检验，再利用证据改善后续研究。
+收集关于 **AI 如何做研究的论文、代码、benchmarks 和研究者文章**：选择重要的问题，提出想法，用实验检验，再从结果中学习。
 
 **{{COUNT}} 项资源 · {{PAPER_COUNT}} 篇论文记录 · {{ESSAY_COUNT}} 篇文章与演讲 · {{CODE_COUNT}} 个官方代码链接**
 
 [研究地图](#research-map) · [浏览资源](#collection) · [研究机会](#research-opportunities) · [阅读路线](#reading-paths) · [推荐资源](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml)
 
-**配套 Survey：** [英文 PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf) · [LaTeX 源码](survey/) · [源码 ZIP](output/autoresearch-survey-latex.zip)。综述对应 **2026 年 10 月 26 日的 79 项资源快照**；本目录持续补充新工作。
+**Survey：** [英文 PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf)。涵盖截至 2026 年 10 月 26 日收录的 79 项工作。
 
-来源核查日期：{{REVIEW_RANGE}}。这是一份精选集合，不是性能排行榜。
+来源核查日期：{{REVIEW_RANGE}}。条目按研究主题分组，不做排名。
 
 ## 研究范围
 
-我们研究的对象是**研究过程本身**。以 AI research 为主要实验场景，数学为补充 testbed；其他学科的工作若提供可复用的科研方法或评价协议，也在收录范围内。
+我们关注**怎样做出更好的研究**。主要在 AI research 中做实验，也把数学作为 testbed。其他领域的工作，只要其方法有助于回答下面的问题，也会收录。
 
-我们优先关注 **research quality**：问题是否重要、贡献是否新颖、结论是否有充分证据，以及结果是否稳健、适用边界是否清楚。负结果如果能排除合理解释，或改变后续研究方向，同样可以具有科学价值。
+我们关心 **research quality**：问题重要吗？贡献是新的吗？证据支持结论吗？结果在什么条件下成立？负结果如果能排除一种解释，或指导下一项研究，同样有价值。
 
-这里的 *autoresearch* 包括人机协作、单项科研能力以及自主科研系统，也包含 Karpathy 的项目。写作工具、检索产品和领域预测模型，需要对下述研究问题有具体的方法贡献，才符合收录范围。
+这里的 *autoresearch* 包括 AI 科研助手、单项科研能力，以及能够开展完整研究的系统。Karpathy 的 autoresearch 是其中一个例子。
 
 <a id="research-map"></a>
 
 ## 研究地图 · Research map
 
-从一个具体情境出发：模型的训练表现提高了，在新任务上的表现却没有改善。AI 研究者接下来应该做什么？
+模型的训练分数提高了，但新任务上的表现没有改善。AI 研究者接下来应该做什么？
 
 ![用一个例子理解四项科研能力：选择训练收益为何无法迁移这一问题，提出不同解释，控制训练条件并在未见任务上比较数据选择，再检验经验能否帮助新任务。](docs/assets/research-map.zh.svg)
 
-图中的例子用于解释目录结构，不代表新的研究发现或固定流程。**Question 指出未知问题，hypothesis 提出解释，method 说明如何调查或检验。** Evaluation 检查问题价值、原创性、证据强度，以及结果在声称的适用范围内是否稳健；完整 AI scientist systems 则组合多项能力。
+这个例子用来说明四项能力，并非已完成的实验。**Question 说明想知道什么，hypothesis 给出一种可能的解释，method 说明如何研究或解决问题。** 评价时要看问题是否重要、贡献是否新颖，以及证据是否支持结果。AI scientist systems 将这些能力组合起来。
 
 <a id="collection"></a>
 
@@ -51,30 +49,30 @@
 
 ## 值得探索的研究问题
 
-以下是从集合中提炼的研究设想，可作为实验起点；并不表示这些问题尚无人研究。
+下面的问题可以作为项目起点。已有工作对其中一些问题给出了部分答案。
 
 | 研究问题 | 可以比较什么？ | 评价什么？ |
 | --- | --- | --- |
-| AI 能否从研究结果中学到 taste？ | 评审或引用奖励，与真实执行后的反馈（包括有信息量的失败） | 新领域的选题质量，以及实际发现的新颖性、重要性与证据支持。参考 [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) 与 [TasteVal](#work-tasteval)。 |
-| 提问时能否预判如何验证？ | 只有 proposal，与同时提供区分性实验及失败判据的 proposal | 并列报告提案评分和实际发现。结合 [IdeaSynth](#work-ideasynth) 与 [The Ideation-Execution Gap](#work-ideation-execution-gap)。 |
-| 哪些研究经验能够迁移？ | 报告记忆、可复用技能、agent 代码修改与参数训练，分别与不使用该经验的 baseline 比较 | 留出任务上更好的问题、方法，以及经过独立验证的发现。比较 [ResearchTrails](#work-researchtrails)、[EvoScientist](#work-evoscientist) 与 [Evolution Fine-Tuning](#work-evolution-fine-tuning)。 |
-| 如何减少文风与泄漏对评价的影响？ | 盲审、基于证据的新颖性检查、可执行验证 | 措辞敏感性、检索覆盖、知识截止日期，以及是否偏好容易验证但价值低的问题。参考 [SciStyleBench](#work-scistylebench)、[OpenNovelty](#work-opennovelty) 与 [HindSight](#work-hindsight)。 |
-| Agent 能否从负结果中学到东西？ | 优化性能的搜索，与用于区分假设的实验 | 信息增益、不确定性校准、停止决策与结论稳健性。参考 [DAD](#work-deep-adaptive-design)、[POPPER](#work-popper) 与 [Many AI Analysts](#work-many-ai-analysts-one-dataset)。 |
+| 研究结果能否教会 AI 选更好的问题？ | 从评审和引用中学习，或从实际实验（包括失败）中学习 | 后续问题更重要吗？是否带来新发现，并有证据支持？参考 [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) 与 [TasteVal](#work-tasteval)。 |
+| 先想好怎么验证，能否提出更好的 idea？ | 只提出 idea，或同时给出实验并说明什么结果会推翻它 | 对照提案评分和实际实验结果。参考 [IdeaSynth](#work-ideasynth) 与 [The Ideation-Execution Gap](#work-ideation-execution-gap)。 |
+| 哪些经验对新研究任务有用？ | 保存报告或技能、修改 agent 代码、训练模型参数；分别与不使用先前经验的版本比较 | 新任务上的问题、方法和已验证的发现是否更好？比较 [ResearchTrails](#work-researchtrails)、[EvoScientist](#work-evoscientist) 与 [Evolution Fine-Tuning](#work-evolution-fine-tuning)。 |
+| 评审器能否识别好研究？ | 盲审、查阅已有工作、实际检验主张 | 改写措辞会改变分数吗？会漏掉已有工作、奖励记住的答案，或偏好无关紧要的问题吗？参考 [SciStyleBench](#work-scistylebench)、[OpenNovelty](#work-opennovelty) 与 [HindSight](#work-hindsight)。 |
+| AI 能否从负结果中学习？ | 为提高分数选择实验，或为区分不同解释选择实验 | 结果能否排除一种解释？AI 是否据此修正判断，得到可靠结论？参考 [DAD](#work-deep-adaptive-design)、[POPPER](#work-popper) 与 [Many AI Analysts](#work-many-ai-analysts-one-dataset)。 |
 
 <a id="learning-mechanisms"></a>
 
 ## 研究者学习时，究竟改变了什么？
 
-Agent 可以在同一个任务中多次尝试，找到更好的数据配比。要说明研究者本身进步了，还需要与不使用该经验的 baseline 比较，检验它能否在留出任务上提出更好的问题、方法，或获得更可靠的发现。
+Agent 可以在同一个任务中反复尝试，找到更好的数据配比。要检验它是否学会了更好地做研究，就给它新任务，再与无法使用先前经验的版本比较，看问题、方法和结果是否改善。
 
 ![两种不同的检验：在当前研究中改善数据配比；或保留证据，改变记忆、技能、代码或参数，再到留出任务上评价。](docs/assets/learning-transfer.zh.svg)
 
-| 机制 | 改变了什么？ | 代表性起点 |
+| 机制 | 改变了什么？ | 例子 |
 | --- | --- | --- |
-| Within-task search | 一次研究中的候选解和行动选择 | [AIDE](#work-aide)、[OR-Agent](#work-or-agent) |
-| Memory / reusable experience | 后续研究可读取的外部报告、经验和技能 | [AgentRxiv](#work-agentrxiv)、[EvoScientist](#work-evoscientist)、[AutoResearchClaw](#work-autoresearchclaw) |
-| Agent-program adaptation | 控制科研循环的代码或策略 | [ADAS](#work-adas)、[Bilevel Autoresearch](#work-bilevel-autoresearch) |
-| Parameter training | 在研究前或研究过程中训练的模型权重 | [MLE-Ideator](#work-mle-ideator)、[TTT-Discover](#work-ttt-discover)、[Evolution Fine-Tuning](#work-evolution-fine-tuning) |
+| Within-task search | 尝试并修改当前问题的解法 | [AIDE](#work-aide)、[OR-Agent](#work-or-agent) |
+| Memory and skills | 保存报告、经验或技能，供后续任务使用 | [AgentRxiv](#work-agentrxiv)、[EvoScientist](#work-evoscientist)、[AutoResearchClaw](#work-autoresearchclaw) |
+| Agent code | 修改指导研究的代码或策略 | [ADAS](#work-adas)、[Bilevel Autoresearch](#work-bilevel-autoresearch) |
+| Model training | 在研究前或过程中更新模型参数 | [MLE-Ideator](#work-mle-ideator)、[TTT-Discover](#work-ttt-discover)、[Evolution Fine-Tuning](#work-evolution-fine-tuning) |
 
 <a id="choosing-a-testbed"></a>
 
@@ -83,13 +81,13 @@ Agent 可以在同一个任务中多次尝试，找到更好的数据配比。�
 | 想研究什么？ | 可以从哪里开始？ | 还需要补充什么评价？ |
 | --- | --- | --- |
 | ML 实验与优化 | [MLE-bench](#work-mle-bench)、[MLGym](#work-mlgym)、[autoresearch](#work-autoresearch) | 所选问题的原创性和重要性 |
-| LLM post-training 决策 | [PostTrainBench](#work-posttrainbench) | 选题能力，以及超出给定优化目标的有效性 |
+| LLM post-training 决策 | [PostTrainBench](#work-posttrainbench) | AI 能否自己选题，以及改进在给定 benchmark 之外是否有效 |
 | 复现与科学编程 | [PaperBench](#work-paperbench)、[CORE-Bench](#work-core-bench)、[SciCode](#work-scicode) | 超出给定论文和任务的新贡献 |
-| 问题形成与研究提案 | [RQ-Bench](#work-rq-bench)、[AgentIdeaBench](#work-agentideabench)、[MLR-Bench](#work-mlr-bench) | 实际执行结果、独立新颖性检查和评审校准 |
-| 实验决策与科研策略 | [TasteVal](#work-tasteval)、[FML-bench](#work-fml-bench)、[DiscoveryWorld](#work-discoveryworld) | 迁移能力与原始研究议程的价值 |
+| 问题形成与研究提案 | [RQ-Bench](#work-rq-bench)、[AgentIdeaBench](#work-agentideabench)、[MLR-Bench](#work-mlr-bench) | 实际实验结果、是否已有相同工作，以及提案评分是否准确 |
+| 实验决策与科研策略 | [TasteVal](#work-tasteval)、[FML-bench](#work-fml-bench)、[DiscoveryWorld](#work-discoveryworld) | 所选问题是否重要，策略是否对新任务有用 |
 | 数学推理与发现 | [FunSearch](#work-funsearch)、[AlphaEvolve](#work-alphaevolve)、[Aletheia](#work-aletheia)、[FrontierMath](#work-frontiermath) | 数学意义与验证类型：数值、人类或形式化 |
 
-将模型访问、数据划分、工具和计算量作为实验条件报告；需要把提升归因于某种方法时，采用受控比较。主要评价研究质量与经过验证的结果，资源消耗不作为主要质量指标。分别报告人类提供了什么、agent 决定了什么、结论如何验证，以及哪些经验保留到了后续研究。资源的开放范围、版本和维护限制见各节可展开的说明。
+评价研究质量，并检查实际结果。说明使用的模型、数据、工具和计算量，让别人能理解实验条件。通过受控比较，判断是什么带来了提升。写清人类提供了什么、AI 决定了什么、如何验证结果，以及复用了哪些经验。成本不是这里的主要质量指标。
 
 ## 综述与社区
 
@@ -99,14 +97,27 @@ Agent 可以在同一个任务中多次尝试，找到更好的数据配比。�
 
 ## 参与贡献
 
-欢迎用中文或英文[推荐资源](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml)或提出修正。[CONTRIBUTING.md](CONTRIBUTING.md) 说明了收录标准、来源核查与双语更新方式。[目录数据](data/) 保存完整元数据和核查日期，两份 README 由它统一生成。仓库原创内容使用 [MIT License](LICENSE)，链接资源保留各自许可证。
+欢迎用中文或英文[推荐资源](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml)或提出修正。如何核查来源和更新目录，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。仓库原创内容使用 [MIT License](LICENSE)，链接资源保留各自许可证。
 
 <a id="reading-paths"></a>
 
 ## 建议阅读路线 · Suggested reading paths
 
-从最感兴趣的问题出发。排序强调证据和机制之间的互补关系，不是系统排名。
+从你感兴趣的问题开始。每条路线把回答这个问题不同部分的工作放在一起。
 
 {{STARTER}}
 
-想了解完整实现，可继续读 [The AI Scientist-v2](#work-ai-scientist-v2) 或 [AI-Researcher](#work-ai-researcher)。想从更广泛的科研方法视角思考，可结合 [Hamming](#work-hamming-you-and-your-research)、[Nielsen 的研究启发](#work-nielsen-research-heuristics) 与 [Research Debt](#work-research-debt)。
+想了解能开展完整研究的系统，可以读 [The AI Scientist-v2](#work-ai-scientist-v2) 或 [AI-Researcher](#work-ai-researcher)。想了解研究者如何做研究，可以读 [Hamming](#work-hamming-you-and-your-research)、[Nielsen 的研究启发](#work-nielsen-research-heuristics) 和 [Research Debt](#work-research-debt)。
+
+## 引用本仓库 · Cite this repository
+
+如果这份资料对你的研究有帮助，欢迎引用：
+
+```bibtex
+@misc{wang2026awesomeautoresearch,
+  author = {Wang, Yuanqing},
+  title  = {{Awesome Autoresearch}},
+  year   = {2026},
+  url    = {https://github.com/AutoResearching/Awesome-Autoresearch}
+}
+```

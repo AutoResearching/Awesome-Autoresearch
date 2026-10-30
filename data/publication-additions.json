@@ -11,8 +11,8 @@
     "paper": "https://arxiv.org/abs/2606.12071",
     "code": null,
     "project": "https://huggingface.co/datasets/declare-lab/rq-bench",
-    "focus_en": "Builds author-anchored research questions from papers and their cited backgrounds, then compares generated questions through standalone and comparative LLM judging and blinded expert evaluation.",
-    "focus_zh": "根据论文及其引用背景构建以作者研究为参照的问题，通过独立评分、比较式 LLM 评审和专家盲评，检验生成问题及新颖性评价的可靠性。",
+    "focus_en": "Builds reference research questions from papers and their cited backgrounds. Compares generated questions using standalone LLM scores, pairwise judgments, and blinded expert review.",
+    "focus_zh": "根据论文及其引用背景构建参照研究问题，用 LLM 独立评分、成对比较与专家盲评来评价生成的问题。",
     "boundary_en": "Author-anchored questions are reference points, not the only valid questions. Expert and model novelty judgments disagree; proposal feasibility, execution outcomes, and scientific importance are not established by these scores.",
     "boundary_zh": "作者问题是参照而非唯一有效答案；专家与模型对新颖性的判断存在分歧。这些分数不能确立方案可行性、执行结果或科学重要性。",
     "evidence_urls": [
@@ -34,8 +34,8 @@
     "paper": "https://arxiv.org/abs/2609.07611",
     "code": "https://github.com/HKUST-KnowComp/AgentIdeaBench",
     "project": null,
-    "focus_en": "Compares scientific hypothesis generation from supplied references with agent-controlled literature exploration, using shared subfields, output formats, and critics that retrieve prior art before scoring ideas.",
-    "focus_zh": "比较给定参考文献与智能体自主文献探索两种科学假设生成设置，统一研究子领域、输出格式和检索已有工作后进行评分的评审器。",
+    "focus_en": "Compares hypothesis generation from supplied references with agent-led literature search. Uses the same subfields, output format, and critics, which retrieve prior work before scoring.",
+    "focus_zh": "比较给定参考文献与智能体自主检索两种假设生成方式，统一子领域、输出格式和评审器，并在评分前检索已有工作。",
     "boundary_en": "Active exploration also changes sequential reasoning and information access. Scores remain model judgments, with limited expert validation; the generated hypotheses are not experimentally verified discoveries.",
     "boundary_zh": "主动探索同时改变顺序推理和信息获取方式。分数仍是模型判断，专家验证有限；生成的假设并非经过实验验证的发现。",
     "evidence_urls": [
@@ -57,8 +57,8 @@
     "paper": "https://arxiv.org/abs/2603.08640",
     "code": "https://github.com/aisa-group/PostTrainBench",
     "project": "https://posttrainbench.com/",
-    "focus_en": "Tests whether agents can improve a supplied base language model on a target benchmark within ten hours on one H100, allowing autonomous data curation, method choice, and experiment execution.",
-    "focus_zh": "检验智能体能否在单张 H100、十小时预算内，通过自主数据构建、方法选择和实验执行，提升给定基础语言模型在目标 benchmark 上的表现。",
+    "focus_en": "Gives agents a base language model and target benchmark, with ten hours on one H100 to improve performance through data curation, method choice, and experiments.",
+    "focus_zh": "给定基础语言模型和目标 benchmark，让智能体在单张 H100、十小时内自主构建数据、选择方法和运行实验，以改进表现。",
     "boundary_en": "Base models and target benchmarks are supplied, so results measure bounded post-training rather than question selection. Leaderboard versions change scoring and integrity rules; official instruct-model baselines are not compute-matched.",
     "boundary_zh": "基础模型和目标 benchmark 由环境给定，衡量的是受限预算下的后训练，而非选题能力。排行榜版本会调整评分与完整性规则；官方 instruct-model 基线未匹配训练计算预算。",
     "evidence_urls": [

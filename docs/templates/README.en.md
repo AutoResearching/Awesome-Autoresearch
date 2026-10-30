@@ -7,33 +7,31 @@
 
 [![Resources](https://img.shields.io/badge/resources-{{COUNT}}-2456a5)](#collection) [![License: MIT](https://img.shields.io/badge/license-MIT-09756e)](LICENSE) [![Validate collection](https://github.com/AutoResearching/Awesome-Autoresearch/actions/workflows/validate.yml/badge.svg)](https://github.com/AutoResearching/Awesome-Autoresearch/actions/workflows/validate.yml)
 
-**How can AI choose worthwhile questions, investigate them rigorously, and become a better researcher through experience?**
-
-A curated collection of **papers, code, benchmarks, and researcher essays about how AI does research**: choosing a worthwhile problem, proposing an explanation or method, testing it, and using the evidence to improve future investigations.
+A collection of **papers, code, benchmarks, and essays on how AI does research**: choosing important questions, developing ideas, testing them, and learning from the results.
 
 **{{COUNT}} resources · {{PAPER_COUNT}} paper records · {{ESSAY_COUNT}} essays and talks · {{CODE_COUNT}} official code links**
 
 [Research map](#research-map) · [Browse the collection](#collection) · [Research opportunities](#research-opportunities) · [Reading paths](#reading-paths) · [Suggest a resource](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml)
 
-**Companion survey:** [English PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf) · [LaTeX source](survey/) · [Source ZIP](output/autoresearch-survey-latex.zip). The survey covers the **79-work snapshot of 26 October 2026**; this collection continues to grow.
+**Survey:** [English PDF](output/pdf/autoresearch-survey-en.pdf) · [中文 PDF](output/pdf/autoresearch-survey-zh.pdf). Covers the 79 works collected by 26 October 2026.
 
-Sources reviewed: {{REVIEW_RANGE}}. A selective collection, not a performance ranking.
+Sources checked: {{REVIEW_RANGE}}. Entries are grouped by research topic, not ranked.
 
 ## Scope
 
-The **research process itself** is the object of study. AI research is the primary experimental setting; mathematics is a complementary testbed. Work from other disciplines belongs here when it contributes a reusable method or evaluation of how research is done.
+We study **how to do better research**. AI research is the main testbed, with mathematics as another useful setting. We also include work from other fields when its methods help answer the questions below.
 
-We prioritize **research quality**: important questions, original contributions, well-supported conclusions, and robust results with clear limits. A negative result can be valuable when it rules out a plausible explanation or changes what should be studied next.
+We care about **research quality**: Is the question important? Is the contribution new? Does the evidence support the conclusion? When does the result hold? A negative result can be valuable if it rules out an explanation or guides the next study.
 
-We use *autoresearch* broadly: human–AI collaboration, individual research capabilities, and autonomous research systems. It includes, but is not limited to, Karpathy's project. General writing tools, search products, and domain predictors need a specific contribution to the research questions below to qualify.
+Here, *autoresearch* covers AI research assistants, individual research skills, and systems that carry out a whole study. Karpathy's autoresearch is one example.
 
 ## Research map
 
-Start with one concrete situation: a model improves during training but does not improve on new tasks. What should an AI researcher do next?
+A model's training scores improve, but its performance on new tasks stays flat. What should an AI researcher do next?
 
 ![Four research capabilities illustrated with one example: choose why training gains fail to transfer, propose competing explanations, compare data choices on unseen tasks with a controlled training setup, and test whether the lesson helps on a new task.](docs/assets/research-map.en.svg)
 
-The example is a guide to the collection, not a claim of a new finding or a mandatory sequence. **A question identifies the uncertainty; a hypothesis proposes an explanation; a method tells us how to investigate it.** Evaluation checks question value, originality, strength of evidence, and robustness within the stated scope. Integrated AI scientist systems combine several of these capabilities.
+This example explains the four abilities; it is not a reported experiment. **A question asks what we want to know. A hypothesis gives a possible explanation. A method describes how to investigate or solve the problem.** We evaluate the importance of the question, what is new, and how well the evidence supports the result. AI scientist systems combine these abilities.
 
 <a id="collection"></a>
 
@@ -49,30 +47,30 @@ The example is a guide to the collection, not a claim of a new finding or a mand
 
 ## Promising research questions
 
-These are editorial research hypotheses inspired by the collection. They are starting points for experiments, not claims of unoccupied research territory.
+These questions suggest possible projects. Some already have partial answers in the work below.
 
 | Research question | A useful comparison | What to measure |
 | --- | --- | --- |
-| Can AI learn taste from outcomes? | Reviewer or citation rewards vs. executed investigations, including informative failures | Selection quality on new topics; originality, significance, and evidential support of resulting findings. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
-| Can question generation anticipate execution? | A proposal alone vs. a proposal with a discriminating experiment and failure criteria | Proposal ratings alongside actual findings. Pair [IdeaSynth](#work-ideasynth) with [The Ideation-Execution Gap](#work-ideation-execution-gap). |
-| Which research experience transfers? | Reports, reusable skills, agent-code changes, and parameter training, each compared with a baseline without that experience | Better questions, methods, and independently verified findings on held-out tasks. Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
-| Can evaluation resist style and leakage? | Blinded review, evidence-grounded novelty checks, and executable validation | Sensitivity to wording, retrieval coverage, knowledge cutoffs, and trivial question selection. See [SciStyleBench](#work-scistylebench), [OpenNovelty](#work-opennovelty), and [HindSight](#work-hindsight). |
-| Does an agent learn from negative results? | Performance-driven search vs. experiments chosen to distinguish hypotheses | Information gain, calibrated uncertainty, stopping decisions, and robustness of conclusions. See [DAD](#work-deep-adaptive-design), [POPPER](#work-popper), and [Many AI Analysts](#work-many-ai-analysts-one-dataset). |
+| Can results teach AI to choose better questions? | Learn from reviews and citations, or from actual experiments, including failures | Are the next questions more important? Do they lead to new, well-supported findings? Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
+| Does planning a test lead to a better idea? | Generate an idea alone, or include a test and state what would disprove it | Compare proposal ratings with the results of running the experiments. Read [IdeaSynth](#work-ideasynth) and [The Ideation-Execution Gap](#work-ideation-execution-gap). |
+| Which lessons help on a new research task? | Store reports or skills, change agent code, or train model weights; compare each with no prior experience | Do questions, methods, and verified findings improve on new tasks? Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
+| Do evaluators reward good research? | Use blind review, check related work, and test claims | Do scores change with writing style? Does the evaluator miss prior work, reward memorized answers, or favor trivial questions? See [SciStyleBench](#work-scistylebench), [OpenNovelty](#work-opennovelty), and [HindSight](#work-hindsight). |
+| Can AI learn from a negative result? | Choose experiments to raise a score, or to distinguish possible explanations | Does the result rule out an explanation? Does AI revise its beliefs and reach a reliable conclusion? See [DAD](#work-deep-adaptive-design), [POPPER](#work-popper), and [Many AI Analysts](#work-many-ai-analysts-one-dataset). |
 
 <a id="learning-mechanisms"></a>
 
 ## What changes when a researcher learns?
 
-An agent can find a better data mix after several attempts on one task. To show that it became a better researcher, test whether the experience improves its questions, methods, or verified findings on held-out tasks compared with a baseline without that experience.
+An agent may find a better data mix by trying again on the same task. To test whether it has learned to do better research, give it new tasks. Compare its questions, methods, and results with a version that has no access to the earlier experience.
 
 ![Two different tests: improve a data mix within the current investigation, or retain evidence and evaluate changes to memory, skills, code, or weights on a held-out task.](docs/assets/learning-transfer.en.svg)
 
-| Mechanism | What changes? | Representative starting points |
+| Mechanism | What changes? | Examples |
 | --- | --- | --- |
-| Within-task search | Candidate solutions and action choices during one investigation | [AIDE](#work-aide), [OR-Agent](#work-or-agent) |
-| Memory and reusable experience | External reports, lessons, or skills available to later runs | [AgentRxiv](#work-agentrxiv), [EvoScientist](#work-evoscientist), [AutoResearchClaw](#work-autoresearchclaw) |
-| Agent-program adaptation | The code or strategy controlling the research loop | [ADAS](#work-adas), [Bilevel Autoresearch](#work-bilevel-autoresearch) |
-| Parameter training | Model weights, trained before or during an investigation | [MLE-Ideator](#work-mle-ideator), [TTT-Discover](#work-ttt-discover), [Evolution Fine-Tuning](#work-evolution-fine-tuning) |
+| Within-task search | Try and revise solutions to the current problem | [AIDE](#work-aide), [OR-Agent](#work-or-agent) |
+| Memory and skills | Save reports, lessons, or skills for later tasks | [AgentRxiv](#work-agentrxiv), [EvoScientist](#work-evoscientist), [AutoResearchClaw](#work-autoresearchclaw) |
+| Agent code | Change the code or strategy that guides research | [ADAS](#work-adas), [Bilevel Autoresearch](#work-bilevel-autoresearch) |
+| Model training | Update model weights before or during research | [MLE-Ideator](#work-mle-ideator), [TTT-Discover](#work-ttt-discover), [Evolution Fine-Tuning](#work-evolution-fine-tuning) |
 
 <a id="choosing-a-testbed"></a>
 
@@ -81,13 +79,13 @@ An agent can find a better data mix after several attempts on one task. To show 
 | If you want to study… | Start with… | Add an evaluation of… |
 | --- | --- | --- |
 | ML experimentation and optimization | [MLE-bench](#work-mle-bench), [MLGym](#work-mlgym), [autoresearch](#work-autoresearch) | Originality and importance of the chosen question |
-| LLM post-training decisions | [PostTrainBench](#work-posttrainbench) | Question selection and validity beyond the supplied optimization target |
+| LLM post-training decisions | [PostTrainBench](#work-posttrainbench) | Whether AI can choose the question and improve results beyond the given benchmark |
 | Reproduction and scientific coding | [PaperBench](#work-paperbench), [CORE-Bench](#work-core-bench), [SciCode](#work-scicode) | New contributions beyond supplied papers and tasks |
-| Question formation and research proposals | [RQ-Bench](#work-rq-bench), [AgentIdeaBench](#work-agentideabench), [MLR-Bench](#work-mlr-bench) | Executed outcomes, independent novelty checks, and judge calibration |
-| Experimental decisions and research strategy | [TasteVal](#work-tasteval), [FML-bench](#work-fml-bench), [DiscoveryWorld](#work-discoveryworld) | Transfer and the value of the original research agenda |
+| Question formation and research proposals | [RQ-Bench](#work-rq-bench), [AgentIdeaBench](#work-agentideabench), [MLR-Bench](#work-mlr-bench) | Actual experiment results, checks for prior work, and accuracy of proposal ratings |
+| Experimental decisions and research strategy | [TasteVal](#work-tasteval), [FML-bench](#work-fml-bench), [DiscoveryWorld](#work-discoveryworld) | Whether the chosen question matters and the strategy helps on new tasks |
 | Mathematical reasoning and discovery | [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), [Aletheia](#work-aletheia), [FrontierMath](#work-frontiermath) | Significance and verification type: numerical, human, or formal |
 
-Report model access, data splits, tools, and compute as experimental conditions; use controlled comparisons when attributing an improvement to a particular method. The primary criteria are research quality and verified outcomes; resource use is not a primary quality criterion. Report what the human supplies, what the agent chooses, how conclusions are checked, and what survives between runs. Check each resource's scope notes for access, version, and maintenance limits.
+Judge the quality of the research and check its results. Report the models, data, tools, and compute used so others can interpret the experiment. Use controlled comparisons to identify what caused an improvement. State what humans provided, what AI decided, how results were checked, and what experience was reused. Cost is not a main quality measure here.
 
 ## Surveys and communities
 
@@ -97,14 +95,27 @@ Report model access, data splits, tools, and compute as experimental conditions;
 
 ## Contributing
 
-[Suggest a resource](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml) or submit a correction in English or Chinese. See [CONTRIBUTING.md](CONTRIBUTING.md) for inclusion criteria, source verification, and bilingual updates. The [catalog](data/) stores full metadata and review dates; both READMEs are generated from it. Original repository materials use the [MIT License](LICENSE); linked resources retain their own licenses.
+[Suggest a resource](https://github.com/AutoResearching/Awesome-Autoresearch/issues/new?template=suggest-resource.yml) or send a correction in English or Chinese. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to check sources and update the collection. Original repository content uses the [MIT License](LICENSE). Linked resources keep their own licenses.
 
 <a id="reading-paths"></a>
 
 ## Suggested reading paths
 
-Choose the question closest to your interests. The order highlights complementary evidence and mechanisms, rather than ranking systems.
+Start with the question that interests you. Each path connects papers that address different parts of it.
 
 {{STARTER}}
 
-For a complete implementation, continue with [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For the broader research-method perspective, pair [Hamming](#work-hamming-you-and-your-research) with [Nielsen's research heuristics](#work-nielsen-research-heuristics) and [Research Debt](#work-research-debt).
+For systems that run a whole study, read [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For advice on doing research, read [Hamming](#work-hamming-you-and-your-research), [Nielsen's research heuristics](#work-nielsen-research-heuristics), and [Research Debt](#work-research-debt).
+
+## Cite this repository
+
+If this collection helps your research, please cite it:
+
+```bibtex
+@misc{wang2026awesomeautoresearch,
+  author = {Wang, Yuanqing},
+  title  = {{Awesome Autoresearch}},
+  year   = {2026},
+  url    = {https://github.com/AutoResearching/Awesome-Autoresearch}
+}
+```

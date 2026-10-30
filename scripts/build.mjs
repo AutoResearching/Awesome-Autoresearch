@@ -6,13 +6,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
 if (process.argv.slice(2).some(arg => arg !== '--check')) throw new Error('Usage: node scripts/build.mjs [--check]');
 const categories = [
-  { id: 'taste', en: 'Research Taste and Problem Selection', zh: '科研品味与问题选择 · Research Taste', question_en: 'Which questions deserve attention, and how can that judgment be learned or evaluated?', question_zh: '什么问题值得研究？这种判断如何学习和评价？' },
-  { id: 'questions', en: 'Question Formulation and Hypothesis Generation', zh: '问题提出与假设生成 · Question Formulation', question_en: 'How can AI turn gaps, contradictions, and observations into valuable, testable questions?', question_zh: 'AI 如何把知识缺口、矛盾与观察转化为有价值、可检验的问题？' },
-  { id: 'execution', en: 'Scientific Reasoning and Research Execution', zh: '科学推理与研究执行 · Research Execution', question_en: 'Which experiments, proofs, and revisions turn a question into reliable new knowledge?', question_zh: '哪些实验、证明与修订，能够把问题转化为可靠的新知识？' },
-  { id: 'learning', en: 'Learning from Research Experience', zh: '从研究经验中学习 · Learning from Experience', question_en: 'How do outcomes and feedback improve future research decisions, including on new tasks?', question_zh: '如何利用研究结果和反馈，改善后续研究以及新任务上的决策？' },
-  { id: 'evaluation', en: 'Benchmarks and Evaluation', zh: '基准与评价 · Benchmarks and Evaluation', question_en: 'How can we evaluate question value, originality, strength of evidence, and robustness within the stated scope?', question_zh: '如何评价问题价值、原创性、证据强度，以及结果在声称的适用范围内是否稳健？' },
-  { id: 'systems', en: 'Integrated AI Scientist Systems', zh: '完整科研系统 · AI Scientist Systems', question_en: 'How are research capabilities assembled, and which decisions remain human-supplied?', question_zh: '科研能力如何组合成系统？哪些决策仍由人类提供？' },
-  { id: 'perspectives', en: 'Essays on Research Taste and Scientific Practice', zh: '科研品味与科学实践 · Essays and Perspectives', question_en: 'Researcher perspectives on choosing problems, developing judgment, and improving science. These essays offer ideas and heuristics, not empirical validation of AI capabilities.', question_zh: '研究者关于选题、判断力和改进科学实践的思考。这些文章提供观点与启发，并非 AI 能力的实证验证。' },
+  { id: 'taste', en: 'Research Taste and Problem Selection', zh: '科研品味与问题选择 · Research Taste', question_en: 'Which questions are worth studying? Can AI learn to choose them?', question_zh: '什么问题值得研究？AI 能否学会选择？' },
+  { id: 'questions', en: 'Question Formulation and Hypothesis Generation', zh: '问题提出与假设生成 · Question Formulation', question_en: 'How can AI find important questions and propose ideas we can test?', question_zh: 'AI 如何发现重要问题，并提出可以检验的想法？' },
+  { id: 'execution', en: 'Scientific Reasoning and Research Execution', zh: '科学推理与研究执行 · Research Execution', question_en: 'How can AI design experiments, check explanations, and reach reliable conclusions?', question_zh: 'AI 如何设计实验、检验解释，并得到可靠结论？' },
+  { id: 'learning', en: 'Learning from Research Experience', zh: '从研究经验中学习 · Learning from Experience', question_en: 'What can AI learn from a study that helps it do better research next time?', question_zh: 'AI 能从一次研究中学到什么，帮助它做好下一次研究？' },
+  { id: 'evaluation', en: 'Benchmarks and Evaluation', zh: '基准与评价 · Benchmarks and Evaluation', question_en: 'Is the question important? Is the contribution new? Does the evidence support it, and when does it hold?', question_zh: '问题重要吗？贡献是新的吗？证据支持吗？结果在什么条件下成立？' },
+  { id: 'systems', en: 'Integrated AI Scientist Systems', zh: '完整科研系统 · AI Scientist Systems', question_en: 'How do systems combine these abilities, and which steps still need a human?', question_zh: '系统如何组合这些能力？哪些步骤仍需要人类参与？' },
+  { id: 'perspectives', en: 'Essays on Research Taste and Scientific Practice', zh: '科研品味与科学实践 · Essays and Perspectives', question_en: 'Researchers share advice on choosing problems and doing better science. These essays offer ideas, not experimental evidence of AI abilities.', question_zh: '研究者分享选题和做好研究的建议。这些文章提供思路，不是验证 AI 能力的实验。' },
 ];
 const required = ['id', 'title', 'short_name', 'year', 'category', 'kind', 'status', 'venue', 'paper', 'code', 'project', 'focus_en', 'focus_zh', 'boundary_en', 'boundary_zh', 'evidence_urls', 'verified_on'];
 const kinds = ['method', 'benchmark', 'study', 'system', 'foundation', 'perspective'];
@@ -85,17 +85,17 @@ function table(items, lang) {
     const metadata = `${r.year} · ${cell(r.venue)}`;
     return `| <a id="work-${r.id}"></a>**${cell(r.short_name)}**<br><sub>${metadata}</sub> | ${cell(r[`focus_${lang}`])} | ${links(r, lang)} |`;
   })].join('\n');
-  const label = lang === 'en' ? 'Full titles, evidence and scope notes' : '展开完整标题、评价证据与适用范围';
+  const label = lang === 'en' ? 'Full titles and evidence limits' : '完整标题与评价限制';
   const notes = items.map(r => `- **${cell(r.short_name)}** — *${cell(r.title)}*. ${kindLabels[lang][r.kind]} · ${sourceLabels[lang][r.status]}. ${cell(r[`boundary_${lang}`])}`).join('\n');
   return `${rows}\n\n<details>\n<summary>${label} (${items.length})</summary>\n\n${notes}\n\n</details>`;
 }
 const starter = [
-  { en: 'Taste and its proxies', zh: 'Taste 及其代理指标', ids: ['colah-taste-exercises', 'ai-can-learn-scientific-taste', 'tasteval'], why_en: 'Move from human heuristics to learned preferences and experimental decisions.', why_zh: '从人类经验出发，对照学习得到的偏好与实验决策。' },
-  { en: 'Ideas and realized outcomes', zh: 'Idea 与实际研究结果', ids: ['llm-novel-research-ideas-human-study', 'ideation-execution-gap'], why_en: 'Read proposal ratings alongside what happens when researchers execute the ideas.', why_zh: '把提案评分与研究者实际执行 idea 后的结果放在一起看。' },
-  { en: 'Finding a research question', zh: '发现值得研究的问题', ids: ['rq-bench', 'agentideabench'], why_en: 'Compare author-anchored questions with ideas formed through active literature exploration.', why_zh: '对照以作者研究为参照的问题，以及通过主动文献探索形成的构思。' },
-  { en: 'Executable research loops', zh: '可执行的科研循环', ids: ['autoresearch', 'arbor'], why_en: 'Start with a compact loop, then inspect hypothesis and evidence management.', why_zh: '从简洁循环入手，再研究假设与证据的管理。' },
-  { en: 'Learning across research runs', zh: '跨研究过程的经验积累', ids: ['agentrxiv', 'evoscientist'], why_en: 'Compare shared reports with explicit ideation and experimentation memories.', why_zh: '比较共享报告与显式的构思、实验经验记忆。' },
-  { en: 'Evaluation for AI research', zh: 'AI research 的评价', ids: ['mlr-bench', 'fml-bench', 'paperbench'], why_en: 'Separate open-ended proposals, controlled search comparisons, and replication.', why_zh: '区分开放式提案、受控搜索策略比较和论文复现。' },
+  { en: 'Choosing good questions', zh: '选择好问题', ids: ['colah-taste-exercises', 'ai-can-learn-scientific-taste', 'tasteval'], why_en: 'How do people practice research taste, and how can AI learn and use it?', why_zh: '人如何练习 research taste？AI 如何学习和使用这种能力？' },
+  { en: 'Ideas and actual results', zh: 'Idea 与实际结果', ids: ['llm-novel-research-ideas-human-study', 'ideation-execution-gap'], why_en: 'Do ideas that receive high ratings also produce good results?', why_zh: '获得高分的 idea，实际做出来的结果也好吗？' },
+  { en: 'Finding a research question', zh: '发现研究问题', ids: ['rq-bench', 'agentideabench'], why_en: 'Compare questions based on known papers with ideas developed by exploring the literature.', why_zh: '比较根据已有论文提出的问题，以及主动查阅文献后形成的想法。' },
+  { en: 'Running experiments', zh: '开展实验', ids: ['autoresearch', 'arbor'], why_en: 'How does an agent test an idea and keep track of the evidence?', why_zh: 'Agent 如何检验想法，并记录证据？' },
+  { en: 'Learning from earlier research', zh: '从先前研究中学习', ids: ['agentrxiv', 'evoscientist'], why_en: 'Compare sharing reports with storing lessons about ideas and experiments.', why_zh: '比较共享研究报告和保存构思、实验经验这两种方式。' },
+  { en: 'Evaluating AI research', zh: '评价 AI 研究', ids: ['mlr-bench', 'fml-bench', 'paperbench'], why_en: 'What do proposal review, experiment comparisons, and paper replication each measure?', why_zh: '提案评审、实验比较和论文复现各自在测什么？' },
 ];
 function starterTable(lang) {
   const header = lang === 'en' ? '| Route | Start with | Reading question |\n| --- | --- | --- |' : '| 路线 | 建议先读 | 阅读重点 |\n| --- | --- | --- |';
@@ -114,7 +114,7 @@ function catalog(lang) {
     let body = `## ${c[lang]}\n\n<a id="${c.id}"></a>\n\n${c[`question_${lang}`]}\n\n`;
     const foundations = items.filter(r => r.kind === 'foundation');
     body += table(items.filter(r => r.kind !== 'foundation'), lang);
-    if (foundations.length) body += `\n\n### ${lang === 'en' ? 'Transferable foundations' : '可迁移的基础方法'}\n\n${lang === 'en' ? 'These methods inform research-agent design; their original evaluations do not directly establish scientific discovery or research taste.' : '这些方法为科研 agent 设计提供基础；原始评价并未直接验证科学发现或 research taste。'}\n\n${table(foundations, lang)}`;
+    if (foundations.length) body += `\n\n### ${lang === 'en' ? 'Related methods' : '相关基础方法'}\n\n${lang === 'en' ? 'These methods may help build research agents. Their original tests do not directly measure scientific discovery or research taste.' : '这些方法可能有助于构建科研 agent，但原始实验没有直接评价科学发现或 research taste。'}\n\n${table(foundations, lang)}`;
     if (c.id === 'systems') body += lang === 'en'
       ? '\n\n**Version note:** The AI Scientist v1 and v2 are retained as distinct implementation reports. Their later journal synthesis is [Towards end-to-end automation of AI research](https://www.nature.com/articles/s41586-026-10265-5), Nature 2026; it is a follow-up, not an additional independently counted system.'
       : '\n\n**版本说明：** The AI Scientist v1 与 v2 作为不同实现报告分别保留。后续期刊整合版为 [Towards end-to-end automation of AI research](https://www.nature.com/articles/s41586-026-10265-5)，Nature 2026；这里作为后续版本链接，不额外计为独立系统。';

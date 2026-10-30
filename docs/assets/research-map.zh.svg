@@ -1,56 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="910" viewBox="0 0 1200 910" role="img" aria-labelledby="title desc">
 <title id="title">AI 做研究，具体在做什么？</title>
-<desc id="desc">假设：训练分数提高了，但模型在新任务上的表现没有改善。 这是帮助理解流程的示例，并非本项目报告的实验结果。 1  选择值得研究的问题. 为什么已有提升不能迁移？ 产出：有依据、有价值的研究问题. 2  把想法变成可检验的假设. 数据更好，还是只是训练更多？ 产出：研究假设与验证方案. 3  用实验区分不同解释. 在未见任务上比较不同的数据选择。 产出：能够回答关键主张的结果. 4  改善下一次研究. 哪些经验对一个新任务仍然有用？ 产出：经过迁移检验的经验. 问题值得研究吗？发现是否带来新知识？ 证据是否可靠？结论适用于哪些条件？</desc>
+<desc id="desc">假设：训练分数提高了，但模型在新任务上的表现没有改善。 这是假设情境，不是实验结果。 1  选择值得研究的问题. 为什么新任务上的表现没有提高？ 产出：研究问题及其重要性. 2  把想法变得可以检验. 数据更好，还是只是训练更多？ 产出：可能的解释和实验计划. 3  检验这些解释. 在新任务上比较不同的数据选择。 产出：支持或反对各解释的证据. 4  用经验改进下一次研究. 这些经验对新任务有用吗？ 产出：在新任务上检验过的经验. 问题值得研究吗？发现是否带来新知识？ 证据是否可靠？结论适用于哪些条件？</desc>
 <g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
 <rect x="1" y="1" width="1198" height="908" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
 <text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >一个例子 · 四项科研能力</text>
 <text x="44" y="80" font-size="34" fill="#15243b" font-weight="700" >AI 做研究，具体在做什么？</text>
 <rect x="44" y="104" width="1112" height="84" rx="12" fill="#e9eff7" stroke="#e9eff7"/>
 <text x="64" y="138" font-size="23" fill="#233b59" font-weight="600" >假设：训练分数提高了，但模型在新任务上的表现没有改善。</text>
-<text x="64" y="168" font-size="17" fill="#53647b" font-weight="400" >这是帮助理解流程的示例，并非本项目报告的实验结果。</text>
+<text x="64" y="168" font-size="17" fill="#53647b" font-weight="400" >这是假设情境，不是实验结果。</text>
 <rect x="44" y="220" width="536" height="236" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
 <path d="M60 220H564" stroke="#2456a5" stroke-width="4"/>
 <text x="66" y="252" font-size="14" fill="#2456a5" font-weight="700" >RESEARCH TASTE · 科研品味</text>
 <text x="66" y="288" font-size="25" fill="#15243b" font-weight="700" >1  选择值得研究的问题</text>
-<text x="66" y="328" font-size="23" fill="#2456a5" font-weight="600" >为什么已有提升不能迁移？</text>
-<text x="66" y="363" font-size="19" fill="#53647b" font-weight="400" >检查已有研究，说明回答这个问题</text>
-<text x="66" y="390" font-size="19" fill="#53647b" font-weight="400" >会改变什么认识或实际决策。</text>
+<text x="66" y="328" font-size="23" fill="#2456a5" font-weight="600" >为什么新任务上的表现没有提高？</text>
+<text x="66" y="363" font-size="19" fill="#53647b" font-weight="400" >阅读已有研究，说明还有什么不清楚，</text>
+<text x="66" y="390" font-size="19" fill="#53647b" font-weight="400" >以及回答这个问题为什么重要。</text>
 <rect x="58" y="409" width="508" height="34" rx="8" fill="#edf4ff" stroke="#edf4ff"/>
-<text x="68" y="432" font-size="18" fill="#2456a5" font-weight="600" >产出：有依据、有价值的研究问题</text>
+<text x="68" y="432" font-size="18" fill="#2456a5" font-weight="600" >产出：研究问题及其重要性</text>
 <rect x="620" y="220" width="536" height="236" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
 <path d="M636 220H1140" stroke="#7353aa" stroke-width="4"/>
 <text x="642" y="252" font-size="14" fill="#7353aa" font-weight="700" >QUESTIONS &amp; HYPOTHESES · 问题与假设</text>
-<text x="642" y="288" font-size="25" fill="#15243b" font-weight="700" >2  把想法变成可检验的假设</text>
+<text x="642" y="288" font-size="25" fill="#15243b" font-weight="700" >2  把想法变得可以检验</text>
 <text x="642" y="328" font-size="23" fill="#7353aa" font-weight="600" >数据更好，还是只是训练更多？</text>
-<text x="642" y="363" font-size="19" fill="#53647b" font-weight="400" >提出不同解释，写清每种解释</text>
-<text x="642" y="390" font-size="19" fill="#53647b" font-weight="400" >在公平比较下会预测什么现象。</text>
+<text x="642" y="363" font-size="19" fill="#53647b" font-weight="400" >列出可能的解释，并说明每种解释</text>
+<text x="642" y="390" font-size="19" fill="#53647b" font-weight="400" >如果成立，应该看到什么现象。</text>
 <rect x="634" y="409" width="508" height="34" rx="8" fill="#f3effb" stroke="#f3effb"/>
-<text x="644" y="432" font-size="18" fill="#7353aa" font-weight="600" >产出：研究假设与验证方案</text>
+<text x="644" y="432" font-size="18" fill="#7353aa" font-weight="600" >产出：可能的解释和实验计划</text>
 <rect x="44" y="490" width="536" height="236" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
 <path d="M60 490H564" stroke="#09756e" stroke-width="4"/>
 <text x="66" y="522" font-size="14" fill="#09756e" font-weight="700" >RESEARCH EXECUTION · 研究执行</text>
-<text x="66" y="558" font-size="25" fill="#15243b" font-weight="700" >3  用实验区分不同解释</text>
-<text x="66" y="598" font-size="23" fill="#09756e" font-weight="600" >在未见任务上比较不同的数据选择。</text>
-<text x="66" y="633" font-size="19" fill="#53647b" font-weight="400" >控制训练条件；记录误差、</text>
-<text x="66" y="660" font-size="19" fill="#53647b" font-weight="400" >失败尝试，以及可复现的证据。</text>
+<text x="66" y="558" font-size="25" fill="#15243b" font-weight="700" >3  检验这些解释</text>
+<text x="66" y="598" font-size="23" fill="#09756e" font-weight="600" >在新任务上比较不同的数据选择。</text>
+<text x="66" y="633" font-size="19" fill="#53647b" font-weight="400" >保持训练条件可比；记录不确定性、</text>
+<text x="66" y="660" font-size="19" fill="#53647b" font-weight="400" >失败尝试和可供他人重复的实验步骤。</text>
 <rect x="58" y="679" width="508" height="34" rx="8" fill="#eaf7f4" stroke="#eaf7f4"/>
-<text x="68" y="702" font-size="18" fill="#09756e" font-weight="600" >产出：能够回答关键主张的结果</text>
+<text x="68" y="702" font-size="18" fill="#09756e" font-weight="600" >产出：支持或反对各解释的证据</text>
 <rect x="620" y="490" width="536" height="236" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
 <path d="M636 490H1140" stroke="#9a601a" stroke-width="4"/>
 <text x="642" y="522" font-size="14" fill="#9a601a" font-weight="700" >LEARNING FROM EXPERIENCE · 经验学习</text>
-<text x="642" y="558" font-size="25" fill="#15243b" font-weight="700" >4  改善下一次研究</text>
-<text x="642" y="598" font-size="23" fill="#9a601a" font-weight="600" >哪些经验对一个新任务仍然有用？</text>
-<text x="642" y="633" font-size="19" fill="#53647b" font-weight="400" >保留证据及适用条件；检验记忆、技能、</text>
-<text x="642" y="660" font-size="19" fill="#53647b" font-weight="400" >代码或参数训练能否改善研究决策。</text>
+<text x="642" y="558" font-size="25" fill="#15243b" font-weight="700" >4  用经验改进下一次研究</text>
+<text x="642" y="598" font-size="23" fill="#9a601a" font-weight="600" >这些经验对新任务有用吗？</text>
+<text x="642" y="633" font-size="19" fill="#53647b" font-weight="400" >保存有效做法、失败尝试和适用条件。</text>
+<text x="642" y="660" font-size="19" fill="#53647b" font-weight="400" >检验这些经验能否帮助下一次研究。</text>
 <rect x="634" y="679" width="508" height="34" rx="8" fill="#fff5e6" stroke="#fff5e6"/>
-<text x="644" y="702" font-size="18" fill="#9a601a" font-weight="600" >产出：经过迁移检验的经验</text>
+<text x="644" y="702" font-size="18" fill="#9a601a" font-weight="600" >产出：在新任务上检验过的经验</text>
 <path d="M584 338H614 M606 343L614 338L606 333" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M888 460V473H312V484 M307 476L312 484L317 476" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M584 608H614 M606 613L614 608L606 603" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="44" y="754" width="1112" height="100" rx="12" fill="#eaf1ef" stroke="#d6e4df"/>
-<text x="64" y="789" font-size="17" fill="#15574d" font-weight="700" >EVALUATION · 每一步都要评价</text>
+<text x="64" y="789" font-size="17" fill="#15574d" font-weight="700" >EVALUATION · 检查研究质量</text>
 <text x="430" y="789" font-size="20" fill="#284e45" font-weight="400" >问题值得研究吗？发现是否带来新知识？</text>
 <text x="430" y="819" font-size="20" fill="#284e45" font-weight="400" >证据是否可靠？结论适用于哪些条件？</text>
-<text x="44" y="886" font-size="17" fill="#53647b" font-weight="400" >新证据可以改变问题、方法或后续项目；研究者可以回到任何一步重新思考。</text>
+<text x="44" y="886" font-size="17" fill="#53647b" font-weight="400" >新证据可能改变问题或方法；需要时，可以回到前面的步骤。</text>
 </g>
 </svg>

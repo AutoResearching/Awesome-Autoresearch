@@ -77,7 +77,7 @@ For an essay or talk, use `category: "perspectives"`, `kind: "perspective"`, and
 - `focus_*` explains the contribution; `boundary_*` describes its demonstrated scope, required human inputs, evaluation limits, or relevant access and maintenance restrictions. Keep both languages aligned.
 - `verified_on` records a specific source review, not an experiment date or a promise that every external URL remains accessible.
 
-The READMEs use compact three-column tables for the work, its relevance, and links. Each section has expandable **Evidence and scope notes** containing full titles, type/status information, and evidence boundaries. Preserve those details when changing the layout, and review both the compact and expanded views.
+The READMEs use three-column tables for each work, what it does, and its links. Each section has expandable **Full titles and evidence limits** with complete titles, type/status labels, and limits of the evidence. Keep those details when changing the layout, and check both the table and expanded notes.
 
 The prose templates live in `docs/templates/README.en.md` and `docs/templates/README.zh.md`. Edit those templates for scope, research questions, and editorial guidance. The editable illustration source is `scripts/build-figures.mjs`; it generates four bilingual research illustrations and the social-preview SVG in `docs/assets/`. Keep diagram labels and relationships aligned across languages, distinguish learning within a run from reuse across runs, and mark explanatory examples as illustrations rather than results. Metadata conventions belong in this guide rather than a separate “How to read the collection” section in the READMEs.
 

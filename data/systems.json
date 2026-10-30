@@ -55,8 +55,8 @@
     "paper": "https://arxiv.org/abs/2505.18705",
     "code": "https://github.com/HKUDS/AI-Researcher",
     "project": null,
-    "focus_en": "Combines literature grounding, hypothesis generation, implementation, and reporting; Scientist-Bench separates guided innovation from exploration within research topics.",
-    "focus_zh": "整合文献依据、假设生成、实现与报告；Scientist-Bench 区分引导式创新和研究主题内的探索。",
+    "focus_en": "Combines literature review, hypothesis generation, implementation, and reporting. Scientist-Bench distinguishes guided innovation from exploration within supplied research topics.",
+    "focus_zh": "结合文献综述、假设生成、实现与报告；Scientist-Bench 区分引导式创新与给定研究主题内的探索。",
     "boundary_en": "Implementation success and paper-quality ratings are distinct from independently replicated discoveries or unconstrained agenda selection.",
     "boundary_zh": "实现成功率与论文质量评分，需要与独立复现的发现、开放式研究议题选择区分。",
     "evidence_urls": [

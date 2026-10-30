@@ -37,8 +37,8 @@
     "project": "https://pzeroresearch.com/work/tasteval/",
     "focus_en": "Evaluates iterative experiment design and result interpretation on AI R&D tasks while using a fixed coding agent to separate research decisions from implementation.",
     "focus_zh": "在 AI R&D 任务上评估迭代实验设计与结果解释，并通过固定 coding agent 将研究决策与代码实现区分开。",
-    "boundary_en": "Taste is operationalized as experimental compute efficiency on assigned problems; open-ended problem selection is not measured, and the tasks are not publicly released.",
-    "boundary_zh": "将 taste 操作化为给定问题上的实验算力效率，不评估开放式选题能力，且任务未公开发布。",
+    "boundary_en": "Measures experimental compute efficiency on assigned problems. It does not measure open-ended problem selection, and the tasks are not publicly released.",
+    "boundary_zh": "评价的是给定问题上的实验算力效率，不衡量开放式选题；任务尚未公开。",
     "evidence_urls": [
       "https://arxiv.org/abs/2610.06824",
       "https://pzeroresearch.com/work/tasteval/"
@@ -101,8 +101,8 @@
     "paper": "https://aclanthology.org/2026.lrec-1.370/",
     "code": "https://github.com/TimSchopf/RINoBench",
     "project": null,
-    "focus_en": "Benchmarks research-idea novelty scores and their justifications against expert-derived judgments, making novelty assessment a separately measurable research capability.",
-    "focus_zh": "用专家判断评估研究想法的新颖性评分及其理由，将 novelty assessment 作为可单独测量的科研能力。",
+    "focus_en": "Checks novelty scores and their explanations against expert judgments, testing research-idea evaluation as a separate capability.",
+    "focus_zh": "用专家判断核对新颖性评分及其解释，将研究想法评价作为独立能力来测试。",
     "boundary_en": "Agreement with novelty judgments is distinct from generating new questions, predicting feasibility, or demonstrating scientific importance; plausible rationales need not imply correct judgments.",
     "boundary_zh": "与新颖性判断一致，不等于能提出新问题、预测可行性或证明科学重要性；理由听起来合理也不代表判断正确。",
     "evidence_urls": [
@@ -172,8 +172,8 @@
     "paper": "https://aclanthology.org/2024.acl-long.18/",
     "code": "https://github.com/EagleW/Scientific-Inspiration-Machines-Optimized-for-Novelty",
     "project": null,
-    "focus_en": "Generates natural-language research directions from supplied backgrounds by retrieving scientific inspirations and iteratively revising ideas against related work.",
-    "focus_zh": "从给定研究背景出发检索科学启发，并通过与相关工作比较、迭代修改，生成自然语言研究方向。",
+    "focus_en": "Retrieves research inspirations for a supplied background, then repeatedly compares ideas with prior work and revises them.",
+    "focus_zh": "为给定研究背景检索启发，再反复对照已有工作修改研究想法。",
     "boundary_en": "Novelty-oriented proposal generation is conditioned on supplied contexts; novelty relative to retrieved literature does not establish experimental validity or research importance.",
     "boundary_zh": "以新颖性为目标的提案生成依赖给定背景；相对检索文献的新颖性不能证明实验有效性或研究重要性。",
     "evidence_urls": [
@@ -195,8 +195,8 @@
     "paper": "https://aclanthology.org/2025.naacl-long.342/",
     "code": "https://github.com/JinheonBaek/ResearchAgent",
     "project": null,
-    "focus_en": "Uses a seed paper, academic graph, and entity knowledge store to formulate problems, methods, and experiment plans refined by reviewing agents.",
-    "focus_zh": "利用种子论文、学术关系图与实体知识库提出问题、方法和实验计划，并通过 reviewing agents 迭代完善。",
+    "focus_en": "Starts from a seed paper, an academic graph, and an entity knowledge store. Generates problems, methods, and experiment plans, then revises them with reviewing agents.",
+    "focus_zh": "从种子论文、学术关系图与实体知识库出发，生成问题、方法和实验计划，再根据评审智能体的反馈修订。",
     "boundary_en": "Evidence is based on human and model evaluations of generated proposals; producing an experiment design is not the same as executing and validating it.",
     "boundary_zh": "证据来自对生成提案的人类与模型评价；生成实验设计不等于已执行并验证该实验。",
     "evidence_urls": [
@@ -218,10 +218,10 @@
     "paper": "https://arxiv.org/abs/2409.14634",
     "code": null,
     "project": null,
-    "focus_en": "Supports human-AI ideation by recombining purpose, mechanism, and evaluation facets of papers, with literature-grounded checks of proposed ideas' novelty.",
-    "focus_zh": "通过重组论文的问题目的、方法机制和评价方式支持人机共同构思，并依据文献检查想法的新颖性。",
-    "boundary_en": "A mixed-initiative system evaluated through user studies and novelty-checker ablations; creativity support and novelty judgments do not establish autonomous discoveries or realized impact.",
-    "boundary_zh": "这是经用户研究与新颖性检查器消融评估的人机协作系统；创造力支持和新颖性判断不能证明自主发现或实际影响。",
+    "focus_en": "Helps people form ideas by recombining papers' purposes, mechanisms, and evaluation methods. Checks proposed novelty against the literature.",
+    "focus_zh": "帮助研究者重组论文的目的、机制和评价方法来构思想法，并依据文献检查新颖性。",
+    "boundary_en": "User studies and novelty-checker ablations evaluate this human–AI tool. They do not establish autonomous discovery or realized scientific impact.",
+    "boundary_zh": "用户研究和新颖性检查器消融评价了这一人机协作工具，未证明自主发现或实际科学影响。",
     "evidence_urls": [
       "https://arxiv.org/abs/2409.14634",
       "https://arxiv.org/html/2409.14634v7"
@@ -240,8 +240,8 @@
     "paper": "https://arxiv.org/abs/2410.23166",
     "code": "https://github.com/cheerss/SciPIP",
     "project": null,
-    "focus_en": "Combines semantic, keyword, and citation-aware literature retrieval with brainstorming and retrieval-based generation to propose ideas for supplied research backgrounds.",
-    "focus_zh": "结合语义、关键词和引用关系检索，以及 brainstorming 与检索生成两条路径，为给定研究背景提出想法。",
+    "focus_en": "Retrieves papers through semantic, keyword, and citation search. Combines brainstorming with retrieval-based generation to propose ideas for a supplied background.",
+    "focus_zh": "通过语义、关键词和引用关系检索论文，结合自由构思与检索生成，为给定背景提出想法。",
     "boundary_en": "Evaluation uses expert ratings of NLP and computer-vision proposals; perceived feasibility and helpfulness are not evidence that the proposals were successfully executed.",
     "boundary_zh": "评价采用专家对 NLP 和计算机视觉提案的评分；被认为可行或有帮助，不代表提案已经成功执行。",
     "evidence_urls": [

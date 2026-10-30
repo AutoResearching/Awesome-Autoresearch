@@ -11,10 +11,10 @@
     "paper": null,
     "code": null,
     "project": "https://colah.github.io/notes/taste/",
-    "focus_en": "Proposes exercises for developing research taste through cheap, noisy feedback from mentors, making repeated judgments more practical than waiting for the expensive feedback of fully executed research.",
-    "focus_zh": "提出利用导师提供的低成本、带噪声反馈练习 research taste，让研究者能够反复训练判断，而不必每次等待完整研究执行后的高成本反馈。",
-    "boundary_en": "The author presents a rough note rather than a validated training program; mentor ratings are proxies for research quality, and the exercises have not demonstrated improvements in AI research taste.",
-    "boundary_zh": "作者将其定位为粗略笔记，未验证训练方案的有效性；导师评分只是研究质量的代理，也没有证据表明这些练习能提升 AI 的 research taste。",
+    "focus_en": "Suggests repeated research-taste exercises with quick, inexpensive mentor feedback, so researchers can practice judgment before completing full research projects.",
+    "focus_zh": "建议用导师快速、低成本的反馈反复练习科研判断，不必每次等待完整研究结束。",
+    "boundary_en": "These are rough notes, not a validated training program. Mentor feedback is noisy and only a proxy for research quality; the exercises have not been shown to improve AI research taste.",
+    "boundary_zh": "这是粗略笔记，尚未验证训练效果。导师反馈有噪声，只是研究质量的代理；这些练习尚未被证明能改善 AI 的科研品味。",
     "evidence_urls": [
       "https://colah.github.io/notes/taste/"
     ],
@@ -32,8 +32,8 @@
     "paper": null,
     "code": null,
     "project": "https://karpathy.github.io/2016/09/07/phd/",
-    "focus_en": "Connects research taste with choosing promising problems, developing ideas, and executing them effectively, offering practical guidance on how computer science and machine learning researchers build research ability.",
-    "focus_zh": "将 research taste 与选择有前景的问题、发展想法和有效执行联系起来，为计算机科学与机器学习研究者积累科研能力提供实践建议。",
+    "focus_en": "Gives practical advice on choosing promising problems, developing ideas, and executing research, based on a computer science and machine learning PhD experience.",
+    "focus_zh": "结合计算机科学与机器学习博士经历，讨论如何选择有前景的问题、发展想法并执行研究。",
     "boundary_en": "This is first-person advice from a computer science PhD experience, not a controlled study; its recommendations do not establish which interventions reliably improve human or AI research performance.",
     "boundary_zh": "这是基于个人计算机科学博士经历的建议，并非受控研究；它不能确认哪些干预能可靠地提升人类或 AI 的科研表现。",
     "evidence_urls": [
@@ -53,10 +53,10 @@
     "paper": null,
     "code": null,
     "project": "https://www.cs.virginia.edu/~robins/YouAndYourResearch",
-    "focus_en": "Argues for deliberately choosing important, tractable problems and cultivating the habits, preparation, and working relationships that help researchers recognize opportunities and pursue work with substantial scientific consequences.",
-    "focus_zh": "强调主动选择重要且可推进的问题，并培养工作习惯、知识准备与协作关系，使研究者能够识别机会、追求具有重要科学影响的工作。",
-    "boundary_en": "This Bellcore lecture is preserved in a transcript by J. F. Kaiser mirrored at UVA; its autobiographical observations are not controlled evidence or demonstrated methods for training AI scientists.",
-    "boundary_zh": "收录版本为 UVA 镜像的 J. F. Kaiser 整理的 Bellcore 演讲稿；其中的个人经历与观察不是受控证据，也不是经过验证的 AI 科学家训练方法。",
+    "focus_en": "Urges researchers to choose important, tractable problems and build the habits, preparation, and working relationships needed to recognize and pursue opportunities.",
+    "focus_zh": "建议主动选择重要且可推进的问题，做好知识准备、养成工作习惯并建立协作关系，以识别和把握研究机会。",
+    "boundary_en": "The linked Bellcore lecture is J. F. Kaiser's transcript, mirrored at UVA. Its personal observations are not controlled evidence or validated methods for training AI scientists.",
+    "boundary_zh": "链接为 UVA 镜像的 J. F. Kaiser 整理的 Bellcore 演讲稿。个人观察不是受控证据，也不是经验证的 AI 科学家训练方法。",
     "evidence_urls": [
       "https://www.cs.virginia.edu/~robins/YouAndYourResearch"
     ],
@@ -74,10 +74,10 @@
     "paper": null,
     "code": null,
     "project": "https://distill.pub/2017/research-debt/",
-    "focus_en": "Frames accumulated complexity and poor communication as research debt, arguing that distillation, better abstractions, and clear explanations are productive research contributions that enable others to understand and extend existing knowledge.",
-    "focus_zh": "将积累的复杂性与沟通障碍概括为 research debt，强调知识提炼、改进抽象和清晰解释也是科研贡献，能够帮助他人理解与拓展已有知识。",
-    "boundary_en": "This conceptual editorial motivates improving cumulative research infrastructure; it does not provide a validated benchmark, causal estimate of distillation's benefits, or evidence that an AI system can perform these contributions.",
-    "boundary_zh": "这篇概念性文章倡议改善知识积累的基础条件，但未提供经过验证的 benchmark、知识提炼收益的因果估计，或 AI 能完成这些贡献的证据。",
+    "focus_en": "Calls accumulated complexity and poor communication research debt. Treats clearer explanations, better abstractions, and distillation as research contributions that help others understand and extend work.",
+    "focus_zh": "将积累的复杂性和沟通障碍称为 research debt，把清晰解释、改进抽象和知识提炼视为研究贡献，帮助他人理解与拓展研究。",
+    "boundary_en": "This editorial argues for improving cumulative research. It provides no validated benchmark, causal estimate of distillation's benefits, or evidence that AI can make these contributions.",
+    "boundary_zh": "这篇文章主张改善研究积累，未提供经验证的 benchmark、知识提炼收益的因果估计，或 AI 能完成这些贡献的证据。",
     "evidence_urls": [
       "https://distill.pub/2017/research-debt/"
     ],
@@ -95,10 +95,10 @@
     "paper": null,
     "code": null,
     "project": "https://michaelnotebook.com/qtr/index.html",
-    "focus_en": "Offers heuristics for discovering worthwhile problems, developing judgment through tacit knowledge, and learning from research postmortems, treating research ability as something cultivated through reflection on concrete experience.",
-    "focus_zh": "围绕发现值得研究的问题、从隐性知识中发展判断力，以及通过 research postmortems 学习提出启发式建议，将科研能力视为对具体经验持续反思的结果。",
-    "boundary_en": "These are individual research heuristics with limits acknowledged by the author, not a systematic evaluation; translating them into measurable training objectives or reliable AI learning mechanisms remains an open task.",
-    "boundary_zh": "这些是作者明确承认局限的个人科研经验，并非系统评价；如何将其转化为可测量的训练目标或可靠的 AI 学习机制仍是开放问题。",
+    "focus_en": "Offers practical heuristics for finding worthwhile problems, developing tacit judgment, and learning by reviewing completed research.",
+    "focus_zh": "讨论如何发现值得研究的问题、积累难以言传的判断经验，以及通过复盘已完成研究来学习。",
+    "boundary_en": "These are personal heuristics with acknowledged limits, not a systematic evaluation. Turning them into measurable training objectives or reliable AI learning methods remains open.",
+    "boundary_zh": "这些是作者承认有局限的个人经验，不是系统评价。如何将其转为可测量的训练目标或可靠的 AI 学习方法，仍待研究。",
     "evidence_urls": [
       "https://michaelnotebook.com/qtr/index.html"
     ],
@@ -116,8 +116,8 @@
     "paper": null,
     "code": null,
     "project": "https://scienceplusplus.org/metascience/index.html",
-    "focus_en": "Proposes metascience as a way to improve science's social processes, including resource allocation and institutional design, by building institutions that learn how to support better research.",
-    "focus_zh": "提出以 metascience 改进科学活动的社会过程，包括资源分配与制度设计，并建立能够持续学习如何更好支持科研的机构。",
+    "focus_en": "Proposes institutions that learn how to support better research, using metascience to improve resource allocation and other social processes in science.",
+    "focus_zh": "提出建立能够学习如何支持更好研究的机构，用 metascience 改善资源分配等科学活动中的社会过程。",
     "boundary_en": "This is a conceptual agenda for institutional improvement rather than an empirical AI method; better social processes and stronger individual research agents require distinct mechanisms and evidence.",
     "boundary_zh": "这是改进科研制度的概念性议程，而非实证 AI 方法；改善社会过程与增强个体 research agent 需要不同的机制与证据。",
     "evidence_urls": [
