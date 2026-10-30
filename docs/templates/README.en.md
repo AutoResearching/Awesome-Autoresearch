@@ -113,7 +113,7 @@ If this collection helps your research, please cite it:
 
 ```bibtex
 @misc{wang2026awesomeautoresearch,
-  author = {Wang, Yuanqing},
+  author = {Wang, Yuanqing and Deng, Shijian},
   title  = {{Awesome Autoresearch}},
   year   = {2026},
   url    = {https://github.com/AutoResearching/Awesome-Autoresearch}

@@ -412,7 +412,7 @@ Agent 可以在同一个任务中反复尝试，找到更好的数据配比。�
 
 ```bibtex
 @misc{wang2026awesomeautoresearch,
-  author = {Wang, Yuanqing},
+  author = {Wang, Yuanqing and Deng, Shijian},
   title  = {{Awesome Autoresearch}},
   year   = {2026},
   url    = {https://github.com/AutoResearching/Awesome-Autoresearch}

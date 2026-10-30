@@ -4,6 +4,8 @@ title: "Awesome Autoresearch"
 authors:
   - family-names: Wang
     given-names: Yuanqing
+  - family-names: Deng
+    given-names: Shijian
 url: "https://github.com/AutoResearching/Awesome-Autoresearch"
 preferred-citation:
   type: generic
@@ -11,5 +13,7 @@ preferred-citation:
   authors:
     - family-names: Wang
       given-names: Yuanqing
+    - family-names: Deng
+      given-names: Shijian
   year: 2026
   url: "https://github.com/AutoResearching/Awesome-Autoresearch"
