@@ -23,6 +23,8 @@
 
 我们研究的对象是**研究过程本身**。以 AI research 为主要实验场景，数学为补充 testbed；其他学科的工作若提供可复用的科研方法或评价协议，也在收录范围内。
 
+我们优先关注 **research quality**：问题是否重要、贡献是否新颖、结论是否有充分证据，以及结果是否稳健、适用边界是否清楚。负结果如果能排除合理解释，或改变后续研究方向，同样可以具有科学价值。
+
 这里的 *autoresearch* 包括人机协作、单项科研能力以及自主科研系统，也包含 Karpathy 的项目。写作工具、检索产品和领域预测模型，需要对下述研究问题有具体的方法贡献，才符合收录范围。
 
 <a id="research-map"></a>
@@ -31,9 +33,9 @@
 
 从一个具体情境出发：模型的训练表现提高了，在新任务上的表现却没有改善。AI 研究者接下来应该做什么？
 
-![用一个例子理解四项科研能力：选择训练收益为何无法迁移这一问题，提出不同解释，在匹配计算量的条件下比较数据选择，并检验经验能否帮助新任务。](docs/assets/research-map.zh.svg)
+![用一个例子理解四项科研能力：选择训练收益为何无法迁移这一问题，提出不同解释，控制训练条件并在未见任务上比较数据选择，再检验经验能否帮助新任务。](docs/assets/research-map.zh.svg)
 
-图中的例子用于解释目录结构，不代表新的研究发现或固定流程。**Question 指出未知问题，hypothesis 提出解释，method 说明如何调查或检验。** Evaluation 检查每一步的价值、证据、成本与迁移效果；完整 AI scientist systems 则组合多项能力。
+图中的例子用于解释目录结构，不代表新的研究发现或固定流程。**Question 指出未知问题，hypothesis 提出解释，method 说明如何调查或检验。** Evaluation 检查问题价值、原创性、证据强度，以及结果在声称的适用范围内是否稳健；完整 AI scientist systems 则组合多项能力。
 
 <a id="collection"></a>
 
@@ -53,9 +55,9 @@
 
 | 研究问题 | 可以比较什么？ | 评价什么？ |
 | --- | --- | --- |
-| AI 能否从研究结果中学到 taste？ | 评审或引用奖励，与真实执行后的反馈（包括有信息量的失败） | 新领域的选题质量、单位研究预算获得的知识价值。参考 [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) 与 [TasteVal](#work-tasteval)。 |
+| AI 能否从研究结果中学到 taste？ | 评审或引用奖励，与真实执行后的反馈（包括有信息量的失败） | 新领域的选题质量，以及实际发现的新颖性、重要性与证据支持。参考 [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) 与 [TasteVal](#work-tasteval)。 |
 | 提问时能否预判如何验证？ | 只有 proposal，与同时提供区分性实验及失败判据的 proposal | 并列报告提案评分和实际发现。结合 [IdeaSynth](#work-ideasynth) 与 [The Ideation-Execution Gap](#work-ideation-execution-gap)。 |
-| 哪些研究经验能够迁移？ | 相同预算下的报告记忆、可复用技能、agent 代码修改与参数训练 | 留出任务上的提升，并计入经验采集成本。比较 [ResearchTrails](#work-researchtrails)、[EvoScientist](#work-evoscientist) 与 [Evolution Fine-Tuning](#work-evolution-fine-tuning)。 |
+| 哪些研究经验能够迁移？ | 报告记忆、可复用技能、agent 代码修改与参数训练，分别与不使用该经验的 baseline 比较 | 留出任务上更好的问题、方法，以及经过独立验证的发现。比较 [ResearchTrails](#work-researchtrails)、[EvoScientist](#work-evoscientist) 与 [Evolution Fine-Tuning](#work-evolution-fine-tuning)。 |
 | 如何减少文风与泄漏对评价的影响？ | 盲审、基于证据的新颖性检查、可执行验证 | 措辞敏感性、检索覆盖、知识截止日期，以及是否偏好容易验证但价值低的问题。参考 [SciStyleBench](#work-scistylebench)、[OpenNovelty](#work-opennovelty) 与 [HindSight](#work-hindsight)。 |
 | Agent 能否从负结果中学到东西？ | 优化性能的搜索，与用于区分假设的实验 | 信息增益、不确定性校准、停止决策与结论稳健性。参考 [DAD](#work-deep-adaptive-design)、[POPPER](#work-popper) 与 [Many AI Analysts](#work-many-ai-analysts-one-dataset)。 |
 
@@ -63,7 +65,7 @@
 
 ## 研究者学习时，究竟改变了什么？
 
-Agent 可以在同一个任务中多次尝试，找到更好的数据配比。要说明研究者本身进步了，还需要在可比预算下，检验这段经验能否帮助一个新任务。
+Agent 可以在同一个任务中多次尝试，找到更好的数据配比。要说明研究者本身进步了，还需要与不使用该经验的 baseline 比较，检验它能否在留出任务上提出更好的问题、方法，或获得更可靠的发现。
 
 ![两种不同的检验：在当前研究中改善数据配比；或保留证据，改变记忆、技能、代码或参数，再到留出任务上评价。](docs/assets/learning-transfer.zh.svg)
 
@@ -87,7 +89,7 @@ Agent 可以在同一个任务中多次尝试，找到更好的数据配比。�
 | 实验决策与科研策略 | [TasteVal](#work-tasteval)、[FML-bench](#work-fml-bench)、[DiscoveryWorld](#work-discoveryworld) | 迁移能力与原始研究议程的价值 |
 | 数学推理与发现 | [FunSearch](#work-funsearch)、[AlphaEvolve](#work-alphaevolve)、[Aletheia](#work-aletheia)、[FrontierMath](#work-frontiermath) | 数学意义与验证类型：数值、人类或形式化 |
 
-公平比较需要固定模型访问、数据划分、工具和计算预算。分别报告人类提供了什么、agent 决定了什么、结论如何验证，以及哪些经验保留到了后续研究。资源的开放范围、版本和维护限制见各节可展开的说明。
+将模型访问、数据划分、工具和计算量作为实验条件报告；需要把提升归因于某种方法时，采用受控比较。主要评价研究质量与经过验证的结果，资源消耗不作为主要质量指标。分别报告人类提供了什么、agent 决定了什么、结论如何验证，以及哪些经验保留到了后续研究。资源的开放范围、版本和维护限制见各节可展开的说明。
 
 ## 综述与社区
 

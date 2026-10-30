@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="910" viewBox="0 0 1200 910" role="img" aria-labelledby="title desc">
 <title id="title">AI 做研究，具体在做什么？</title>
-<desc id="desc">假设：训练分数提高了，但模型在新任务上的表现没有改善。 这是帮助理解流程的示例，并非本项目报告的实验结果。 1  选择值得研究的问题. 为什么已有提升不能迁移？ 产出：有依据、有价值的研究问题. 2  把想法变成可检验的假设. 数据更好，还是只是训练更多？ 产出：研究假设与验证方案. 3  用实验区分不同解释. 匹配计算量，比较不同的数据选择。 产出：能够回答关键主张的结果. 4  改善下一次研究. 哪些经验对一个新任务仍然有用？ 产出：经过迁移检验的经验. 问题值得研究吗？实验是否支持关键主张？ 花了多少资源？改进能否延续到新任务？</desc>
+<desc id="desc">假设：训练分数提高了，但模型在新任务上的表现没有改善。 这是帮助理解流程的示例，并非本项目报告的实验结果。 1  选择值得研究的问题. 为什么已有提升不能迁移？ 产出：有依据、有价值的研究问题. 2  把想法变成可检验的假设. 数据更好，还是只是训练更多？ 产出：研究假设与验证方案. 3  用实验区分不同解释. 在未见任务上比较不同的数据选择。 产出：能够回答关键主张的结果. 4  改善下一次研究. 哪些经验对一个新任务仍然有用？ 产出：经过迁移检验的经验. 问题值得研究吗？发现是否带来新知识？ 证据是否可靠？结论适用于哪些条件？</desc>
 <g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
 <rect x="1" y="1" width="1198" height="908" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
 <text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >一个例子 · 四项科研能力</text>
@@ -30,8 +30,8 @@
 <path d="M60 490H564" stroke="#09756e" stroke-width="4"/>
 <text x="66" y="522" font-size="14" fill="#09756e" font-weight="700" >RESEARCH EXECUTION · 研究执行</text>
 <text x="66" y="558" font-size="25" fill="#15243b" font-weight="700" >3  用实验区分不同解释</text>
-<text x="66" y="598" font-size="23" fill="#09756e" font-weight="600" >匹配计算量，比较不同的数据选择。</text>
-<text x="66" y="633" font-size="19" fill="#53647b" font-weight="400" >使用留出任务；记录对照、误差、</text>
+<text x="66" y="598" font-size="23" fill="#09756e" font-weight="600" >在未见任务上比较不同的数据选择。</text>
+<text x="66" y="633" font-size="19" fill="#53647b" font-weight="400" >控制训练条件；记录误差、</text>
 <text x="66" y="660" font-size="19" fill="#53647b" font-weight="400" >失败尝试，以及可复现的证据。</text>
 <rect x="58" y="679" width="508" height="34" rx="8" fill="#eaf7f4" stroke="#eaf7f4"/>
 <text x="68" y="702" font-size="18" fill="#09756e" font-weight="600" >产出：能够回答关键主张的结果</text>
@@ -49,8 +49,8 @@
 <path d="M584 608H614 M606 613L614 608L606 603" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="44" y="754" width="1112" height="100" rx="12" fill="#eaf1ef" stroke="#d6e4df"/>
 <text x="64" y="789" font-size="17" fill="#15574d" font-weight="700" >EVALUATION · 每一步都要评价</text>
-<text x="430" y="789" font-size="20" fill="#284e45" font-weight="400" >问题值得研究吗？实验是否支持关键主张？</text>
-<text x="430" y="819" font-size="20" fill="#284e45" font-weight="400" >花了多少资源？改进能否延续到新任务？</text>
+<text x="430" y="789" font-size="20" fill="#284e45" font-weight="400" >问题值得研究吗？发现是否带来新知识？</text>
+<text x="430" y="819" font-size="20" fill="#284e45" font-weight="400" >证据是否可靠？结论适用于哪些条件？</text>
 <text x="44" y="886" font-size="17" fill="#53647b" font-weight="400" >新证据可以改变问题、方法或后续项目；研究者可以回到任何一步重新思考。</text>
 </g>
 </svg>

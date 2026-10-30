@@ -42,11 +42,11 @@ const copy = {
     cards: [
       { tag: 'RESEARCH TASTE', title: '1  Choose what matters', question: ['Why do the gains fail to transfer?'], detail: ['Check prior work and explain why resolving', 'this uncertainty would change a decision.'], artifact: 'Output: a justified research question', color: '#2456a5', bg: '#edf4ff' },
       { tag: 'QUESTIONS & HYPOTHESES', title: '2  Make the idea testable', question: ['Better data, or simply more training?'], detail: ['State competing explanations and predict', 'what each would imply for a fair comparison.'], artifact: 'Output: hypotheses and a test plan', color: '#7353aa', bg: '#f3effb' },
-      { tag: 'RESEARCH EXECUTION', title: '3  Run a discriminating test', question: ['Compare data choices at equal compute.'], detail: ['Use held-out tasks; record controls, uncertainty,', 'failed attempts, and reproducible evidence.'], artifact: 'Output: results that address the claim', color: '#09756e', bg: '#eaf7f4' },
+      { tag: 'RESEARCH EXECUTION', title: '3  Run a discriminating test', question: ['Compare data choices on unseen tasks.'], detail: ['Control training setup; record uncertainty,', 'failed attempts, and reproducible evidence.'], artifact: 'Output: results that address the claim', color: '#09756e', bg: '#eaf7f4' },
       { tag: 'LEARNING FROM EXPERIENCE', title: '4  Improve the next investigation', question: ['Which lesson helps on a new task?'], detail: ['Retain evidence and its limits; test whether', 'memory, skills, code, or training improve decisions.'], artifact: 'Output: a lesson whose transfer is tested', color: '#9a601a', bg: '#fff5e6' },
     ],
     evaluation: 'EVALUATE EACH STEP',
-    evaluationText: ['Is the question worthwhile? Does the test support the claim?', 'What did it cost, and does the improvement hold on a new task?'],
+    evaluationText: ['Is the question worthwhile? Is the finding new?', 'Does the evidence hold up? Where does it apply?'],
     footer: 'Evidence can change the question, the method, or the next project. Researchers can revisit any step.',
     learnTitle: 'A better result today. A better researcher tomorrow?',
     learnKicker: 'TWO CLAIMS THAT NEED DIFFERENT TESTS',
@@ -55,7 +55,7 @@ const copy = {
     right: ['Save the decision, evidence, and conditions', 'Change memory, skills, code, or model weights', 'Evaluate the change on a held-out task'],
     leftNote: ['What this can show:', 'a better solution to the current task.'],
     rightNote: ['What this can show:', 'better research decisions on a new task.'],
-    learnFooter: ['Use a matched baseline and budget; count the cost of collecting experience.', 'Saving a report or updating weights alone does not demonstrate transfer.'],
+    learnFooter: ['Compare research quality on held-out tasks against a suitable baseline.', 'Saving a report or updating weights alone does not demonstrate transfer.'],
   },
   zh: {
     title: 'AI 做研究，具体在做什么？',
@@ -64,11 +64,11 @@ const copy = {
     cards: [
       { tag: 'RESEARCH TASTE · 科研品味', title: '1  选择值得研究的问题', question: ['为什么已有提升不能迁移？'], detail: ['检查已有研究，说明回答这个问题', '会改变什么认识或实际决策。'], artifact: '产出：有依据、有价值的研究问题', color: '#2456a5', bg: '#edf4ff' },
       { tag: 'QUESTIONS & HYPOTHESES · 问题与假设', title: '2  把想法变成可检验的假设', question: ['数据更好，还是只是训练更多？'], detail: ['提出不同解释，写清每种解释', '在公平比较下会预测什么现象。'], artifact: '产出：研究假设与验证方案', color: '#7353aa', bg: '#f3effb' },
-      { tag: 'RESEARCH EXECUTION · 研究执行', title: '3  用实验区分不同解释', question: ['匹配计算量，比较不同的数据选择。'], detail: ['使用留出任务；记录对照、误差、', '失败尝试，以及可复现的证据。'], artifact: '产出：能够回答关键主张的结果', color: '#09756e', bg: '#eaf7f4' },
+      { tag: 'RESEARCH EXECUTION · 研究执行', title: '3  用实验区分不同解释', question: ['在未见任务上比较不同的数据选择。'], detail: ['控制训练条件；记录误差、', '失败尝试，以及可复现的证据。'], artifact: '产出：能够回答关键主张的结果', color: '#09756e', bg: '#eaf7f4' },
       { tag: 'LEARNING FROM EXPERIENCE · 经验学习', title: '4  改善下一次研究', question: ['哪些经验对一个新任务仍然有用？'], detail: ['保留证据及适用条件；检验记忆、技能、', '代码或参数训练能否改善研究决策。'], artifact: '产出：经过迁移检验的经验', color: '#9a601a', bg: '#fff5e6' },
     ],
     evaluation: 'EVALUATION · 每一步都要评价',
-    evaluationText: ['问题值得研究吗？实验是否支持关键主张？', '花了多少资源？改进能否延续到新任务？'],
+    evaluationText: ['问题值得研究吗？发现是否带来新知识？', '证据是否可靠？结论适用于哪些条件？'],
     footer: '新证据可以改变问题、方法或后续项目；研究者可以回到任何一步重新思考。',
     learnTitle: '这次结果更好，下次研究也会更好吗？',
     learnKicker: '两种改进，需要不同的检验',
@@ -77,7 +77,7 @@ const copy = {
     right: ['保存研究决策、证据和适用条件', '改变记忆、技能、代码或模型参数', '在一个留出任务上检验改进'],
     leftNote: ['可以支持的结论：', '当前任务的解更好了。'],
     rightNote: ['可以支持的结论：', '新任务上的研究决策更好了。'],
-    learnFooter: ['使用匹配的 baseline 和预算，并计入收集研究经验的成本。', '保存报告或更新参数本身，不能证明经验已经迁移。'],
+    learnFooter: ['在留出任务上与合适的 baseline 比较，检验研究质量是否提高。', '保存报告或更新参数本身，不能证明经验已经迁移。'],
   },
 };
 

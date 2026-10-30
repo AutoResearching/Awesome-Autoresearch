@@ -23,15 +23,17 @@ Sources reviewed: 2026-10-24–2026-10-30. A selective collection, not a perform
 
 The **research process itself** is the object of study. AI research is the primary experimental setting; mathematics is a complementary testbed. Work from other disciplines belongs here when it contributes a reusable method or evaluation of how research is done.
 
+We prioritize **research quality**: important questions, original contributions, well-supported conclusions, and robust results with clear limits. A negative result can be valuable when it rules out a plausible explanation or changes what should be studied next.
+
 We use *autoresearch* broadly: human–AI collaboration, individual research capabilities, and autonomous research systems. It includes, but is not limited to, Karpathy's project. General writing tools, search products, and domain predictors need a specific contribution to the research questions below to qualify.
 
 ## Research map
 
 Start with one concrete situation: a model improves during training but does not improve on new tasks. What should an AI researcher do next?
 
-![Four research capabilities illustrated with one example: choose why training gains fail to transfer, propose competing explanations, compare data choices at equal compute, and test whether the lesson helps on a new task.](docs/assets/research-map.en.svg)
+![Four research capabilities illustrated with one example: choose why training gains fail to transfer, propose competing explanations, compare data choices on unseen tasks with a controlled training setup, and test whether the lesson helps on a new task.](docs/assets/research-map.en.svg)
 
-The example is a guide to the collection, not a claim of a new finding or a mandatory sequence. **A question identifies the uncertainty; a hypothesis proposes an explanation; a method tells us how to investigate it.** Evaluation checks the value, evidence, cost, and transfer of each step. Integrated AI scientist systems combine several of these capabilities.
+The example is a guide to the collection, not a claim of a new finding or a mandatory sequence. **A question identifies the uncertainty; a hypothesis proposes an explanation; a method tells us how to investigate it.** Evaluation checks question value, originality, strength of evidence, and robustness within the stated scope. Integrated AI scientist systems combine several of these capabilities.
 
 <a id="collection"></a>
 
@@ -232,7 +234,7 @@ These methods inform research-agent design; their original evaluations do not di
 
 <a id="evaluation"></a>
 
-How can we measure question value, valid discoveries, resource efficiency, and transfer separately?
+How can we evaluate question value, originality, strength of evidence, and robustness within the stated scope?
 
 | Work | Contribution / idea | Sources |
 | --- | --- | --- |
@@ -341,9 +343,9 @@ These are editorial research hypotheses inspired by the collection. They are sta
 
 | Research question | A useful comparison | What to measure |
 | --- | --- | --- |
-| Can AI learn taste from outcomes? | Reviewer or citation rewards vs. executed investigations, including informative failures | Selection quality on new topics; value learned per unit of research budget. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
+| Can AI learn taste from outcomes? | Reviewer or citation rewards vs. executed investigations, including informative failures | Selection quality on new topics; originality, significance, and evidential support of resulting findings. Start with [AI Can Learn Scientific Taste](#work-ai-can-learn-scientific-taste) and [TasteVal](#work-tasteval). |
 | Can question generation anticipate execution? | A proposal alone vs. a proposal with a discriminating experiment and failure criteria | Proposal ratings alongside actual findings. Pair [IdeaSynth](#work-ideasynth) with [The Ideation-Execution Gap](#work-ideation-execution-gap). |
-| Which research experience transfers? | Reports, reusable skills, agent-code changes, and parameter training under matched budgets | Improvement on held-out tasks, including cost of collecting experience. Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
+| Which research experience transfers? | Reports, reusable skills, agent-code changes, and parameter training, each compared with a baseline without that experience | Better questions, methods, and independently verified findings on held-out tasks. Compare [ResearchTrails](#work-researchtrails), [EvoScientist](#work-evoscientist), and [Evolution Fine-Tuning](#work-evolution-fine-tuning). |
 | Can evaluation resist style and leakage? | Blinded review, evidence-grounded novelty checks, and executable validation | Sensitivity to wording, retrieval coverage, knowledge cutoffs, and trivial question selection. See [SciStyleBench](#work-scistylebench), [OpenNovelty](#work-opennovelty), and [HindSight](#work-hindsight). |
 | Does an agent learn from negative results? | Performance-driven search vs. experiments chosen to distinguish hypotheses | Information gain, calibrated uncertainty, stopping decisions, and robustness of conclusions. See [DAD](#work-deep-adaptive-design), [POPPER](#work-popper), and [Many AI Analysts](#work-many-ai-analysts-one-dataset). |
 
@@ -351,7 +353,7 @@ These are editorial research hypotheses inspired by the collection. They are sta
 
 ## What changes when a researcher learns?
 
-An agent can find a better data mix after several attempts on one task. To show that it became a better researcher, test whether the experience helps on a new task under a comparable budget.
+An agent can find a better data mix after several attempts on one task. To show that it became a better researcher, test whether the experience improves its questions, methods, or verified findings on held-out tasks compared with a baseline without that experience.
 
 ![Two different tests: improve a data mix within the current investigation, or retain evidence and evaluate changes to memory, skills, code, or weights on a held-out task.](docs/assets/learning-transfer.en.svg)
 
@@ -375,7 +377,7 @@ An agent can find a better data mix after several attempts on one task. To show 
 | Experimental decisions and research strategy | [TasteVal](#work-tasteval), [FML-bench](#work-fml-bench), [DiscoveryWorld](#work-discoveryworld) | Transfer and the value of the original research agenda |
 | Mathematical reasoning and discovery | [FunSearch](#work-funsearch), [AlphaEvolve](#work-alphaevolve), [Aletheia](#work-aletheia), [FrontierMath](#work-frontiermath) | Significance and verification type: numerical, human, or formal |
 
-For a fair comparison, fix model access, data splits, tools, and compute budgets. Report what the human supplies, what the agent chooses, how conclusions are checked, and what survives between runs. Check each resource's scope notes for access, version, and maintenance limits.
+Report model access, data splits, tools, and compute as experimental conditions; use controlled comparisons when attributing an improvement to a particular method. The primary criteria are research quality and verified outcomes; resource use is not a primary quality criterion. Report what the human supplies, what the agent chooses, how conclusions are checked, and what survives between runs. Check each resource's scope notes for access, version, and maintenance limits.
 
 ## Surveys and communities
 

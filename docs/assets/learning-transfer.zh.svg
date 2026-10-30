@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="626" viewBox="0 0 1200 626" role="img" aria-labelledby="title desc">
 <title id="title">这次结果更好，下次研究也会更好吗？</title>
-<desc id="desc">同一次研究之内. 尝试数据配比 A. 查看实验结果. 修改配比，再试一次. 可以支持的结论：. 当前任务的解更好了。. 不同研究任务之间. 保存研究决策、证据和适用条件. 改变记忆、技能、代码或模型参数. 在一个留出任务上检验改进. 可以支持的结论：. 新任务上的研究决策更好了。. 使用匹配的 baseline 和预算，并计入收集研究经验的成本。. 保存报告或更新参数本身，不能证明经验已经迁移。</desc>
+<desc id="desc">同一次研究之内. 尝试数据配比 A. 查看实验结果. 修改配比，再试一次. 可以支持的结论：. 当前任务的解更好了。. 不同研究任务之间. 保存研究决策、证据和适用条件. 改变记忆、技能、代码或模型参数. 在一个留出任务上检验改进. 可以支持的结论：. 新任务上的研究决策更好了。. 在留出任务上与合适的 baseline 比较，检验研究质量是否提高。. 保存报告或更新参数本身，不能证明经验已经迁移。</desc>
 <g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
 <rect x="1" y="1" width="1198" height="624" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
 <text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >两种改进，需要不同的检验</text>
@@ -30,7 +30,7 @@
 <text x="644" y="428" font-size="21" fill="#9a601a" font-weight="600" >可以支持的结论：</text>
 <text x="644" y="457" font-size="21" fill="#9a601a" font-weight="600" >新任务上的研究决策更好了。</text>
 <rect x="44" y="512" width="1112" height="88" rx="12" fill="#e9eff7" stroke="#e9eff7"/>
-<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >使用匹配的 baseline 和预算，并计入收集研究经验的成本。</text>
+<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >在留出任务上与合适的 baseline 比较，检验研究质量是否提高。</text>
 <text x="64" y="575" font-size="21" fill="#233b59" font-weight="400" >保存报告或更新参数本身，不能证明经验已经迁移。</text>
 </g>
 </svg>

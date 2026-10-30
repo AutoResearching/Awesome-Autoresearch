@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="626" viewBox="0 0 1200 626" role="img" aria-labelledby="title desc">
 <title id="title">A better result today. A better researcher tomorrow?</title>
-<desc id="desc">Within one investigation. Try data mix A. Inspect the result. Revise the mix and try again. What this can show:. a better solution to the current task.. Across investigations. Save the decision, evidence, and conditions. Change memory, skills, code, or model weights. Evaluate the change on a held-out task. What this can show:. better research decisions on a new task.. Use a matched baseline and budget; count the cost of collecting experience.. Saving a report or updating weights alone does not demonstrate transfer.</desc>
+<desc id="desc">Within one investigation. Try data mix A. Inspect the result. Revise the mix and try again. What this can show:. a better solution to the current task.. Across investigations. Save the decision, evidence, and conditions. Change memory, skills, code, or model weights. Evaluate the change on a held-out task. What this can show:. better research decisions on a new task.. Compare research quality on held-out tasks against a suitable baseline.. Saving a report or updating weights alone does not demonstrate transfer.</desc>
 <g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
 <rect x="1" y="1" width="1198" height="624" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
 <text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >TWO CLAIMS THAT NEED DIFFERENT TESTS</text>
@@ -30,7 +30,7 @@
 <text x="644" y="428" font-size="21" fill="#9a601a" font-weight="600" >What this can show:</text>
 <text x="644" y="457" font-size="21" fill="#9a601a" font-weight="600" >better research decisions on a new task.</text>
 <rect x="44" y="512" width="1112" height="88" rx="12" fill="#e9eff7" stroke="#e9eff7"/>
-<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >Use a matched baseline and budget; count the cost of collecting experience.</text>
+<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >Compare research quality on held-out tasks against a suitable baseline.</text>
 <text x="64" y="575" font-size="21" fill="#233b59" font-weight="400" >Saving a report or updating weights alone does not demonstrate transfer.</text>
 </g>
 </svg>
