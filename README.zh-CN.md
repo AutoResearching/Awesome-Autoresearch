@@ -406,6 +406,12 @@ Agent 可以在同一个任务中反复尝试，找到更好的数据配比。�
 
 想了解能开展完整研究的系统，可以读 [The AI Scientist-v2](#work-ai-scientist-v2) 或 [AI-Researcher](#work-ai-researcher)。想了解研究者如何做研究，可以读 [Hamming](#work-hamming-you-and-your-research)、[Nielsen 的研究启发](#work-nielsen-research-heuristics) 和 [Research Debt](#work-research-debt)。
 
+## 联系我们 · Contact
+
+如果你有建议，或觉得这个项目对你有帮助，欢迎联系我们。
+
+邮箱：[yuanqing.wang@utdallas.edu](mailto:yuanqing.wang@utdallas.edu)
+
 ## 引用本仓库 · Cite this repository
 
 如果这份资料对你的研究有帮助，欢迎引用：

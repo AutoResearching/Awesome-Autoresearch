@@ -150,6 +150,10 @@ for (const [filename, content] of rendered) {
       if (!validateURL(target)) throw new Error(`${filename}: invalid external URL ${target}`);
       continue;
     }
+    if (/^mailto:/i.test(target)) {
+      if (!/^mailto:[^\s@?]+@[^\s@?]+\.[^\s@?]+$/i.test(target)) throw new Error(`${filename}: invalid email link ${target}`);
+      continue;
+    }
     const [relative, anchor] = target.split('#');
     const destination = relative || filename;
     const resolved = path.resolve(root, destination);

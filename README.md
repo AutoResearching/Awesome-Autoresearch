@@ -404,6 +404,12 @@ Start with the question that interests you. Each path connects papers that addre
 
 For systems that run a whole study, read [The AI Scientist-v2](#work-ai-scientist-v2) or [AI-Researcher](#work-ai-researcher). For advice on doing research, read [Hamming](#work-hamming-you-and-your-research), [Nielsen's research heuristics](#work-nielsen-research-heuristics), and [Research Debt](#work-research-debt).
 
+## Contact
+
+If you have suggestions or find this project useful, we'd love to hear from you.
+
+Email: [yuanqing.wang@utdallas.edu](mailto:yuanqing.wang@utdallas.edu)
+
 ## Cite this repository
 
 If this collection helps your research, please cite it:
