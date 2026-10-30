@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Awesome Autoresearch — Learning to Do Research</title>
+<desc id="desc">A curated collection about choosing worthwhile research questions, testing ideas, and learning from evidence. Papers, code, benchmarks, and a bilingual survey.</desc>
+<g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<rect x="1" y="1" width="1198" height="628" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="64" y="62" font-size="16" fill="#53647b" font-weight="700" >AUTORESEARCHING / OPEN RESEARCH COLLECTION</text>
+<text x="64" y="143" font-size="58" fill="#15243b" font-weight="700" >Awesome Autoresearch</text>
+<text x="64" y="200" font-size="35" fill="#2456a5" font-weight="600" >Learning to Do Research</text>
+<text x="64" y="263" font-size="29" fill="#53647b" font-weight="400" >How can AI ask better questions, test ideas,</text>
+<text x="64" y="302" font-size="29" fill="#53647b" font-weight="400" >and learn from the evidence?</text>
+<rect x="64" y="355" width="340" height="105" rx="14" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="84" y="397" font-size="20" fill="#2456a5" font-weight="700" >CHOOSE A QUESTION</text>
+<text x="84" y="433" font-size="22" fill="#24334a" font-weight="400" >Research taste</text>
+<rect x="430" y="355" width="340" height="105" rx="14" fill="#eaf7f4" stroke="#eaf7f4"/>
+<text x="450" y="397" font-size="20" fill="#09756e" font-weight="700" >TEST AN IDEA</text>
+<text x="450" y="433" font-size="22" fill="#24334a" font-weight="400" >Methods and evidence</text>
+<rect x="796" y="355" width="340" height="105" rx="14" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="816" y="397" font-size="20" fill="#9a601a" font-weight="700" >LEARN WHAT WORKS</text>
+<text x="816" y="433" font-size="22" fill="#24334a" font-weight="400" >Experience and transfer</text>
+<path d="M410 408H424 M416 413L424 408L416 403" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M776 408H790 M782 413L790 408L782 403" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="64" y="531" font-size="24" fill="#24334a" font-weight="400" >Papers · Code · Benchmarks · English &amp; Chinese survey</text>
+<text x="64" y="581" font-size="21" fill="#53647b" font-weight="400" >github.com/AutoResearching/Awesome-Autoresearch</text>
+</g>
+</svg>

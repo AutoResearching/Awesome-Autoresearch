@@ -2,3 +2,4 @@
 /survey/build/
 /survey/generated/smoke.*
 __pycache__/
+/handoff.md

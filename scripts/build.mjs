@@ -92,6 +92,7 @@ function table(items, lang) {
 const starter = [
   { en: 'Taste and its proxies', zh: 'Taste 及其代理指标', ids: ['colah-taste-exercises', 'ai-can-learn-scientific-taste', 'tasteval'], why_en: 'Move from human heuristics to learned preferences and experimental decisions.', why_zh: '从人类经验出发，对照学习得到的偏好与实验决策。' },
   { en: 'Ideas and realized outcomes', zh: 'Idea 与实际研究结果', ids: ['llm-novel-research-ideas-human-study', 'ideation-execution-gap'], why_en: 'Read proposal ratings alongside what happens when researchers execute the ideas.', why_zh: '把提案评分与研究者实际执行 idea 后的结果放在一起看。' },
+  { en: 'Finding a research question', zh: '发现值得研究的问题', ids: ['rq-bench', 'agentideabench'], why_en: 'Compare author-anchored questions with ideas formed through active literature exploration.', why_zh: '对照以作者研究为参照的问题，以及通过主动文献探索形成的构思。' },
   { en: 'Executable research loops', zh: '可执行的科研循环', ids: ['autoresearch', 'arbor'], why_en: 'Start with a compact loop, then inspect hypothesis and evidence management.', why_zh: '从简洁循环入手，再研究假设与证据的管理。' },
   { en: 'Learning across research runs', zh: '跨研究过程的经验积累', ids: ['agentrxiv', 'evoscientist'], why_en: 'Compare shared reports with explicit ideation and experimentation memories.', why_zh: '比较共享报告与显式的构思、实验经验记忆。' },
   { en: 'Evaluation for AI research', zh: 'AI research 的评价', ids: ['mlr-bench', 'fml-bench', 'paperbench'], why_en: 'Separate open-ended proposals, controlled search comparisons, and replication.', why_zh: '区分开放式提案、受控搜索策略比较和论文复现。' },

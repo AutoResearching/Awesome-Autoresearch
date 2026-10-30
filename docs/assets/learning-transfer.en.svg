@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="626" viewBox="0 0 1200 626" role="img" aria-labelledby="title desc">
+<title id="title">A better result today. A better researcher tomorrow?</title>
+<desc id="desc">Within one investigation. Try data mix A. Inspect the result. Revise the mix and try again. What this can show:. a better solution to the current task.. Across investigations. Save the decision, evidence, and conditions. Change memory, skills, code, or model weights. Evaluate the change on a held-out task. What this can show:. better research decisions on a new task.. Use a matched baseline and budget; count the cost of collecting experience.. Saving a report or updating weights alone does not demonstrate transfer.</desc>
+<g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<rect x="1" y="1" width="1198" height="624" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >TWO CLAIMS THAT NEED DIFFERENT TESTS</text>
+<text x="44" y="80" font-size="32" fill="#15243b" font-weight="700" >A better result today. A better researcher tomorrow?</text>
+<rect x="44" y="112" width="536" height="375" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
+<text x="68" y="150" font-size="25" fill="#2456a5" font-weight="700" >Within one investigation</text>
+<rect x="68" y="174" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="205" font-size="20" fill="#24334a" font-weight="400" >Try data mix A</text>
+<path d="M312 225V241 M307 233L312 241L317 233" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="68" y="247" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="278" font-size="20" fill="#24334a" font-weight="400" >Inspect the result</text>
+<path d="M312 298V314 M307 306L312 314L317 306" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="68" y="320" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="351" font-size="20" fill="#24334a" font-weight="400" >Revise the mix and try again</text>
+<text x="68" y="428" font-size="21" fill="#2456a5" font-weight="600" >What this can show:</text>
+<text x="68" y="457" font-size="21" fill="#2456a5" font-weight="600" >a better solution to the current task.</text>
+<rect x="620" y="112" width="536" height="375" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
+<text x="644" y="150" font-size="25" fill="#9a601a" font-weight="700" >Across investigations</text>
+<rect x="644" y="174" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="205" font-size="20" fill="#24334a" font-weight="400" >Save the decision, evidence, and conditions</text>
+<path d="M888 225V241 M883 233L888 241L893 233" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="644" y="247" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="278" font-size="20" fill="#24334a" font-weight="400" >Change memory, skills, code, or model weights</text>
+<path d="M888 298V314 M883 306L888 314L893 306" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="644" y="320" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="351" font-size="20" fill="#24334a" font-weight="400" >Evaluate the change on a held-out task</text>
+<text x="644" y="428" font-size="21" fill="#9a601a" font-weight="600" >What this can show:</text>
+<text x="644" y="457" font-size="21" fill="#9a601a" font-weight="600" >better research decisions on a new task.</text>
+<rect x="44" y="512" width="1112" height="88" rx="12" fill="#e9eff7" stroke="#e9eff7"/>
+<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >Use a matched baseline and budget; count the cost of collecting experience.</text>
+<text x="64" y="575" font-size="21" fill="#233b59" font-weight="400" >Saving a report or updating weights alone does not demonstrate transfer.</text>
+</g>
+</svg>

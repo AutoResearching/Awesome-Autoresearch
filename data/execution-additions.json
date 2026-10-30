@@ -178,8 +178,8 @@
     "project": "https://sciworld.apps.allenai.org/",
     "focus_en": "Tests action-grounded scientific reasoning by requiring agents to conduct experiments and complete tasks in an interactive text environment.",
     "focus_zh": "要求 agents 在交互式文本环境中开展实验并完成任务，用实际行动检验 scientific reasoning。",
-    "boundary_en": "Tasks concern elementary science rather than frontier discovery, and version 1.3.0 changes simulation ordering and potentially trajectories, so comparisons must identify the environment version.",
-    "boundary_zh": "任务覆盖基础科学而非前沿发现，且 1.3.0 改变了模拟对象顺序并可能影响轨迹，因此比较结果需注明环境版本。",
+    "boundary_en": "Tasks concern elementary science rather than frontier discovery, and version 1.3.0 changes simulation ordering and potentially trajectories, so comparisons must identify the environment version. The hosted demo could not be reached during the 2026-10-30 link check; the paper and code remain available.",
+    "boundary_zh": "任务覆盖基础科学而非前沿发现，且 1.3.0 改变了模拟对象顺序并可能影响轨迹，因此比较结果需注明环境版本。2026-10-30 链接检查未能连通在线 demo；论文与代码仍可访问。",
     "evidence_urls": [
       "https://arxiv.org/abs/2203.07540",
       "https://aclanthology.org/2022.emnlp-main.775/",

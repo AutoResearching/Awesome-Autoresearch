@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="626" viewBox="0 0 1200 626" role="img" aria-labelledby="title desc">
+<title id="title">这次结果更好，下次研究也会更好吗？</title>
+<desc id="desc">同一次研究之内. 尝试数据配比 A. 查看实验结果. 修改配比，再试一次. 可以支持的结论：. 当前任务的解更好了。. 不同研究任务之间. 保存研究决策、证据和适用条件. 改变记忆、技能、代码或模型参数. 在一个留出任务上检验改进. 可以支持的结论：. 新任务上的研究决策更好了。. 使用匹配的 baseline 和预算，并计入收集研究经验的成本。. 保存报告或更新参数本身，不能证明经验已经迁移。</desc>
+<g font-family="Arial, 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<rect x="1" y="1" width="1198" height="624" rx="20" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="44" y="38" font-size="15" fill="#53647b" font-weight="700" >两种改进，需要不同的检验</text>
+<text x="44" y="80" font-size="32" fill="#15243b" font-weight="700" >这次结果更好，下次研究也会更好吗？</text>
+<rect x="44" y="112" width="536" height="375" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
+<text x="68" y="150" font-size="25" fill="#2456a5" font-weight="700" >同一次研究之内</text>
+<rect x="68" y="174" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="205" font-size="20" fill="#24334a" font-weight="400" >尝试数据配比 A</text>
+<path d="M312 225V241 M307 233L312 241L317 233" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="68" y="247" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="278" font-size="20" fill="#24334a" font-weight="400" >查看实验结果</text>
+<path d="M312 298V314 M307 306L312 314L317 306" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="68" y="320" width="488" height="48" rx="9" fill="#edf4ff" stroke="#edf4ff"/>
+<text x="86" y="351" font-size="20" fill="#24334a" font-weight="400" >修改配比，再试一次</text>
+<text x="68" y="428" font-size="21" fill="#2456a5" font-weight="600" >可以支持的结论：</text>
+<text x="68" y="457" font-size="21" fill="#2456a5" font-weight="600" >当前任务的解更好了。</text>
+<rect x="620" y="112" width="536" height="375" rx="16" fill="#ffffff" stroke="#dbe3ed"/>
+<text x="644" y="150" font-size="25" fill="#9a601a" font-weight="700" >不同研究任务之间</text>
+<rect x="644" y="174" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="205" font-size="20" fill="#24334a" font-weight="400" >保存研究决策、证据和适用条件</text>
+<path d="M888 225V241 M883 233L888 241L893 233" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="644" y="247" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="278" font-size="20" fill="#24334a" font-weight="400" >改变记忆、技能、代码或模型参数</text>
+<path d="M888 298V314 M883 306L888 314L893 306" fill="none" stroke="#8290a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="644" y="320" width="488" height="48" rx="9" fill="#fff5e6" stroke="#fff5e6"/>
+<text x="662" y="351" font-size="20" fill="#24334a" font-weight="400" >在一个留出任务上检验改进</text>
+<text x="644" y="428" font-size="21" fill="#9a601a" font-weight="600" >可以支持的结论：</text>
+<text x="644" y="457" font-size="21" fill="#9a601a" font-weight="600" >新任务上的研究决策更好了。</text>
+<rect x="44" y="512" width="1112" height="88" rx="12" fill="#e9eff7" stroke="#e9eff7"/>
+<text x="64" y="545" font-size="21" fill="#233b59" font-weight="400" >使用匹配的 baseline 和预算，并计入收集研究经验的成本。</text>
+<text x="64" y="575" font-size="21" fill="#233b59" font-weight="400" >保存报告或更新参数本身，不能证明经验已经迁移。</text>
+</g>
+</svg>

@@ -1,0 +1,30 @@
+name: Validate collection
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: Generated READMEs and local links
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Validate catalog, generated READMEs, and local links
+        run: node scripts/build.mjs --check
+      - name: Validate bilingual illustrations
+        run: node scripts/build-figures.mjs --check

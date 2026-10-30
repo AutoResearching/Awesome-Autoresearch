@@ -1,0 +1,41 @@
+name: Suggest a resource / 推荐资源
+description: Suggest a paper, benchmark, project, essay, or talk relevant to learning to do research.
+title: '[Suggestion] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check the existing collection before suggesting a resource. English or Chinese is welcome; a translation or complete catalog record is not required.
+        请先检查是否已收录。可用中文或英文填写，无需提供双语描述或完整 JSON 记录。
+  - type: input
+    id: title
+    attributes:
+      label: Title / 标题
+      description: Use the title from the primary source. / 请填写原始来源中的标题。
+    validations:
+      required: true
+  - type: input
+    id: primary-source
+    attributes:
+      label: Primary source / 原始来源
+      description: Link to the paper, publisher, author page, official repository, or original essay/talk.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Contribution and relevance / 贡献与相关性
+      description: Which question about doing research does this work advance? Briefly describe what it demonstrates or argues.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Evidence and limitations / 证据与局限
+      description: If known, note the evaluation, human inputs, verification method, or limits. For an essay, distinguish its argument from experimental evidence.
+  - type: textarea
+    id: official-links
+    attributes:
+      label: Additional official links / 其他官方链接
+      description: Optional author code, project page, or supporting primary sources. Identify third-party implementations as such.
